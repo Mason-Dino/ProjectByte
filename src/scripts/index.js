@@ -1,4 +1,6 @@
+
+
 async function newProject() {
-    folder = await window.showDirectoryPicker();
-    console.log(folder.name)
+    const result = await window.electronAPI.openDialog();
+    console.log(result);
 }
