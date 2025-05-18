@@ -50,9 +50,12 @@ body {
 	border-radius: 5px;
 	padding: 5px 10px;
 	cursor: pointer;
+
+	width: 100px; 
+	height: 30px;
 }
 
 .main button:hover {
-	transition: all 0.2s ease-in-out;
+	transition: all 0.1s ease-in-out;
 	background-color: var(--ahover);
 }
