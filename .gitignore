@@ -91,5 +91,6 @@ typings/
 # Electron-Forge
 out/
 
-# Testing
+# Porject Files
 test.js
+project.json
