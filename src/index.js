@@ -75,7 +75,6 @@ ipcMain.handle('dialog:open', async () => {
 			}
 		});
 	}
-
 	
 	fs.mkdirSync(path.join(filepath, `.projectbyte`), { recursive: true })
 
@@ -87,6 +86,37 @@ ipcMain.handle('dialog:open', async () => {
 			console.log(`Hidden folder: ${newPath}`);
 		});
 	}
+
+	fs.readFile('project.json', 'utf8', (err, data) => {
+		if (err) {
+			console.error("Failed to read file: ", err);
+		}
+
+		projects = JSON.parse(data)
+
+		if (process.platform === 'win32')
+			pName = result.filePaths[0].split("\\")
+		else
+			pName = result.filePaths[0].split("/")
+
+		pName = pName[pName.length - 1]
+
+		projectData = {
+			projectName: pName,
+			location: result.filePaths[0]
+		}
+
+		projects.projects.push(projectData)
+
+		fs.writeFile('project.json', JSON.stringify(projects, null, 4), (err) => {
+			if (err) {
+				console.error(err);
+			}
+			else {
+				console.log("File wrote!")
+			}
+		});
+	})
 	
 	return result;
 });
