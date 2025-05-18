@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('node:path');
 const fs = require('fs');
+const hidefile = require('hidefile');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -56,7 +57,18 @@ ipcMain.handle('dialog:open', async () => {
 	});
 	console.log("test");
 	const filepath = result.filePaths[0];
+
+	
 	fs.mkdirSync(path.join(filepath, `.projectbyte`), { recursive: true })
 
+	if (process.platform === 'win32') {
+		hidefile.hide(path.join(filepath, `.projectbyte`),  (err, newPath) => {
+			if (err) {
+				return console.error('Error hiding folder:', err);
+			}
+			console.log(`Hidden folder: ${newPath}`);
+		});
+	}
+	
 	return result;
 });
