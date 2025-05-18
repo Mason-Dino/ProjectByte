@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('node:path');
+const fs = require('fs');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -53,5 +54,9 @@ ipcMain.handle('dialog:open', async () => {
 	const result = await dialog.showOpenDialog({
 		properties: ['openDirectory']
 	});
+	console.log("test");
+	const filepath = result.filePaths[0];
+	fs.mkdirSync(path.join(filepath, `.projectbyte`), { recursive: true })
+
 	return result;
 });
