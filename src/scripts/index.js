@@ -1,3 +1,4 @@
-function newProject() {
-    console.log("Hello World")
+async function newProject() {
+    folder = await window.showDirectoryPicker();
+    console.log(folder.name)
 }
