@@ -9,4 +9,16 @@ async function loadProjects() {
 
     //prints the projects in the electron application and now in the terminal
     console.log(result)
+
+    projectDisplay = document.getElementById('projects').innerHTML;
+
+    for (let i = 0; i < result.projects.length; i ++) {
+        projectDisplay += `
+        <div>
+            <p>${result.projects[i].projectName}<p>
+        </div>
+        `
+    }
+
+    document.getElementById('projects').innerHTML = projectDisplay;
 }

@@ -58,14 +58,11 @@ ipcMain.handle('dialog:open', async () => {
 
 	const filepath = result.filePaths[0];
 
-	if (fs.existsSync('projects.json')) {
-		console.log("hello wolrd");
-	}
-	else {
+	if (!fs.existsSync('project.json')) {
 		data = {
 			projects: []
 		}
-
+	
 		fs.writeFile('project.json', JSON.stringify(data, null, 4), (err) => {
 			if (err) {
 				console.error(err);
@@ -94,19 +91,21 @@ ipcMain.handle('dialog:open', async () => {
 
 		projects = JSON.parse(data)
 
-		if (process.platform === 'win32')
-			pName = result.filePaths[0].split("\\")
-		else
-			pName = result.filePaths[0].split("/")
+		pName = path.basename(result.filePaths[0])
 
-		pName = pName[pName.length - 1]
+		console.log("projects: ", projects)
 
 		projectData = {
 			projectName: pName,
 			location: result.filePaths[0]
 		}
 
-		projects.projects.push(projectData)
+		projectList = projects['projects']
+		projectList.push(projectData)
+
+		//projects['projects'].push(projectData)
+
+		console.log(projectList)
 
 		fs.writeFile('project.json', JSON.stringify(projects, null, 4), (err) => {
 			if (err) {
