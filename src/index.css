@@ -1,7 +1,7 @@
 :root {
 	--background: #242424;
 	--side: #4d4d4d;
-	--card: #242424;
+	--card: #2E2E2E;
 	--ptext: #f5f5f5;
 	--stext: #b0b0b0;
 	--acolor: #1fbf9a;
@@ -58,4 +58,19 @@ body {
 .main button:hover {
 	transition: all 0.1s ease-in-out;
 	background-color: var(--ahover);
+}
+
+.project-item {
+	display: flex;
+	align-items: center;
+
+	background-color: var(--card);
+	color: var(--ptext);
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	width: 95%; 
+	height: 40px;
+
+	margin: 10px;
 }

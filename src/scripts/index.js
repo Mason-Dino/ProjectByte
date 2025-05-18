@@ -14,8 +14,13 @@ async function loadProjects() {
 
     for (let i = 0; i < result.projects.length; i ++) {
         projectDisplay += `
-        <div>
-            <p>${result.projects[i].projectName}<p>
+        <div class="project-item">
+            <p style="width: 100%;">
+                ${result.projects[i].projectName}
+                <span style="float: right;">
+                    <button>Open</button>
+                </span>
+            </p>
         </div>
         `
     }
