@@ -1,7 +1,23 @@
+:root {
+	--background: #1e1e2e;
+	--card: #2a2b3c;
+	--ptext: #FFFFFF;
+	--stext: #c0c0d0;
+	--acolor: #4fc3f7;
+	--ahover: #03A9f4;
+	--success: #81c784;
+	--warning: #ffb74d;
+	--error: #e57373;
+	--divider: #3a3b4a;
+	--intextbg: #252637;
+	--intext: #e0e0f0;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+	background-color: var(--background);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+		Arial, sans-serif;
+	margin: auto;
+	max-width: 38rem;
+	padding: 2rem;
 }
