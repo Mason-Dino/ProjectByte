@@ -5,5 +5,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-    openDialog: () => ipcRenderer.invoke('dialog:open')
+    openDialog: () => ipcRenderer.invoke('dialog:open'),
+    loadProjects: () => ipcRenderer.invoke('load:projects')
 });

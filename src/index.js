@@ -120,3 +120,15 @@ ipcMain.handle('dialog:open', async () => {
 	
 	return result;
 });
+
+ipcMain.handle("load:projects", async () => {
+	console.log("test")
+
+	if (!fs.existsSync('project.json')) {
+		return 404;
+	}
+
+	data = await fs.promises.readFile('project.json', 'utf8')
+	
+	return data;
+});
