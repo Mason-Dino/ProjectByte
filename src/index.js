@@ -55,8 +55,26 @@ ipcMain.handle('dialog:open', async () => {
 	const result = await dialog.showOpenDialog({
 		properties: ['openDirectory']
 	});
-	console.log("test");
+
 	const filepath = result.filePaths[0];
+
+	if (fs.existsSync('projects.json')) {
+		console.log("hello wolrd");
+	}
+	else {
+		data = {
+			projects: []
+		}
+
+		fs.writeFile('project.json', JSON.stringify(data, null, 4), (err) => {
+			if (err) {
+				console.error(err);
+			}
+			else {
+				console.log("File made!")
+			}
+		});
+	}
 
 	
 	fs.mkdirSync(path.join(filepath, `.projectbyte`), { recursive: true })
