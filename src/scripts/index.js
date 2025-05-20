@@ -1,6 +1,7 @@
 async function newProject() {
     const result = await window.electronAPI.openDialog();
     console.log(result);
+    location.reload()
 }
 
 async function loadProjects() {
@@ -32,13 +33,13 @@ async function loadProjects() {
         
         projectDisplay += `
         <div class="project-item">
-            <p style="width: 100%;">
-                ${svg}
+            ${svg}
+            <h3 style="width: 100%;">
                 ${result.projects[i].projectName}
-                <span style="float: right;">
-                    <button>Open</button>
-                </span>
-            </p>
+            </h3>
+            <span style="float: right;">
+                <button>Open</button>
+            </span>
         </div>
         `
 
