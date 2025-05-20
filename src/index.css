@@ -73,4 +73,10 @@ body {
 	height: 40px;
 
 	margin: 10px;
+
+	box-shadow: 3px 3px 2px black
+}
+
+.project-item:hover {
+	box-shadow: 5px 5px 5px black
 }
