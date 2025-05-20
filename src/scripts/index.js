@@ -55,4 +55,6 @@ async function loadProjects() {
 async function loadProject(number) {
     console.log(number)
     await window.electronAPI.loadWholeProject(number);
+
+    location.href = "project.html";
 }

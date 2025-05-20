@@ -169,4 +169,6 @@ ipcMain.handle("load:whole:project", async (event, number) => {
 			}
 		});
 	})
+
+	return number;
 })
