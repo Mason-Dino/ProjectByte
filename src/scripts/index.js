@@ -12,9 +12,9 @@ async function loadProjects() {
 
     projectDisplay = document.getElementById('projects').innerHTML;
 
+    let svg = null;
     
     for (let i = 0; i < result.projects.length; i ++) {
-        let svg = null;
 
         console.log(result.projects[i])
 
@@ -41,6 +41,8 @@ async function loadProjects() {
             </p>
         </div>
         `
+
+        svg = null
     }
 
     document.getElementById('projects').innerHTML = projectDisplay;
