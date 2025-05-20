@@ -1,0 +1,47 @@
+:root {
+	--background: #242424;
+	--side: #4d4d4d;
+	--card: #2E2E2E;
+	--ptext: #f5f5f5;
+	--stext: #b0b0b0;
+	--acolor: #1fbf9a;
+	--ahover: #15967a;
+	--success: #a3be8c;
+	--warning: #d08770;
+	--error: #bf616a;
+	--divider: #3b3b3b;
+	--intextbg: #2a2a2a;
+	--intext: #e0e0e0;
+}
+
+.selected {
+    background-color: var(--side);
+    color: #000;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.project-space {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.project-space-item {
+    background-color: var(--card);
+    color: #000;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.project-space-item:hover {
+    background-color: var(--side);
+}
