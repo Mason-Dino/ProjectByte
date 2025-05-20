@@ -151,7 +151,7 @@ ipcMain.handle("load:projects", async () => {
 	return data;
 });
 
-ipcMain.handle("load:whole:project", async (event, number) => {
+ipcMain.handle("ready:project", async (event, number) => {
 	fs.readFile('project.json', 'utf8', (err, data) => {
 		if (err) {
 			console.error("Failed to read file: ", err);
@@ -171,4 +171,11 @@ ipcMain.handle("load:whole:project", async (event, number) => {
 	})
 
 	return number;
+})
+
+ipcMain.handle("load:whole:project", async () => {
+	data = await fs.promises.readFile('project.json', 'utf8')
+	data = JSON.parse(data)
+	console.log(data)
+	return data;
 })
