@@ -13,3 +13,8 @@
 	--intextbg: #2a2a2a;
 	--intext: #e0e0e0;
 }
+
+.project-space {
+    width: 100%;
+    height: 100vh;
+}
