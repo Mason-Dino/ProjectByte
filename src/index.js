@@ -177,5 +177,11 @@ ipcMain.handle("load:whole:project", async () => {
 	data = await fs.promises.readFile('project.json', 'utf8')
 	data = JSON.parse(data)
 	console.log(data)
-	return data;
+
+
+	projectData = {
+		projects: data.projects[data.loaded]
+	}
+
+	return projectData;
 })
