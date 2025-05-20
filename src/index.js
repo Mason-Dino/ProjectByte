@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const shell = require('electron').shell;
 const path = require('node:path');
 const fs = require('fs');
 const hidefile = require('hidefile');
@@ -17,6 +18,22 @@ const createWindow = () => {
 			preload: path.join(__dirname, 'preload.js'),
 		},
 	});
+
+	mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+        // Open all external links in the default browser
+        shell.openExternal(url);
+        return { action: 'deny' }; // Prevent opening in Electron
+    });
+    
+    mainWindow.webContents.on('will-navigate', (event, url) => {
+        const currentURL = mainWindow.webContents.getURL();
+        const isExternal = new URL(url).origin !== new URL(currentURL).origin;
+    
+        if (isExternal) {
+            event.preventDefault();
+            shell.openExternal(url);
+        }
+    });
 	
 	// and load the index.html of the app.
 	mainWindow.loadFile(path.join(__dirname, 'index.html'));
