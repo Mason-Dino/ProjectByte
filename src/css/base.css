@@ -46,3 +46,22 @@ a {
 .main p {
 	color: var(--stext)
 }
+
+.main button {
+	background-color: var(--acolor);
+	color: var(--background);
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+
+	width: 100px; 
+	height: 30px;
+
+	user-select: none;
+}
+
+.main button:hover {
+	transition: all 0.1s ease-in-out;
+	background-color: var(--ahover);
+}

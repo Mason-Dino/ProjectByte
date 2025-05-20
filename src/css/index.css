@@ -14,57 +14,6 @@
 	--intext: #e0e0e0;
 }
 
-body {
-	background-color: var(--background);
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-		Arial, sans-serif;
-	margin: 0px;
-	padding: 0px;
-}
-
-a {
-	text-decoration: none;
-}
-
-.sidebar {
-	width: 200px;
-	height: 100vh;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	background-color: var(--side);
-}
-
-.main {
-	margin-left: 220px;
-}
-
-.main h1{
-	color: var(--ptext);
-}
-
-.main p {
-	color: var(--stext)
-}
-
-.main button {
-	background-color: var(--acolor);
-	color: var(--background);
-	border: none;
-	border-radius: 5px;
-	padding: 5px 10px;
-	cursor: pointer;
-
-	width: 100px; 
-	height: 30px;
-
-	user-select: none;
-}
-
-.main button:hover {
-	transition: all 0.1s ease-in-out;
-	background-color: var(--ahover);
-}
 
 .project-item {
 	display: flex;
