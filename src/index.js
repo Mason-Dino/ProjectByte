@@ -152,7 +152,21 @@ ipcMain.handle("load:projects", async () => {
 });
 
 ipcMain.handle("load:whole:project", async (event, number) => {
-	console.log("hey")
-	console.log(number)
-	console.log(typeof(number))
+	fs.readFile('project.json', 'utf8', (err, data) => {
+		if (err) {
+			console.error("Failed to read file: ", err);
+		}
+
+		projects = JSON.parse(data)
+		projects.loaded = number
+
+		fs.writeFile('project.json', JSON.stringify(projects, null, 4), (err) => {
+			if (err) {
+				console.error(err);
+			}
+			else {
+				console.log("File wrote!")
+			}
+		});
+	})
 })
