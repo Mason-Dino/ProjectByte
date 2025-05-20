@@ -77,7 +77,8 @@ ipcMain.handle('dialog:open', async () => {
 
 	if (!fs.existsSync('project.json')) {
 		data = {
-			projects: []
+			projects: [],
+			loaded: 0
 		}
 	
 		fs.writeFile('project.json', JSON.stringify(data, null, 4), (err) => {
@@ -149,3 +150,9 @@ ipcMain.handle("load:projects", async () => {
 	
 	return data;
 });
+
+ipcMain.handle("load:whole:project", async (event, number) => {
+	console.log("hey")
+	console.log(number)
+	console.log(typeof(number))
+})
