@@ -32,7 +32,12 @@ async function loadProject() {
         else if (result.setup.features[i] === 'milestones') {
             projectSpace += `
                 <div style="grid-column-start: ${result.setup.milestones.column[0]}; grid-row-start: ${result.setup.milestones.row[0]}; grid-column-end: ${result.setup.milestones.column[1]}; grid-row-end: ${result.setup.milestones.row[1]};">
-                    Milestones
+                    <h3>
+                        Milestones
+                        <span style="float: right;">
+                            <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                        </span>
+                    </h3>
                 </div>
             `
         }
