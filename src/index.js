@@ -78,7 +78,8 @@ ipcMain.handle('dialog:open', async () => {
 	if (!fs.existsSync('project.json')) {
 		data = {
 			projects: [],
-			loaded: 0
+			loaded: 0,
+			AIsetup: false
 		}
 	
 		fs.writeFile('project.json', JSON.stringify(data, null, 4), (err) => {
