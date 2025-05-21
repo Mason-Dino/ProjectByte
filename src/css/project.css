@@ -45,12 +45,15 @@
     border-radius: 10px;
 
     height: auto;
+    overflow: hidden; 
+    overflow-y: scroll;
 }
 
 .project-space > div > h3 {
     margin: 0px;
-    color: var(--stext);
+    color: var(--ptext);
     font-size: 18px;
+
 }
 
 .add {
@@ -71,7 +74,7 @@
 
 .todolist > p {
     background-color: var(--card);
-    color: #000;
+    color: var(--stext);
     border-radius: 10px;
     grid-column-start: 1;
     grid-column-end: 2;
