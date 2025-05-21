@@ -1,6 +1,8 @@
 starting = [null, null]
 hover = [null, null]
 ending = [null, null]
+working = true
+clicks = 0
 
 document.addEventListener("click", function (event) {
     console.log(event.target.id)
@@ -8,21 +10,24 @@ document.addEventListener("click", function (event) {
     if (event.target.id.split(",").length > 1) {
         document.getElementById(event.target.id).classList = "selected";
 
-        if (starting[0] != null && starting[1] != null) {
-            console.log("tdst")
+        if (starting[0] != null && starting[1] != null && clicks % 2 == 1) {
             ending[0] = parseInt(event.target.id.split(",")[0])
             ending[1] = parseInt(event.target.id.split(",")[1])
+            working = false
         }
 
         else {
             starting[0] = parseInt(event.target.id.split(",")[0])
             starting[1] = parseInt(event.target.id.split(",")[1])
+            working = true;
         }
+
+        clicks += 1;
     }
 })
 
 document.addEventListener("mouseover", function (event) {
-    if (event.target.id.split(",").length > 1) {
+    if (event.target.id.split(",").length > 1 && working == true) {
         hover[0] = parseInt(event.target.id.split(",")[0])
         hover[1] = parseInt(event.target.id.split(",")[1])
 
