@@ -188,6 +188,7 @@ ipcMain.handle("load:whole:project", async () => {
 
 	projectData = {
 		projects: data.projects[data.loaded],
+		AIsetup: data.AIsetup,
 		setup: setup
 	}
 
