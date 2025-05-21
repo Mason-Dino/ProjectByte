@@ -14,6 +14,19 @@
 	--intext: #e0e0e0;
 }
 
+
+::-webkit-scrollbar {
+    width: 12px; /* For vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); /* Track background */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--stext); /* Thumb background */
+}
+
 .project-space {
     width: 100%;
     height: calc(100vh - 100px);
