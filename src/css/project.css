@@ -47,7 +47,7 @@
     margin-top: 10px;
 
     display: grid;
-    grid-template-columns: auto auto 100px;
+    grid-template-columns: auto auto 24px;
     grid-row: 30px;
     row-gap: 5px;
     column-gap: 10px;
