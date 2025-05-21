@@ -94,3 +94,4 @@ out/
 # Porject Files
 test.js
 project.json
+.projectbyte/
