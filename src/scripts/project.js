@@ -7,6 +7,7 @@ async function loadProject() {
     projectSpace = document.getElementById('project-space').innerHTML;
 
     for (i = 0; i < result.setup.features.length; i ++) {
+        console.log(result.setup.features[i])
         if (result.setup.features[i] === 'todolist') {
             projectSpace += `
             <div style="grid-column-start: ${result.setup.todolist.column[0]}; grid-row-start: ${result.setup.todolist.row[0]}; grid-column-end: ${result.setup.todolist.column[1]}; grid-row-end: ${result.setup.todolist.row[1]};">
@@ -25,6 +26,14 @@ async function loadProject() {
                     <p>test</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
                 </div>
             </div>
+            `
+        }
+
+        else if (result.setup.features[i] === 'milestones') {
+            projectSpace += `
+                <div style="grid-column-start: ${result.setup.milestones.column[0]}; grid-row-start: ${result.setup.milestones.row[0]}; grid-column-end: ${result.setup.milestones.column[1]}; grid-row-end: ${result.setup.milestones.row[1]};">
+                    Milestones
+                </div>
             `
         }
     }
