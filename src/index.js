@@ -178,10 +178,17 @@ ipcMain.handle("load:whole:project", async () => {
 	data = await fs.promises.readFile('project.json', 'utf8')
 	data = JSON.parse(data)
 	console.log(data)
+	
+	projectbyte = String(path.join(data.projects[data.loaded].location, '.projectbyte'))
 
+	setupfilename = path.join(projectbyte, 'setup.json')
+	setup = await fs.promises.readFile(setupfilename, 'utf8')
+	setup = JSON.parse(setup)
+	console.log(setup)
 
 	projectData = {
-		projects: data.projects[data.loaded]
+		projects: data.projects[data.loaded],
+		setup: setup
 	}
 
 	return projectData;
