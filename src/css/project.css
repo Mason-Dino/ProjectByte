@@ -24,7 +24,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--stext); /* Thumb background */
+    background: var(--stext);
+    border-radius: 10px; /* Thumb background */
 }
 
 .project-space {
