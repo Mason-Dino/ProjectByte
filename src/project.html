@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>ProjectBtye</title>
-		<link rel="stylesheet" href="css/project.css" />
         <link rel="stylesheet" href="css/base.css"/>
+		<link rel="stylesheet" href="css/project.css" />
 		<script src="scripts/project.js"></script>
 	</head>
 	<body onload="loadProject()">
@@ -18,7 +18,23 @@
 		<div class="main">
 			<h1 id="title">ProjectBtye</h1>
             <div class="project-space">
-                <div style="grid-column-start: 1; grid-row-start: 1; grid-column-end: 3; grid-row-end: 2;">Todo List</div>
+                <div style="grid-column-start: 1; grid-row-start: 1; grid-column-end: 3; grid-row-end: 2; overflow: hidden; overflow-y: scroll;">
+                    <h3>
+                        Todo List
+                        <span style="float: right;">
+                            <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                        </span>
+                    </h3>
+                    <div class="todolist">
+                        <div>test</div><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+                        <div>test</div><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+                        <div>test</div><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+                        <div>test</div><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+                        <div>test</div><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+                        <div>test</div><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+
+                    </div>
+                </div>
                 <div style="grid-column-start: 3; grid-row-start: 1; grid-column-end: 4; grid-row-end: 3;">Milestones</div>
                 <div style="grid-column-start: 1; grid-row-start: 2; grid-column-end: 2; grid-row-end: 3;">Links</div>
                 <div style="grid-column-start: 2; grid-row-start: 2; grid-column-end: 3; grid-row-end: 3;">Colors</div>
