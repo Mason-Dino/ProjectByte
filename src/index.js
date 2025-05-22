@@ -230,6 +230,14 @@ ipcMain.handle("load:whole:project", async () => {
 		setup: setup
 	}
 
+	for (i = 0; i < setup.features.length; i ++) {
+		if (setup.features[i] == "todolist") {
+			todo = await fs.promises.readFile(path.join(projectbyte, 'task.json'), 'utf8')
+			projectData.todo = JSON.parse(todo)
+		}
+	}
+
+
 	return projectData;
 })
 
@@ -243,7 +251,7 @@ ipcMain.handle("add:task", async (event, value, date) => {
 			data = {
 				task: []
 			}
-			
+
 			fs.writeFileSync(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4), (err) => {
 				if (err) {
 					console.error(err);
