@@ -87,6 +87,16 @@ input[type="text"], input[type="date"] {
     color: var(--intext);
 
     margin-right: 10px;
+    border-radius: 5px;
+    
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    outline: none;
+    border: var(--acolor) solid 1px;
 }
 
 .todolist > p {
