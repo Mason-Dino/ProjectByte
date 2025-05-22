@@ -4,14 +4,20 @@
 	--card: #2E2E2E;
 	--ptext: #f5f5f5;
 	--stext: #b0b0b0;
-	--acolor: #1fbf9a;
+	--acolor: #10B38D;
 	--ahover: #15967a;
+	--logo: #10B38D;
 	--success: #a3be8c;
 	--warning: #d08770;
 	--error: #bf616a;
 	--divider: #3b3b3b;
 	--intextbg: #2a2a2a;
 	--intext: #e0e0e0;
+}
+
+.logo {
+	color: var(--logo);
+	fill: var(--logo)
 }
 
 body {
