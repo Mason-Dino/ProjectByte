@@ -19,12 +19,6 @@ async function loadProject() {
                 </h3>
                 <div class="todolist" id="todolist">
                     <input type="text" class="value" id="todo-value" style="display: none;"><input type="date" class="date" id="todo-date" style="display: none;"><button onclick="addTodoBackend()" id="todo-add-button" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
-                    <p class="value">test</p><p class="date">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
-                    <p class="value">test</p><p class="data">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
-                    <p class="value">test</p><p class="data">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
-                    <p class="value">test</p><p class="data">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
-                    <p class="value">test</p><p class="data">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
-                    <p class="value">test</p><p class="data">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
                 </div>
             </div>
             `
@@ -69,6 +63,39 @@ async function loadProject() {
     }
 
     document.getElementById('project-space').innerHTML = projectSpace;
+
+    for (i = 0; i < result.setup.features.length; i ++) {
+        console.log(result.setup.features[i])
+        if (result.setup.features[i] === 'todolist') {
+            for (t = 0; t < result.todo.task.length; t ++) {
+                document.getElementById('todolist').innerHTML += `
+                <p class="value">${result.todo.task[t].value}</p>
+                <p class="date">${result.todo.task[t].date}</p>
+                <button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+                `
+            }
+        }
+
+        else if (result.setup.features[i] === 'milestones') {
+
+        }
+
+        else if (result.setup.features[i] === 'links') {
+
+        }
+
+        else if (result.setup.features[i] === 'colors') {
+
+        }
+
+        else if (result.setup.features[i] === 'notes') {
+
+        }
+
+        else if (result.setup.features[i] === 'chatgpt') {
+
+        }
+    }
 }
 
 function addTodoDisplay() {
