@@ -112,6 +112,7 @@ async function loadProject() {
     }
 }
 
+//task list is done with both display and function
 function addTodoDisplay() {
     document.getElementById("todo-value").style = 'display: block';
     document.getElementById("todo-date").style = 'display: block';
