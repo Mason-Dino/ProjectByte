@@ -14,7 +14,7 @@ async function loadProject() {
                 <h3>
                     Todo List
                     <span style="float: right;" id="todolist-icon">
-                        <svg onclick="addTodo()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                        <svg onclick="addTodoDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                     </span>
                 </h3>
                 <div class="todolist" id="todolist">
@@ -71,16 +71,16 @@ async function loadProject() {
     document.getElementById('project-space').innerHTML = projectSpace;
 }
 
-function addTodo() {
+function addTodoDisplay() {
     document.getElementById("todo-value").style = 'display: block';
     document.getElementById("todo-date").style = 'display: block';
     document.getElementById("todo-add-button").style = 'display: block';
-    document.getElementById("todolist-icon").innerHTML = '<svg onclick="closeTodo()" class="add" xmlns="http://www.w3.org/2000/svg" height="23px" viewBox="0 -960 960 960" width="23px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
+    document.getElementById("todolist-icon").innerHTML = '<svg onclick="closeTodoDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="23px" viewBox="0 -960 960 960" width="23px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
 }
 
-function closeTodo() {
+function closeTodoDisplay() {
     document.getElementById("todo-value").style = 'display: none';
     document.getElementById("todo-date").style = 'display: none';
     document.getElementById("todo-add-button").style = 'display: none';
-    document.getElementById("todolist-icon").innerHTML = '<svg onclick="addTodo()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
+    document.getElementById("todolist-icon").innerHTML = '<svg onclick="addTodoDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
 }
