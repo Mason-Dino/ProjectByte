@@ -66,18 +66,26 @@
     overflow: hidden;
 
     display: grid;
-    grid-template-columns: calc(100% - 24px) 24px;
+    grid-template-columns: calc(100% - 124px) 100px 24px;
     grid-row: 30px;
     row-gap: 5px;
     column-gap: 0px;
+}
+
+.date {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.value {
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 
 .todolist > p {
     background-color: var(--card);
     color: var(--stext);
     border-radius: 10px;
-    grid-column-start: 1;
-    grid-column-end: 2;
     margin: 0px;
 
     overflow: hidden;
@@ -87,10 +95,11 @@
     margin-right: 5px;
 }
 
+
 .todolist > button {
     width: 24px;
     height: 24px;
     padding: 0px;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
