@@ -18,7 +18,7 @@ async function loadProject() {
                     </span>
                 </h3>
                 <div class="todolist" id="todolist">
-                    <input type="text" class="value"><input type="date" class="date"><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
+                    <input type="text" class="value" id="todo-value" style="display: none;"><input type="date" class="date" id="todo-date" style="display: none;"><button id="todo-add-button" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
                     <p class="value">test</p><p class="date">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
                     <p class="value">test</p><p class="data">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
                     <p class="value">test</p><p class="data">5/21/2025</p><button><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
@@ -72,5 +72,15 @@ async function loadProject() {
 }
 
 function addTodo() {
+    document.getElementById("todo-value").style = 'display: block';
+    document.getElementById("todo-date").style = 'display: block';
+    document.getElementById("todo-add-button").style = 'display: block';
+    document.getElementById("todolist-icon").innerHTML = '<svg onclick="closeTodo()" class="add" xmlns="http://www.w3.org/2000/svg" height="23px" viewBox="0 -960 960 960" width="23px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
+}
 
+function closeTodo() {
+    document.getElementById("todo-value").style = 'display: none';
+    document.getElementById("todo-date").style = 'display: none';
+    document.getElementById("todo-add-button").style = 'display: none';
+    document.getElementById("todolist-icon").innerHTML = '<svg onclick="addTodo()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
 }
