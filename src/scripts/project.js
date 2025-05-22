@@ -112,6 +112,7 @@ async function loadProject() {
     }
 }
 
+//todo list backend and frontend done"
 function addTodoDisplay() {
     document.getElementById("todo-value").style = 'display: block';
     document.getElementById("todo-date").style = 'display: block';
