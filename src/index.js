@@ -261,51 +261,50 @@ ipcMain.handle("load:whole:project", async () => {
 })
 
 ipcMain.handle("add:task", async (event, value, date) => {
-	project = getLoadedProject()
-	project.then(function(result) {
-		projectFolder = path.join(result.location, '.projectbyte')
-		if (!fs.existsSync(path.join(projectFolder, 'task.json'))) {
-			data = {
-				task: []
-			}
-
-			fs.writeFileSync(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4), (err) => {
-				if (err) {
-					console.error(err);
-				}
-				else {
-					console.log("File made!")
-				}
-			});
+	project = await getLoadedProject()
+	projectFolder = path.join(result.location, '.projectbyte')
+	if (!fs.existsSync(path.join(projectFolder, 'task.json'))) {
+		data = {
+			task: []
 		}
 
-		fs.readFile(path.join(projectFolder, 'task.json'), 'utf8', (err, data) => {
+		fs.writeFileSync(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4), (err) => {
 			if (err) {
-				console.error("Failed to read file: ", err);
+				console.error(err);
 			}
-
-			taskList = JSON.parse(data)
-
-			task = {
-				value: value,
-				date: date,
-				id: genTaskID()
+			else {
+				console.log("File made!")
 			}
+		});
+	}
 
-			taskList['task'].push(task)
+	taskList = await fs.promises.readFile(path.join(projectFolder, 'task.json'), 'utf8')
+	taskList = JSON.parse(taskList)
 
-			console.log(taskList)
+	task = {
+		value: value,
+		date: date,
+		id: genTaskID()
+	}
 
-			fs.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(taskList, null, 4), (err) => {
-				if (err) {
-					console.error(err);
-				}
-				else {
-					console.log("File wrote!")
-				}
-			});
-		})
+	taskList['task'].push(task)
+
+	taskList.task.sort((a, b) => {
+		date1 = new Date(a.date)
+		date2 = new Date(b.date)
+
+		if (date1 > date2)
+			return 1
+
+		else if (date1 < date2)
+			return -1
+
+		return 0
 	})
+
+	await fs.promises.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(taskList, null, 4))
+
+	return taskList
 })
 
 ipcMain.handle("complete:task", async (event, id) => {
