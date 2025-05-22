@@ -131,7 +131,13 @@ async function addTodoBackend() {
     date = document.getElementById("todo-date").value;
 
     console.log(value, date)
-    await window.electronAPI.addTodoTask(value, date);
+
+    if (!(value === '' || date === ''))
+        await window.electronAPI.addTodoTask(value, date);
+
+    else {
+        console.log("test")
+    }
 }
 
 async function completeTask(id) {

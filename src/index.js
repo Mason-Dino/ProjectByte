@@ -259,8 +259,6 @@ ipcMain.handle("load:whole:project", async () => {
 })
 
 ipcMain.handle("add:task", async (event, value, date) => {
-	console.log(value, date)
-
 	project = getLoadedProject()
 	project.then(function(result) {
 		projectFolder = path.join(result.location, '.projectbyte')
