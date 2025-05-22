@@ -66,7 +66,7 @@
     overflow: hidden;
 
     display: grid;
-    grid-template-columns: calc(100% - 124px) 100px 24px;
+    grid-template-columns: calc(100% - 154px) 123px 24px;
     grid-row: 30px;
     row-gap: 5px;
     column-gap: 0px;
