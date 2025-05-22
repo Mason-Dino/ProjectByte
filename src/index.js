@@ -233,7 +233,24 @@ ipcMain.handle("load:whole:project", async () => {
 	for (i = 0; i < setup.features.length; i ++) {
 		if (setup.features[i] == "todolist") {
 			todo = await fs.promises.readFile(path.join(projectbyte, 'task.json'), 'utf8')
-			projectData.todo = JSON.parse(todo)
+			todo = JSON.parse(todo)
+
+			todo.task.sort((a, b) => {
+				date1 = new Date(a.date)
+				date2 = new Date(b.date)
+
+				if (date1 > date2)
+					return 1
+
+				else if (date1 < date2)
+					return -1
+
+				return 0
+			})
+
+			console.log(todo)
+
+			projectData.todo = todo
 		}
 	}
 
