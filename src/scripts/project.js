@@ -136,7 +136,10 @@ async function addTodoBackend() {
         await window.electronAPI.addTodoTask(value, date);
 
     else {
-        console.log("test")
+        document.getElementById('task-value-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('task-value-error').style = 'display: none;'
+        }, 5000);
     }
 }
 
