@@ -119,4 +119,5 @@ input[type="text"]:focus, input[type="date"]:focus {
     padding: 0px;
     grid-column-start: 3;
     grid-column-end: 4;
+    outline: none;
 }
