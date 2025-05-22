@@ -68,9 +68,11 @@ async function loadProject() {
         console.log(result.setup.features[i])
         if (result.setup.features[i] === 'todolist') {
             for (t = 0; t < result.todo.task.length; t ++) {
+                date = result.todo.task[t].date.split("-")
+
                 document.getElementById('todolist').innerHTML += `
                 <p class="value" id="${result.todo.task[t].id}-value">${result.todo.task[t].value}</p>
-                <p class="date" id="${result.todo.task[t].id}-date">${result.todo.task[t].date}</p>
+                <p class="date" id="${result.todo.task[t].id}-date">${date[1]}/${date[2]}/${date[0]}</p>
                 <button id="${result.todo.task[t].id}" onclick="completeTask(this.id)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
                 `
             }
@@ -123,4 +125,8 @@ async function addTodoBackend() {
 async function completeTask(id) {
     console.log(id)
     await window.electronAPI.completeTask(id)
+
+    document.getElementById(`${id}-value`).remove()
+    document.getElementById(`${id}-date`).remove()
+    document.getElementById(`${id}`).remove()
 }
