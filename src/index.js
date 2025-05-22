@@ -243,6 +243,42 @@ ipcMain.handle("add:task", async (event, value, date) => {
 			data = {
 				task: []
 			}
+			
+			fs.writeFileSync(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4), (err) => {
+				if (err) {
+					console.error(err);
+				}
+				else {
+					console.log("File made!")
+				}
+			});
 		}
+
+		fs.readFile(path.join(projectFolder, 'task.json'), 'utf8', (err, data) => {
+			if (err) {
+				console.error("Failed to read file: ", err);
+			}
+
+			taskList = JSON.parse(data)
+
+			task = {
+				value: value,
+				date: date,
+				id: genTaskID()
+			}
+
+			taskList['task'].push(task)
+
+			console.log(taskList)
+
+			fs.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(taskList, null, 4), (err) => {
+				if (err) {
+					console.error(err);
+				}
+				else {
+					console.log("File wrote!")
+				}
+			});
+		})
 	})
 })
