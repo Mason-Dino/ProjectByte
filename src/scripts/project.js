@@ -65,9 +65,15 @@ async function loadProject() {
     document.getElementById('project-space').innerHTML = projectSpace;
 
     for (i = 0; i < result.setup.features.length; i ++) {
-        console.log(result.setup.features[i])
+        //console.log(result.setup.features[i])
         if (result.setup.features[i] === 'todolist') {
+            today = new Date()
+            today.setHours(0, 0, 0, 0);
+
             for (t = 0; t < result.todo.task.length; t ++) {
+                checkDate = new Date(result.todo.task[t].date)
+                checkDate.setDate(checkDate.getDate() + 1)
+                checkDate.setHours(0, 0, 0, 0)
                 date = result.todo.task[t].date.split("-")
 
                 document.getElementById('todolist').innerHTML += `
@@ -75,6 +81,12 @@ async function loadProject() {
                 <p class="date" id="${result.todo.task[t].id}-date">${date[1]}/${date[2]}/${date[0]}</p>
                 <button id="${result.todo.task[t].id}" onclick="completeTask(this.id)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
                 `
+
+                if (checkDate < today && checkDate != today) {
+                    console.log(result.todo.task[t].id)
+                    console.log(today, checkDate)
+                    document.getElementById(`${result.todo.task[t].id}-date`).style = "color: var(--error)"
+                }
             }
         }
 
