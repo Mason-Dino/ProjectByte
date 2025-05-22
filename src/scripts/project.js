@@ -85,9 +85,10 @@ function closeTodoDisplay() {
     document.getElementById("todolist-icon").innerHTML = '<svg onclick="addTodoDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
 }
 
-function addTodoBackend() {
+async function addTodoBackend() {
     value = document.getElementById("todo-value").value;
     date = document.getElementById("todo-date").value;
 
     console.log(value, date)
+    await window.electronAPI.addTodoTask(value, date);
 }
