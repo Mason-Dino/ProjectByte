@@ -131,17 +131,9 @@ ipcMain.handle('dialog:open', async () => {
 			}
 		});
 	}
-	
-	fs.mkdirSync(path.join(filepath, `.projectbyte`), { recursive: true })
 
-	if (process.platform === 'win32') {
-		hidefile.hide(path.join(filepath, `.projectbyte`),  (err, newPath) => {
-			if (err) {
-				return console.error('Error hiding folder:', err);
-			}
-			console.log(`Hidden folder: ${newPath}`);
-		});
-	}
+	projectbyte = path.join(filepath, `.projectbyte`)
+	fs.mkdirSync(path.join(filepath, `.projectbyte`), { recursive: true })
 
 	fs.readFile('project.json', 'utf8', (err, data) => {
 		if (err) {
@@ -176,7 +168,68 @@ ipcMain.handle('dialog:open', async () => {
 			}
 		});
 	})
-	
+
+	setup = {
+		"features": ["todolist", "milestones", "links", "colors", "notes", "chatgpt"],
+		"todolist": {
+			"column": [1, 3],
+			"row": [1, 2]
+		},
+		"milestones": {
+			"column": [3, 4],
+			"row": [1, 3]
+		},
+		"links": {
+			"column": [1, 2],
+			"row": [2, 3]
+		},
+		"colors": {
+			"column": [2, 3],
+			"row": [2, 3]
+		},
+		"notes": {
+			"column": [1, 3],
+			"row": [3, 5]
+		},
+		"chatgpt": {
+			"column": [3, 4],
+			"row": [3, 5]
+		}
+	}
+
+	fs.writeFile(path.join(path.join(filepath, `.projectbyte`), 'setup.json'), JSON.stringify(setup, null, 4), (err) => {
+		if (err)
+			console.error(err)
+		else
+			console.log('Setup')
+	})
+
+	tasks = {
+		task: [
+			{
+				value: "First Task",
+				date: "2025-05-22",
+				id: "F1r3tTAsK!"
+			}
+		]
+	}
+
+	fs.writeFile(path.join(path.join(filepath, `.projectbyte`), 'task.json'), JSON.stringify(tasks, null, 4), (err) => {
+		if (err)
+			console.error(err)
+		else
+			console.log('Task')
+	})
+
+	if (process.platform === 'win32') {
+		hidefile.hide(path.join(filepath, `.projectbyte`),  (err, newPath) => {
+			if (err) {
+				return console.error('Error hiding folder:', err);
+			}
+			console.log(`Hidden folder: ${newPath}`);
+		});
+	}
+
 	return result;
 });
 
