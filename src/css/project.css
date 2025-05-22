@@ -82,6 +82,13 @@
     grid-column-end: 2;
 }
 
+input[type="text"], input[type="date"] {
+    background-color: var(--intextbg);
+    color: var(--intext);
+
+    margin-right: 10px;
+}
+
 .todolist > p {
     background-color: var(--card);
     color: var(--stext);
