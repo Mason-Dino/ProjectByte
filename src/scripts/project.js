@@ -41,6 +41,30 @@ async function loadProject() {
                 </div>
             `
         }
+
+        else if (result.setup.features[i] === 'links') {
+            projectSpace += `
+            <div style="grid-column-start: ${result.setup.links.column[0]}; grid-row-start: ${result.setup.links.row[0]}; grid-column-end: ${result.setup.links.column[1]}; grid-row-end: ${result.setup.links.row[1]};">Links</div>
+            `
+        }
+
+        else if (result.setup.features[i] === 'colors') {
+            projectSpace += `
+            <div style="grid-column-start: ${result.setup.colors.column[0]}; grid-row-start: ${result.setup.colors.row[0]}; grid-column-end: ${result.setup.colors.column[1]}; grid-row-end: ${result.setup.colors.row[1]};">Colors</div>
+            `
+        }
+
+        else if (result.setup.features[i] === 'notes') {
+            projectSpace += `
+            <div style="grid-column-start: ${result.setup.notes.column[0]}; grid-row-start: ${result.setup.notes.row[0]}; grid-column-end: ${result.setup.notes.column[1]}; grid-row-end: ${result.setup.notes.row[1]};">Notes</div>
+            `
+        }
+
+        else if (result.setup.features[i] === 'chatgpt') {
+            projectSpace += `
+            <div style="grid-column-start: ${result.setup.chatgpt.column[0]}; grid-row-start: ${result.setup.chatgpt.row[0]}; grid-column-end: ${result.setup.chatgpt.column[1]}; grid-row-end: ${result.setup.chatgpt.row[1]};">AI</div>
+            `
+        }
     }
 
     document.getElementById('project-space').innerHTML = projectSpace;
