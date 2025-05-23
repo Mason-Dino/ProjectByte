@@ -80,6 +80,26 @@ a {
 	font-weight: 400;
 }
 
+.sidebar .unselected {
+	background-color: var(--side);
+	display: flex;
+}
+
+.sidebar .unselected svg {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 6px;
+}
+
+
+.sidebar .unselected-bar {
+	background-color: var(--side);
+	width: 3px;
+	height: 44.67px;
+	margin-right: 4px;
+}
+
+
 .main {
 	margin-left: 220px;
 }
