@@ -44,9 +44,40 @@ a {
 	flex-direction: column;
 }
 
-.sidebar svg {
+.sidebar .logo {
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+.sidebar .selected {
+	background-color: var(--background);
+	display: flex;
+}
+
+.sidebar .selected h3 {
+	color: var(--ptext);
+	font-weight: bold;
+}
+
+.sidebar .selected-bar {
+	background-color: var(--acolor);
+	width: 3px;
+	height: 44.67px;
+	margin-right: 4px;
+}
+
+.sidebar .selected svg {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 6px;
+}
+
+.sidebar h3 {
+	margin: 0px;
+	padding: 10px;
+	color: var(--ptext);
+	font-weight: 400;
 }
 
 .main {
