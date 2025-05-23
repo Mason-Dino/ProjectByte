@@ -42,6 +42,7 @@ a {
 	background-color: var(--side);
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 }
 
 .sidebar .logo {
@@ -97,6 +98,31 @@ a {
 	width: 3px;
 	height: 44.67px;
 	margin-right: 4px;
+}
+
+.setting-button {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	bottom: 20px;
+	left: 0px;
+	background-color: var(--side);
+	display: flex;
+	justify-content: center
+
+}
+
+.sidebar button {
+	width: 80%;
+	text-align: center;
+
+	background-color: var(--acolor);
+	color: var(--background);
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	
 }
 
 
