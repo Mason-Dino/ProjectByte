@@ -10,5 +10,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     readyProject: (number) => ipcRenderer.invoke('ready:project', number),
     loadWholeProject: () => ipcRenderer.invoke('load:whole:project'),
     addTodoTask: (value, date) => ipcRenderer.invoke('add:task', value, date),
-    completeTask: (id) => ipcRenderer.invoke("complete:task", id)
+    completeTask: (id) => ipcRenderer.invoke("complete:task", id),
+    addLink: (link, value) => ipcRenderer.invoke('add:link', link, value)
 });

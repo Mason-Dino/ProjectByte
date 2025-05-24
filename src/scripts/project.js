@@ -221,7 +221,9 @@ async function addLinkBackend() {
     console.log(link, value)
 
     if (!(link === '' || value === '')) {
+        links = await window.electronAPI.addLink(link, value);
 
+        console.log(links)
     }
 
     else {

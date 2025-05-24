@@ -432,3 +432,36 @@ ipcMain.handle("complete:task", async (event, id) => {
 		})
 	})
 })
+
+ipcMain.handle("add:link", async (event, link, value) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(result.location, '.projectbyte')
+	if (!fs.existsSync(path.join(projectFolder, 'link.json'))) {
+		data = {
+			task: []
+		}
+
+		fs.writeFileSync(path.join(projectFolder, 'link.json'), JSON.stringify(data, null, 4), (err) => {
+			if (err) {
+				console.error(err);
+			}
+			else {
+				console.log("File made!")
+			}
+		});
+	}
+
+	data = await fs.promises.readFile(path.join(projectFolder, 'link.json'), 'utf8')
+	data = JSON.parse(data)
+
+	link = {
+		link: link,
+		value: value
+	}
+
+	data["links"].push(link)
+
+	//await fs.promises.writeFile(path.join(projectFolder, 'link.json'), JSON.stringify(data, null, 4))
+
+	return data
+})
