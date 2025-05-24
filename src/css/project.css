@@ -122,7 +122,7 @@ input[type="text"]:focus, input[type="date"]:focus {
     outline: none;
 }
 
-.links {
+.links-add {
     margin-top: 10px;
     width: 100%;
     overflow: hidden;
@@ -133,17 +133,17 @@ input[type="text"]:focus, input[type="date"]:focus {
     column-gap: 0px;
 }
 
-.links .link {
+.links-add .link {
     grid-column-start: 1;
     grid-column-end: 2;
 }
 
-.links .value {
+.links-add .value {
     grid-column-start: 2;
     grid-column-end: 3;
 }
 
-.links .add-button {
+.links-add .add-button {
     grid-column-start: 3;
     grid-column-end: 4;
 
@@ -151,6 +151,19 @@ input[type="text"]:focus, input[type="date"]:focus {
     height: 24px;
     padding: 0px;
     outline: none;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.links button {
+    width: 108px;
+    height: 25px;
+    margin-top: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 

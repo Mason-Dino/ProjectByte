@@ -46,8 +46,24 @@ async function loadProject() {
                         <svg onclick="addLinkDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                     </span>
                 </h3>
-                <div class="links" id="links">
-                    <input type="text" id="link-link" style="display: none;" class="link" placeholder="Link"><input type="text" id="link-value" style="display: none;" class="value" placeholder="Value"><button onclick="addLinkBackend()" id="link-add-button" style="display: none;" class="add-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
+                <div id="links">
+                    <div class="links-add">
+                        <input type="text" id="link-link" style="display: none;" class="link" placeholder="Link"><input type="text" id="link-value" style="display: none;" class="value" placeholder="Value"><button onclick="addLinkBackend()" id="link-add-button" style="display: none;" class="add-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
+                    </div>
+                    <div class="links" style="margin-top: 5px;">
+                        <a href="https://github.com/Mason-Dino/ProjectByte" target="_blank">
+                            <button>Github</button>
+                        </a>
+                        <a href="https://google.com" target="_blank">
+                            <button>Google</button>
+                        </a>
+                        <a href="https://chatgpt.com/" target="_blank">
+                            <button>ChatGPT</button>
+                        </a>
+                        <a href="https://makecode.microbit.org/" target="_blank">
+                            <button>Microbit</button>
+                        </a>
+                    </div>
                 </div>
             </div>
             `
