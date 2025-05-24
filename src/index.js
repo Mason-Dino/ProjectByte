@@ -461,7 +461,7 @@ ipcMain.handle("add:link", async (event, link, value) => {
 
 	data["links"].push(link)
 
-	//await fs.promises.writeFile(path.join(projectFolder, 'link.json'), JSON.stringify(data, null, 4))
+	await fs.promises.writeFile(path.join(projectFolder, 'link.json'), JSON.stringify(data, null, 4))
 
 	return data
 })

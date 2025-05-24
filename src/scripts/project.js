@@ -47,7 +47,7 @@ async function loadProject() {
                     </span>
                 </h3>
                 <div id="links">
-                    <div class="links-add">
+                    <div class="links-add" id="links-add">
                         <input type="text" id="link-link" style="display: none;" class="link" placeholder="Link"><input type="text" id="link-value" style="display: none;" class="value" placeholder="Value"><button onclick="addLinkBackend()" id="link-add-button" style="display: none;" class="add-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
                     </div>
                     <div class="links" style="margin-top: 5px;" id="display-links">
@@ -223,7 +223,16 @@ async function addLinkBackend() {
     if (!(link === '' || value === '')) {
         links = await window.electronAPI.addLink(link, value);
 
-        console.log(links)
+        document.getElementById("display-links").innerHTML = ''
+
+        for (l = 0; l < links.links.length; l ++) {
+
+            document.getElementById('display-links').innerHTML += `
+            <a href="${links.links[l].link}" target="_blank">
+                <button>${links.links[l].value}</button>
+            </a>
+            `
+        }
     }
 
     else {
