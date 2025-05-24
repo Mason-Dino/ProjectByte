@@ -3,6 +3,7 @@ const shell = require('electron').shell;
 const path = require('node:path');
 const fs = require('fs');
 const hidefile = require('hidefile');
+const { json } = require('node:stream/consumers');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -229,15 +230,15 @@ ipcMain.handle('dialog:open', async () => {
 				value: "Github"
 			},
 			{
-				links: "https://google.com",
+				link: "https://google.com",
 				value: "Google"
 			},
 			{
-				links: "https://chatgpt.com/",
+				link: "https://chatgpt.com/",
 				value: "ChatGPT"
 			},
 			{
-				links: "https://makecode.microbit.org/",
+				link: "https://makecode.microbit.org/",
 				value: "Microbit"
 			}
 		]
@@ -315,7 +316,7 @@ ipcMain.handle("load:whole:project", async () => {
 	}
 
 	for (i = 0; i < setup.features.length; i ++) {
-		if (setup.features[i] == "todolist") {
+		if (setup.features[i] === "todolist") {
 			todo = await fs.promises.readFile(path.join(projectbyte, 'task.json'), 'utf8')
 			todo = JSON.parse(todo)
 
@@ -335,6 +336,13 @@ ipcMain.handle("load:whole:project", async () => {
 			console.log(todo)
 
 			projectData.todo = todo
+		}
+
+		if (setup.features[i] === "links") {
+			links = await fs.promises.readFile(path.join(projectbyte, 'link.json'), 'utf8')
+			links = JSON.parse(links)
+
+			projectData.link = links
 		}
 	}
 

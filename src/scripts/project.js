@@ -50,19 +50,7 @@ async function loadProject() {
                     <div class="links-add">
                         <input type="text" id="link-link" style="display: none;" class="link" placeholder="Link"><input type="text" id="link-value" style="display: none;" class="value" placeholder="Value"><button onclick="addLinkBackend()" id="link-add-button" style="display: none;" class="add-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
                     </div>
-                    <div class="links" style="margin-top: 5px;">
-                        <a href="https://github.com/Mason-Dino/ProjectByte" target="_blank">
-                            <button>Github</button>
-                        </a>
-                        <a href="https://google.com" target="_blank">
-                            <button>Google</button>
-                        </a>
-                        <a href="https://chatgpt.com/" target="_blank">
-                            <button>ChatGPT</button>
-                        </a>
-                        <a href="https://makecode.microbit.org/" target="_blank">
-                            <button>Microbit</button>
-                        </a>
+                    <div class="links" style="margin-top: 5px;" id="display-links">
                     </div>
                 </div>
             </div>
@@ -121,7 +109,13 @@ async function loadProject() {
         }
 
         else if (result.setup.features[i] === 'links') {
-
+            for (l = 0; l < result.link.links.length; l ++) {
+                document.getElementById("display-links").innerHTML += `
+                <a href="${result.link.links[l].link}" target="_blank">
+                    <button>${result.link.links[l].value}</button>
+                </a>
+                `
+            }
         }
 
         else if (result.setup.features[i] === 'colors') {
