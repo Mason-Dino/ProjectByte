@@ -194,4 +194,12 @@ function addLinkDisplay() {
     document.getElementById("link-link").style = 'display: grid';
     document.getElementById("link-value").style = 'display: grid';
     document.getElementById("link-add-button").style = 'display: grid';
+    document.getElementById("link-icon").innerHTML = '<svg onclick="closeLinkDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="23px" viewBox="0 -960 960 960" width="23px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
+}
+
+function closeLinkDisplay() {
+    document.getElementById("link-link").style = 'display: none';
+    document.getElementById("link-value").style = 'display: none';
+    document.getElementById("link-add-button").style = 'display: none';
+    document.getElementById("link-icon").innerHTML = '<svg onclick="addLinkDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
 }
