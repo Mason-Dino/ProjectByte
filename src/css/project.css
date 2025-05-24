@@ -66,7 +66,7 @@
     overflow: hidden;
 
     display: grid;
-    grid-template-columns: calc(100% - 154px) 123px 24px;
+    grid-template-columns: calc(100% - 154px) 120px 24px;
     grid-row: 30px;
     row-gap: 5px;
     column-gap: 0px;
@@ -121,6 +121,38 @@ input[type="text"]:focus, input[type="date"]:focus {
     grid-column-end: 4;
     outline: none;
 }
+
+.links {
+    margin-top: 10px;
+    width: 100%;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: calc(50% - 12px) calc(50% - 12px) 24px;
+    row-gap: 5px;
+    column-gap: 0px;
+}
+
+.links .link {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.links .value {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.links .add-button {
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    outline: none;
+}
+
 
 .error {
     position: absolute;

@@ -39,7 +39,17 @@ async function loadProject() {
 
         else if (result.setup.features[i] === 'links') {
             projectSpace += `
-            <div style="grid-column-start: ${result.setup.links.column[0]}; grid-row-start: ${result.setup.links.row[0]}; grid-column-end: ${result.setup.links.column[1]}; grid-row-end: ${result.setup.links.row[1]};">Links</div>
+            <div style="grid-column-start: ${result.setup.links.column[0]}; grid-row-start: ${result.setup.links.row[0]}; grid-column-end: ${result.setup.links.column[1]}; grid-row-end: ${result.setup.links.row[1]};">
+                <h3>
+                    Links
+                    <span style="float: right;" id="link-icon">
+                        <svg onclick="addLinkDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                    </span>
+                </h3>
+                <div class="links" id="links">
+                    <input type="text" id="link-link" style="display: none;" class="link" placeholder="Link"><input type="text" id="link-value" style="display: none;" class="value" placeholder="Value"><button onclick="addLinkBackend()" id="link-add-button" style="display: none;" class="add-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
+                </div>
+            </div>
             `
         }
 
@@ -178,4 +188,10 @@ async function completeTask(id) {
     document.getElementById(`${id}-value`).remove()
     document.getElementById(`${id}-date`).remove()
     document.getElementById(`${id}`).remove()
+}
+
+function addLinkDisplay() {
+    document.getElementById("link-link").style = 'display: grid';
+    document.getElementById("link-value").style = 'display: grid';
+    document.getElementById("link-add-button").style = 'display: grid';
 }
