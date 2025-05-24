@@ -222,6 +222,34 @@ ipcMain.handle('dialog:open', async () => {
 			console.log('Task')
 	})
 
+	links = {
+		links: [
+			{
+				link: "https://github.com/Mason-Dino/ProjectByte",
+				value: "Github"
+			},
+			{
+				links: "https://google.com",
+				value: "Google"
+			},
+			{
+				links: "https://chatgpt.com/",
+				value: "ChatGPT"
+			},
+			{
+				links: "https://makecode.microbit.org/",
+				value: "Microbit"
+			}
+		]
+	}
+
+	fs.writeFile(path.join(path.join(filepath, `.projectbyte`), 'link.json'), JSON.stringify(links, null, 4), (err) => {
+		if (err)
+			console.error(err)
+		else
+			console.log('Links')
+	})
+
 	if (process.platform === 'win32') {
 		hidefile.hide(path.join(filepath, `.projectbyte`),  (err, newPath) => {
 			if (err) {
