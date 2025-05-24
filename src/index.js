@@ -211,7 +211,8 @@ ipcMain.handle('dialog:open', async () => {
 				date: "2025-05-22",
 				id: "F1r3tTAsK!"
 			}
-		]
+		],
+		milestones: []
 	}
 
 	fs.writeFile(path.join(path.join(filepath, `.projectbyte`), 'task.json'), JSON.stringify(tasks, null, 4), (err) => {
