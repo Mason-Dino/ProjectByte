@@ -30,10 +30,10 @@ async function loadProject() {
                     <h3>
                         Milestones
                         <span style="float: right;" id="milestone-icon">
-                            <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                            <svg onclick="addMilestoneDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                         </span>
                     </h3>
-                    <div id="milestone-setup" class="milestone-setup" style="display: block">
+                    <div id="milestone-setup" class="milestone-setup" style="display: none">
                         <div style="width: 100%">
                             <input type="text" placeholder="Milestone Name">
                         </div>
@@ -49,7 +49,7 @@ async function loadProject() {
                         <ul class="task-milestone" id="task-milestone">
                         </ul>
                         <button class="make-milestone">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18x" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                             Make Milestone
                         </button>
                     </div>
