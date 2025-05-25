@@ -37,16 +37,14 @@ async function loadProject() {
                         <div style="width: 100%">
                             <input type="text">
                         </div>
-                        <div style="width: 100%; margin-top: 5px;">
-                            <select name="lol">
+                        <div style="width: 100%; margin-top: 5px; display: flex;">
+                            <select id="milestone-task">
                                 <option selected disabled hidden>Select a Task</option>
-                                <option>Test</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
                             </select>
-                            <button>Add</button>
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
+                                Add
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -121,7 +119,13 @@ async function loadProject() {
         }
 
         else if (result.setup.features[i] === 'milestones') {
-
+            document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden>Select a Task</option>`
+            
+            for (m = 0; m < result.todo.task.length; m ++) {
+                document.getElementById("milestone-task").innerHTML += `
+                    <option id="${result.todo.task[m].id}-milestone">${result.todo.task[m].value}</option>
+                `
+            }
         }
 
         else if (result.setup.features[i] === 'links') {
