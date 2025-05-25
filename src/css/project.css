@@ -96,7 +96,7 @@ input[type="text"], input[type="date"] {
 
 input[type="text"]:focus, input[type="date"]:focus {
     outline: none;
-    border: var(--acolor) solid 1px;
+    border: var(--acolor) solid 1.5px;
 }
 
 .todolist > p {
@@ -194,7 +194,7 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 .milestone-setup select:focus {
     outline: none;
-    border: var(--acolor) solid 1px;
+    border: var(--acolor) solid 1.5px;
 }
 
 .milestone-setup button {
