@@ -167,10 +167,39 @@ input[type="text"]:focus, input[type="date"]:focus {
 }
 
 .milestone-setup {
-    height: calc(100% - 34px);
+    height: calc(100% - 44px);
     width: 100%;
     
+    margin-top: 10px;
+}
+
+.milestone-setup input[type="text"] {
+    width: calc(100% - 6.67px);
+    height: 24px;
+}
+
+.milestone-setup select {
+    width: 63%;
+    height: 24px;
+
+    background-color: var(--intextbg);
+    color: var(--intext);
     
+    border-radius: 5px;
+
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+.milestone-setup select:focus {
+    outline: none;
+    border: var(--acolor) solid 1px;
+}
+
+.milestone-setup button {
+    width: 35%;
+    height: 24px;
 }
 
 

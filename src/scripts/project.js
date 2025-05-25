@@ -34,7 +34,20 @@ async function loadProject() {
                         </span>
                     </h3>
                     <div class="milestone-setup">
-                        <
+                        <div style="width: 100%">
+                            <input type="text">
+                        </div>
+                        <div style="width: 100%; margin-top: 5px;">
+                            <select name="lol">
+                                <option selected disabled hidden>Select a Task</option>
+                                <option>Test</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                            <button>Add</button>
+                        </div>
                     </div>
                 </div>
             `
