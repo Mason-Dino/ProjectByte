@@ -37,7 +37,7 @@ function removeMilestoneTask(id) {
     document.getElementById(id).remove();
 }
 
-function makeMilestone() {
+async function makeMilestone() {
     tasks = document.getElementById("task-milestone")
     milestone = document.getElementById("milestone-name").value
 
@@ -67,7 +67,7 @@ function makeMilestone() {
         }
 
         console.log(data)
+        await window.electronAPI.addMilestone(data)
+        closeMilestoneDisplay()
     }
-
-    //console.log(tasks)
 }

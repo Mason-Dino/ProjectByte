@@ -435,7 +435,8 @@ ipcMain.handle("add:link", async (event, link, value) => {
 	projectFolder = path.join(result.location, '.projectbyte')
 	if (!fs.existsSync(path.join(projectFolder, 'link.json'))) {
 		data = {
-			task: []
+			task: [],
+			milestones: []
 		}
 
 		fs.writeFileSync(path.join(projectFolder, 'link.json'), JSON.stringify(data, null, 4), (err) => {
@@ -461,4 +462,34 @@ ipcMain.handle("add:link", async (event, link, value) => {
 	await fs.promises.writeFile(path.join(projectFolder, 'link.json'), JSON.stringify(data, null, 4))
 
 	return data
+})
+
+ipcMain.handle("add:milestone", async (event, milestone) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(result.location, '.projectbyte')
+	if (!fs.existsSync(path.join(projectFolder, 'task.json'))) {
+		data = {
+			task: [],
+			milestones: []
+		}
+
+		fs.writeFileSync(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4), (err) => {
+			if (err) {
+				console.error(err);
+			}
+			else {
+				console.log("File made!")
+			}
+		});
+	}
+
+	data = await fs.promises.readFile(path.join(projectFolder, 'task.json'), 'utf8')
+	console.log(data)
+	data = JSON.parse(data)
+
+	milestone.id = genTaskID()
+
+	data.milestones.push(milestone)
+
+	await fs.promises.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4))
 })
