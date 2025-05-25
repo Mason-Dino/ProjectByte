@@ -1,3 +1,4 @@
+//link display and function complete
 function addLinkDisplay() {
     document.getElementById("link-link").style = 'display: grid';
     document.getElementById("link-value").style = 'display: grid';
