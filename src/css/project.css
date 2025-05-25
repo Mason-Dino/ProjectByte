@@ -7,7 +7,7 @@
 	--acolor: #10B38D;
 	--ahover: #15967a;
 	--success: #a3be8c;
-	--warning: #d08770;
+	--warning: #d0be70;
 	--error: #bf616a;
 	--divider: #3b3b3b;
 	--intextbg: #2a2a2a;
@@ -225,6 +225,22 @@ input[type="text"]:focus, input[type="date"]:focus {
     background-color: color-mix(in srgb, var(--error), transparent 50%);
     color: var(--ptext);
     border: 2px solid var(--error);
+    border-top: 0px;
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
+    margin: 0px;
+}
+
+.warning {
+    position: absolute;
+    top: 0px;
+    right: 100px;
+
+    width: 200px;
+    height: 50px;
+    background-color: color-mix(in srgb, var(--warning), transparent 50%);
+    color: var(--ptext);
+    border: 2px solid var(--warning);
     border-top: 0px;
     border-radius: 0px 0px 10px 10px;
     padding: 10px;
