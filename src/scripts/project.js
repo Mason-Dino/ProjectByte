@@ -52,6 +52,9 @@ async function loadProject() {
                             Make Milestone
                         </button>
                     </div>
+                    <div id="milestone-display" class="milestone-display" style="display: block">
+                        
+                    </div>
                 </div>
             `
         }
@@ -129,6 +132,17 @@ async function loadProject() {
             for (m = 0; m < result.todo.task.length; m ++) {
                 document.getElementById("milestone-task").innerHTML += `
                     <option id="${result.todo.task[m].id}-milestone">${result.todo.task[m].value}</option>
+                `
+            }
+
+            for (m = 0; m < result.todo.milestones.length; m ++) {
+                document.getElementById('milestone-display').innerHTML += `
+                    <h4>
+                        <span id="${result.todo.milestones[m].id}-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </span>
+                        ${result.todo.milestones[m].milestoneName}
+                    </h4>
                 `
             }
         }

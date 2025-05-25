@@ -254,6 +254,31 @@ input[type="text"]:focus, input[type="date"]:focus {
     border-radius: 5px;
 }
 
+.milestone-display {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.milestone-display h4 {
+    margin: 0px;
+    padding: 0px;
+    color: var(--stext);
+    display: flex;
+    align-items: center;
+}
+
+.milestone-display h4 span {
+    display: flex;
+    align-items: center;
+}
+
+.milestone-display h4 svg {
+    fill: var(--stext);
+    margin-right: 5px;
+    cursor: pointer;
+}
+
 
 
 .error {
