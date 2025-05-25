@@ -36,3 +36,29 @@ function addMilestoneTask() {
 function removeMilestoneTask(id) {
     document.getElementById(id).remove();
 }
+
+function makeMilestone() {
+    tasks = document.getElementById("task-milestone")
+    milestone = document.getElementById("milestone-name").value
+
+    if (tasks.childElementCount === 0) {
+        document.getElementById('milestone-value-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('milestone-value-error').style = 'display: none;'
+        }, 5000);
+        return 1
+    }
+    else if (milestone === '') {
+        document.getElementById('milestone-name-value-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('milestone-name-value-error').style = 'display: none;'
+        }, 5000);
+    }
+    else {
+        for (t = 0; t < tasks.childElementCount; t ++) {
+            console.log(tasks.childNodes[t].id)
+        }
+    }
+
+    //console.log(tasks)
+}
