@@ -10,7 +10,7 @@ function addMilestoneTask() {
     if (!(id === 'none')) {
         element = document.getElementById('task-milestone').innerHTML
 
-        element = `<li id="${id}">${selected.value}</li>` + element;
+        element = `<li id="${id}-milestone-task" onclick="removeMilestoneTask(this.id)">${selected.value}</li>` + element;
 
         document.getElementById('task-milestone').innerHTML = element
 
@@ -21,4 +21,8 @@ function addMilestoneTask() {
             document.getElementById('milestone-value-error').style = 'display: none;'
         }, 5000);
     }
+}
+
+function removeMilestoneTask(id) {
+    document.getElementById(id).remove();
 }

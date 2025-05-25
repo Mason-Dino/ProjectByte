@@ -241,6 +241,17 @@ input[type="text"]:focus, input[type="date"]:focus {
     padding: 0px;
 }
 
+.milestone-setup .task-milestone li {
+    padding-left: 3px;
+}
+
+.milestone-setup .task-milestone li:hover {
+    background-color: var(--background);
+    color: var(--stext);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 
 
 .error {
