@@ -10,7 +10,7 @@ function addMilestoneTask() {
     if (!(id === 'none')) {
         element = document.getElementById('task-milestone').innerHTML
 
-        element = `<li>${selected.value}</li>` + element;
+        element = `<li id="${id}">${selected.value}</li>` + element;
 
         document.getElementById('task-milestone').innerHTML = element
 
