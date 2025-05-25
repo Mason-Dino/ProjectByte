@@ -8,11 +8,11 @@ function addMilestoneTask() {
     id = selected.id.split("-")[0]
 
     if (!(id === 'none')) {
-        element = document.getElementById('task-milestone').innerText
+        element = document.getElementById('task-milestone').innerHTML
 
-        element = selected.value + ', ' + element
+        element = `<li>${selected.value}</li>` + element;
 
-        document.getElementById('task-milestone').innerText = element
+        document.getElementById('task-milestone').innerHTML = element
 
     }
     else {

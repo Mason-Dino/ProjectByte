@@ -46,9 +46,8 @@ async function loadProject() {
                                 Add
                             </button>
                         </div>
-                        <div class="task-milestone" id="task-milestone">
-                        
-                        </div>
+                        <ul class="task-milestone" id="task-milestone">
+                        </ul>
                         <button class="make-milestone">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18x" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                             Make Milestone
