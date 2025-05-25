@@ -63,8 +63,15 @@ async function addTodoBackend() {
 }
 
 async function completeTask(id) {
-    console.log(id)
-    await window.electronAPI.completeTask(id)
+    task = await window.electronAPI.completeTask(id)
+
+    document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden>Select a Task</option>`
+            
+    for (m = 0; m < task.task.length; m ++) {
+        document.getElementById("milestone-task").innerHTML += `
+            <option id="${result.todo.task[m].id}-milestone">${result.todo.task[m].value}</option>
+        `
+    }
 
     document.getElementById(`${id}-value`).remove()
     document.getElementById(`${id}-date`).remove()

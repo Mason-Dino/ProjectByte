@@ -400,37 +400,34 @@ ipcMain.handle("add:task", async (event, value, date) => {
 ipcMain.handle("complete:task", async (event, id) => {
 	console.log(id)
 
-	project = getLoadedProject()
-	project.then(function(result) {
-		projectFolder = path.join(result.location, '.projectbyte')
+	project = await getLoadedProject()
+	projectFolder = path.join(result.location, '.projectbyte')
 
-		fs.readFile(path.join(projectFolder, 'task.json'), 'utf8', (err, data) => {
-			if (err) {
-				console.error("Failed to read file: ", err);
-			}
+	taskList = await fs.promises.readFile(path.join(projectFolder, 'task.json'), 'utf8')
+	taskList = JSON.parse(taskList)
 
-			taskList = JSON.parse(data)
+	remove = null
+	for (i = 0; i < taskList.task.length; i ++) {
+		if (taskList.task[i].id === id)
+			remove = i
+	}
 
-			remove = null
-			for (i = 0; i < taskList.task.length; i ++) {
-				if (taskList.task[i].id === id)
-					remove = i
-			}
+	taskList.task.splice(remove, 1)
 
-			taskList.task.splice(remove, 1)
+	console.log(taskList)
 
-			console.log(taskList)
+	fs.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(taskList, null, 4), (err) => {
+		if (err) {
+			console.error(err);
+		}
+		else {
+			console.log("File updated!")
+		}
+	});
 
-			fs.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(taskList, null, 4), (err) => {
-				if (err) {
-					console.error(err);
-				}
-				else {
-					console.log("File updated!")
-				}
-			});
-		})
-	})
+	console.log("tasks: ", taskList)
+
+	return taskList
 })
 
 ipcMain.handle("add:link", async (event, link, value) => {
