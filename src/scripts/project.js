@@ -139,11 +139,19 @@ async function loadProject() {
                 document.getElementById('milestone-display').innerHTML += `
                     <h4>
                         <span id="${result.todo.milestones[m].id}-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                            <svg onclick="showTasks('${result.todo.milestones[m].id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
                         </span>
                         ${result.todo.milestones[m].milestoneName}
                     </h4>
+                    <div style="display: none;" class="milestone-display-task" id="${result.todo.milestones[m].id}-display-task">
+                    </div>
                 `
+
+                for (t = 0; t < result.todo.milestones[m].tasks.length; t ++) {
+                    document.getElementById(`${result.todo.milestones[m].id}-display-task`).innerHTML += `
+                        <li>${result.todo.milestones[m].tasks[t][0]}</li>
+                    `
+                }
             }
         }
 

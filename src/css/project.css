@@ -279,6 +279,17 @@ input[type="text"]:focus, input[type="date"]:focus {
     cursor: pointer;
 }
 
+.milestone-display .milestone-display-task {
+    width: 100%;
+    color: var(--stext);
+    margin-left: 10px;
+    padding: 0px;
+}
+
+.milestone-display .milestone-display-task li {
+    padding-left: 10px;
+    font-size: 15px
+}
 
 
 .error {
