@@ -55,9 +55,18 @@ function makeMilestone() {
         }, 5000);
     }
     else {
-        for (t = 0; t < tasks.childElementCount; t ++) {
-            console.log(tasks.childNodes[t].id)
+        data = {
+            milestoneName: milestone,
+            tasks: []
         }
+
+        for (t = 0; t < tasks.childElementCount; t ++) {
+            child = document.getElementById(tasks.childNodes[t].id)
+            console.log(child.innerText, child.id)
+            data.tasks.push([child.innerText, child.id])
+        }
+
+        console.log(data)
     }
 
     //console.log(tasks)
