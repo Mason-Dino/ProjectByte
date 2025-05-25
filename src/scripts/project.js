@@ -29,11 +29,11 @@ async function loadProject() {
                 <div style="grid-column-start: ${result.setup.milestones.column[0]}; grid-row-start: ${result.setup.milestones.row[0]}; grid-column-end: ${result.setup.milestones.column[1]}; grid-row-end: ${result.setup.milestones.row[1]};">
                     <h3>
                         Milestones
-                        <span style="float: right;">
+                        <span style="float: right;" id="milestone-icon">
                             <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                         </span>
                     </h3>
-                    <div class="milestone-setup">
+                    <div id="milestone-setup" class="milestone-setup" style="display: block">
                         <div style="width: 100%">
                             <input type="text" placeholder="Milestone Name">
                         </div>

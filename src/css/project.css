@@ -243,6 +243,7 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 .milestone-setup .task-milestone li {
     padding-left: 3px;
+    font-size: 15px
 }
 
 .milestone-setup .task-milestone li:hover {
