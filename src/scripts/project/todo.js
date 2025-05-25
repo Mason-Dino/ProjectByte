@@ -24,7 +24,7 @@ async function addTodoBackend() {
 
 
         document.getElementById("todolist").innerHTML = `<input type="text" class="value" id="todo-value" style="display: block;"><input type="date" class="date" id="todo-date" style="display: block;"><button onclick="addTodoBackend()" id="todo-add-button" style="display: block;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>`
-        document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden>Select a Task</option>`
+        document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden id="none">Select a Task</option>`
 
         today = new Date()
         today.setHours(0, 0, 0, 0);
@@ -65,7 +65,7 @@ async function addTodoBackend() {
 async function completeTask(id) {
     task = await window.electronAPI.completeTask(id)
 
-    document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden>Select a Task</option>`
+    document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden id="none">Select a Task</option>`
             
     for (m = 0; m < task.task.length; m ++) {
         document.getElementById("milestone-task").innerHTML += `

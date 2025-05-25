@@ -119,7 +119,7 @@ async function loadProject() {
         }
 
         else if (result.setup.features[i] === 'milestones') {
-            document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden>Select a Task</option>`
+            document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden id="none">Select a Task</option>`
             
             for (m = 0; m < result.todo.task.length; m ++) {
                 document.getElementById("milestone-task").innerHTML += `
