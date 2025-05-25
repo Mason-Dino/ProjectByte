@@ -7,7 +7,14 @@ function addMilestoneTask() {
 
     id = selected.id.split("-")[0]
 
-    if (!(id === 'none')) {}
+    if (!(id === 'none')) {
+        element = document.getElementById('task-milestone').innerText
+
+        element = selected.value + ', ' + element
+
+        document.getElementById('task-milestone').innerText = element
+
+    }
     else {
         document.getElementById('milestone-value-error').style = 'display: flex;'
         setTimeout(function () {
