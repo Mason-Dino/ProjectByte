@@ -35,7 +35,7 @@ async function loadProject() {
                     </h3>
                     <div id="milestone-setup" class="milestone-setup" style="display: none">
                         <div style="width: 100%">
-                            <input type="text" placeholder="Milestone Name">
+                            <input type="text" placeholder="Milestone Name" id="milestone-name">
                         </div>
                         <div style="width: 100%; margin-top: 5px; display: flex;">
                             <select id="milestone-task">
@@ -46,9 +46,8 @@ async function loadProject() {
                                 Add
                             </button>
                         </div>
-                        <ul class="task-milestone" id="task-milestone">
-                        </ul>
-                        <button class="make-milestone">
+                        <ul class="task-milestone" id="task-milestone"></ul>
+                        <button class="make-milestone" onclick="makeMilestone()">
                             <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                             Make Milestone
                         </button>
