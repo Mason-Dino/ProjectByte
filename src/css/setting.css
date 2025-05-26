@@ -97,11 +97,18 @@
     text-decoration: underline;
 }
 
+.settings .AI-setup .input-display {
+    width: 100%;
+    display: flex;
+    align-items: center
+}
+
 .settings .AI-setup input[type="password"], input[type="text"] {
     background-color: var(--intextbg);
     color: var(--intext);
 
     height: 24px;
+    width: calc(100% - 50px);
 
     margin-right: 10px;
     border-radius: 5px;
@@ -117,10 +124,18 @@
 }
 
 .settings .AI-setup button {
-    width: 108px;
-    height: 25px;
-    margin-top: 5px;
-    margin-left: 6px;
-    margin-right: 6px;
-    
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--acolor);
+    padding: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.settings .AI-setup button:hover {
+    background-color: var(--ahover);
+    border: 1.5px solid var(--ahover);
+    cursor: pointer;
 }
