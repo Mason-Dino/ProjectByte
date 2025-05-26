@@ -311,6 +311,12 @@ input[type="text"]:focus, input[type="date"]:focus {
     text-align: center;
 }
 
+.AI-display .AI-false p {
+    margin: 5px;
+    padding: 0px;
+    color: var(--stext);
+}
+
 .AI-display .AI-false a {
     color: var(--stext);
     text-decoration: underline; 
