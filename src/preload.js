@@ -13,5 +13,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     completeTask: (id) => ipcRenderer.invoke("complete:task", id),
     addLink: (link, value) => ipcRenderer.invoke('add:link', link, value),
     addMilestone: (data) => ipcRenderer.invoke("add:milestone", data),
-    completeMilestone: (id) => ipcRenderer.invoke("complete:milestone", id)
+    completeMilestone: (id) => ipcRenderer.invoke("complete:milestone", id),
+    addColor: (color) => ipcRenderer.invoke("add:color", color)
 });
