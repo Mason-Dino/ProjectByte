@@ -1,3 +1,4 @@
+//color display and function all complete
 function changeColor() {
     color = document.getElementById("color-output").value;
     document.getElementById("hex-display").innerText = color;
