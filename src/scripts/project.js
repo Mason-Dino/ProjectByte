@@ -81,7 +81,18 @@ async function loadProject() {
 
         else if (result.setup.features[i] === 'colors') {
             projectSpace += `
-            <div style="grid-column-start: ${result.setup.colors.column[0]}; grid-row-start: ${result.setup.colors.row[0]}; grid-column-end: ${result.setup.colors.column[1]}; grid-row-end: ${result.setup.colors.row[1]};">Colors</div>
+            <div style="grid-column-start: ${result.setup.colors.column[0]}; grid-row-start: ${result.setup.colors.row[0]}; grid-column-end: ${result.setup.colors.column[1]}; grid-row-end: ${result.setup.colors.row[1]};">
+                <h3>
+                    Colors
+                    <span style="float: right;" id="link-icon">
+                        <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                    </span>
+                    <div class="colors" id="colors-display">
+                        <input type="color" id="color-output" onchange="changeColor()" value="var(--intextbg)">
+                        <p id="hex-display">#2a2a2a</p>
+                    </div>
+                </h3>
+            </div>
             `
         }
 
