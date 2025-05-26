@@ -49,6 +49,13 @@
     overflow-y: scroll;
 }
 
+.settings > div > h3 {
+    margin: 0px;
+    color: var(--ptext);
+    font-size: 18px;
+    user-select: none;
+}
+
 .settings .project-edit {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -75,4 +82,45 @@
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 5;
+}
+
+.settings .AI-setup p {
+    margin: 10px;
+    padding: 0px;
+    color: var(--stext);
+    text-align: center;
+    user-select: none;
+}
+
+.settings .AI-setup p > a {
+    color: var(--stext);
+    text-decoration: underline;
+}
+
+.settings .AI-setup input[type="password"], input[type="text"] {
+    background-color: var(--intextbg);
+    color: var(--intext);
+
+    height: 24px;
+
+    margin-right: 10px;
+    border-radius: 5px;
+    
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+.settings .AI-setup input[type="password"]:focus, input[type="text"]:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
+
+.settings .AI-setup button {
+    width: 108px;
+    height: 25px;
+    margin-top: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
+    
 }
