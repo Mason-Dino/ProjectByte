@@ -572,7 +572,6 @@ ipcMain.handle("complete:milestone", async (event, id) => {
 })
 
 ipcMain.handle("add:color", async (event, color) => {
-	console.log("test12i394725")
 	console.log(color)
 
 	project = await getLoadedProject()
@@ -586,4 +585,18 @@ ipcMain.handle("add:color", async (event, color) => {
 	await fs.promises.writeFile(path.join(projectFolder, 'color.json'), JSON.stringify(data, null, 4))
 
 	return data
+})
+
+ipcMain.handle("save:notes", async (event, notes) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, '.projectbyte')
+
+	try {
+		fs.promises.writeFile(path.join(projectFolder, 'note.txt'), notes)
+		return 200
+	}
+
+	catch {
+		return 404
+	}
 })
