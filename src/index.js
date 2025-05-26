@@ -496,5 +496,40 @@ ipcMain.handle("add:milestone", async (event, milestone) => {
 
 ipcMain.handle("complete:milestone", async (event, id) => {
 	project = await getLoadedProject()
-	projectFolder = path.join(project.location)
+	projectFolder = path.join(project.location, '.projectbyte')
+
+	data = await fs.promises.readFile(path.join(projectFolder, 'task.json'), 'utf8')
+	data = JSON.parse(data)
+
+	m = 0
+	complete = null
+	while (m < data.milestones.length && complete === null) {
+		if (data.milestones[m].id === id) {
+			complete = data.milestones[m]
+			complete.index = m;
+		}
+
+		m += 1;
+	}
+
+	console.log(data)
+
+	for (t = 0; t < complete.tasks.length; t ++) {
+		console.log("test")
+		try {
+			for (i = 0; i < data.task.length; i ++) {
+				if (data.task[i].id === complete.tasks[t][1].split("-")[0]) {
+					data.task.splice(i, 1)
+				}
+			}
+		}
+
+		catch {}
+	}
+
+	data.milestones.splice(complete.index, 1)
+
+	await fs.promises.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4))
+
+	return data
 })

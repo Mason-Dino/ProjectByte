@@ -88,6 +88,7 @@ function hideTasks(id) {
     `
 }
 
-function completeMilestone(id) {
-    
+async function completeMilestone(id) {
+    data = await window.electronAPI.completeMilestone(id)
+    console.log(data)
 }
