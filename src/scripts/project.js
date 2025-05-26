@@ -84,13 +84,13 @@ async function loadProject() {
             <div style="grid-column-start: ${result.setup.colors.column[0]}; grid-row-start: ${result.setup.colors.row[0]}; grid-column-end: ${result.setup.colors.column[1]}; grid-row-end: ${result.setup.colors.row[1]};">
                 <h3>
                     Colors
-                    <span style="float: right;" id="link-icon">
-                        <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                    <span style="float: right;" id="color-icon">
+                        <svg onclick="addColorDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                     </span>
                     <div class="colors" id="colors-display">
-                        <input type="color" id="color-output" onchange="changeColor()" value="#2a2a2a">
-                        <p id="hex-display">#2a2a2a</p>
-                        <button class="c" id="todo-add-button" style="display: grid;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
+                        <input type="color" id="color-output" onchange="changeColor()" value="#2a2a2a" style="display: none;">
+                        <p id="hex-display" style="display: none;">#2a2a2a</p>
+                        <button id="color-add-button" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
                     </div>
                 </h3>
             </div>
