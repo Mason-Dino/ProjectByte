@@ -69,7 +69,7 @@ async function completeTask(id) {
             
     for (m = 0; m < task.task.length; m ++) {
         document.getElementById("milestone-task").innerHTML += `
-            <option id="${result.todo.task[m].id}-milestone">${result.todo.task[m].value}</option>
+            <option id="${task.task[m].id}-milestone">${task.task[m].value}</option>
         `
     }
 
