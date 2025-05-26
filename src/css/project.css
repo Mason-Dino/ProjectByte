@@ -392,15 +392,16 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 .notes-display {
     width: 100%;
+    height: calc(100% - 44px);
     margin-top: 10px;
     padding: 0px;
 }
 
 .notes-display textarea {
-    width: 99%;
-    max-width: 99%;
-    min-width: 99%;
-    height: 100px;
+    width: 98%;
+    max-width: 98%;
+    min-width: 98%;
+    height: 100%;
     background-color: var(--intextbg);
     color: var(--intext);
     border-radius: 5px;
