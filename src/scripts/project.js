@@ -93,7 +93,12 @@ async function loadProject() {
 
         else if (result.setup.features[i] === 'chatgpt') {
             projectSpace += `
-            <div style="grid-column-start: ${result.setup.chatgpt.column[0]}; grid-row-start: ${result.setup.chatgpt.row[0]}; grid-column-end: ${result.setup.chatgpt.column[1]}; grid-row-end: ${result.setup.chatgpt.row[1]};">AI</div>
+            <div style="grid-column-start: ${result.setup.chatgpt.column[0]}; grid-row-start: ${result.setup.chatgpt.row[0]}; grid-column-end: ${result.setup.chatgpt.column[1]}; grid-row-end: ${result.setup.chatgpt.row[1]};">
+                <h3>
+                    ProjectAI
+                </h3>
+                <div class="AI-display" id="AI-display"></div>
+            </div>
             `
         }
     }
@@ -178,7 +183,18 @@ async function loadProject() {
         }
 
         else if (result.setup.features[i] === 'chatgpt') {
+            if (result.AIsetup === false) {
+                document.getElementById("AI-display").innerHTML = `
+                    <div class="AI-false">
+                        <p>ProjectAI is not setup!</p>
+                        <p>Head to <a href="setting.html">settings</a> to setup ProjectAI</p>
+                    </div>
+                `
+            }
 
+            else if (result.AIsetup === true) {
+                console.log("test")
+            }
         }
     }
 }

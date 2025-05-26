@@ -299,6 +299,23 @@ input[type="text"]:focus, input[type="date"]:focus {
     margin-right: 6px;
 }
 
+.AI-display {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0px;
+    display: flex;
+}
+
+.AI-display .AI-false {
+    width: 100%;
+    text-align: center;
+}
+
+.AI-display .AI-false a {
+    color: var(--stext);
+    text-decoration: underline; 
+}
+
 
 .error {
     position: absolute;
