@@ -20,7 +20,6 @@ async function saveNotes() {
 
 function preventTab(event) {
     if (event.key === "Tab") {
-        console.log("test")
         event.preventDefault();
 
         const textarea = event.target;
