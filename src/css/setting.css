@@ -100,7 +100,8 @@
 .settings .AI-setup .input-display {
     width: 100%;
     display: flex;
-    align-items: center
+    align-items: center;
+    margin-top: 20px;
 }
 
 .settings .AI-setup input[type="password"], input[type="text"] {
@@ -123,7 +124,7 @@
     border: var(--acolor) solid 1.5px;
 }
 
-.settings .AI-setup button {
+.settings .AI-setup .input-display button {
     width: 24px;
     height: 24px;
     border: 1.5px solid var(--acolor);
@@ -132,6 +133,17 @@
     display: flex;
     align-items: center;
     justify-content: center
+}
+
+.settings .AI-setup .setup {
+    width: 60%;
+    height: 28px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .settings .AI-setup button:hover {
