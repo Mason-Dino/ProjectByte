@@ -88,8 +88,9 @@ async function loadProject() {
                         <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                     </span>
                     <div class="colors" id="colors-display">
-                        <input type="color" id="color-output" onchange="changeColor()" value="var(--intextbg)">
+                        <input type="color" id="color-output" onchange="changeColor()" value="#2a2a2a">
                         <p id="hex-display">#2a2a2a</p>
+                        <button class="c" id="todo-add-button" style="display: grid;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
                     </div>
                 </h3>
             </div>
