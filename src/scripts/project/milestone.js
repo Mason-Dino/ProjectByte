@@ -91,4 +91,60 @@ function hideTasks(id) {
 async function completeMilestone(id) {
     data = await window.electronAPI.completeMilestone(id)
     console.log(data)
+
+    todolist = document.getElementById("todolist").innerHTML = `<input type="text" class="value" id="todo-value" style="display: none;"><input type="date" class="date" id="todo-date" style="display: none;"><button onclick="addTodoBackend()" id="todo-add-button" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>`;
+    milestone = document.getElementById("milestone-display").innerHTML = ``;
+
+    today = new Date()
+    today.setHours(0, 0, 0, 0);
+
+    for (t = 0; t < data.task.length; t ++) {
+        checkDate = new Date(data.task[t].date)
+        checkDate.setDate(checkDate.getDate() + 1)
+        checkDate.setHours(0, 0, 0, 0)
+        date = data.task[t].date.split("-")
+
+        document.getElementById('todolist').innerHTML += `
+        <p class="value" id="${data.task[t].id}-value">${data.task[t].value}</p>
+        <p class="date" id="${data.task[t].id}-date">${date[1]}/${date[2]}/${date[0]}</p>
+        <button id="${data.task[t].id}" onclick="completeTask(this.id)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></button>
+        `
+
+        if (checkDate < today && checkDate != today) {
+            console.log(result.todo.task[t].id)
+            console.log(today, checkDate)
+            document.getElementById(`${result.todo.task[t].id}-date`).style = "color: var(--error)"
+        }
+    }
+
+    document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden id="none">Select a Task</option>`
+            
+    for (m = 0; m < data.task.length; m ++) {
+        document.getElementById("milestone-task").innerHTML += `
+            <option id="${data.task[m].id}-milestone">${data.task[m].value}</option>
+        `
+    }
+
+    for (m = 0; m < data.milestones.length; m ++) {
+        document.getElementById('milestone-display').innerHTML += `
+            <h4>
+                <span id="${data.milestones[m].id}-icon">
+                    <svg onclick="showTasks('${data.milestones[m].id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                </span>
+                ${data.milestones[m].milestoneName}
+            </h4>
+            <div style="display: none;" class="milestone-display-task" id="${data.milestones[m].id}-display-task">
+            </div>
+        `
+
+        for (t = 0; t < data.milestones[m].tasks.length; t ++) {
+            document.getElementById(`${data.milestones[m].id}-display-task`).innerHTML += `
+                <li>${data.milestones[m].tasks[t][0]}</li>
+            `
+        }
+
+        document.getElementById(`${data.milestones[m].id}-display-task`).innerHTML += `
+            <button onclick="completeMilestone('${data.milestones[m].id}')">Complete Milestone</button>
+        `
+    }
 }
