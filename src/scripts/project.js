@@ -187,7 +187,12 @@ async function loadProject() {
         }
 
         else if (result.setup.features[i] === 'colors') {
-
+            for (c = 0; c < result.color.colors.length; c ++) {
+                document.getElementById("colors-display").innerHTML += `
+                    <div class="hex" style="background-color: ${result.color.colors[c]};"></div>
+                    <p>${result.color.colors[c]}</p>
+                `
+            }
         }
 
         else if (result.setup.features[i] === 'notes') {

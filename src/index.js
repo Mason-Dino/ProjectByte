@@ -357,6 +357,13 @@ ipcMain.handle("load:whole:project", async () => {
 
 			projectData.link = links
 		}
+
+		if (setup.features[i] === 'colors') {
+			color = await fs.promises.readFile(path.join(projectbyte, 'color.json'), 'utf8')
+			color = JSON.parse(color)
+
+			projectData.color = color
+		}
 	}
 
 
