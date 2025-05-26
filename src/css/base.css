@@ -150,6 +150,13 @@ a {
 	color: var(--ptext);
 }
 
+.main h1 svg {
+	fill: var(--ptext);
+	cursor: pointer;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
 .main p {
 	color: var(--stext)
 }
