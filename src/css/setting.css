@@ -15,3 +15,64 @@
 	--intext: #e0e0e0;
 }
 
+::-webkit-scrollbar {
+    width: 12px; /* For vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); /* Track background */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--stext);
+    border-radius: 10px; /* Thumb background */
+}
+
+.settings {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: 272px 272px 272px;
+    grid-template-rows: 120px 120px 120px 120px;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.settings > div {
+    background-color: var(--card);
+    color: #000;
+    padding: 10px;
+    border-radius: 10px;
+
+    height: auto;
+    overflow: hidden; 
+    overflow-y: scroll;
+}
+
+.settings .project-edit {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.settings .AI-setup {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.settings .misc {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.settings .info {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
