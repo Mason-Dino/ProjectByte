@@ -264,6 +264,15 @@ ipcMain.handle('dialog:open', async () => {
 			console.log('Colors')
 	})
 
+	notes = "Hello World!"
+
+	fs.writeFile(path.join(path.join(filepath, `.projectbyte`), 'note.txt'), notes, (err) => {
+		if (err)
+			console.error(err)
+		else
+			console.log('Notes')
+	})
+
 	if (process.platform === 'win32') {
 		hidefile.hide(path.join(filepath, `.projectbyte`),  (err, newPath) => {
 			if (err) {
@@ -363,6 +372,12 @@ ipcMain.handle("load:whole:project", async () => {
 			color = JSON.parse(color)
 
 			projectData.color = color
+		}
+
+		if (setup.features[i] === 'notes') {
+			notes = await fs.promises.readFile(path.join(projectbyte, 'note.txt'), 'utf8')
+			
+			projectData.note = notes
 		}
 	}
 
