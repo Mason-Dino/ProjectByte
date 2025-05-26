@@ -152,6 +152,10 @@ async function loadProject() {
                         <li>${result.todo.milestones[m].tasks[t][0]}</li>
                     `
                 }
+
+                document.getElementById(`${result.todo.milestones[m].id}-display-task`).innerHTML += `
+                    <button onclick="completeMilestone('${result.todo.milestones[m].id}')">Complete Milestone</button>
+                `
             }
         }
 
