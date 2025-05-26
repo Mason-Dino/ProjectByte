@@ -1,3 +1,3 @@
-function test() {
-    document.getElementById("test").type = "text";
+function show() {
+    document.getElementById("API-key").type = "text";
 }
