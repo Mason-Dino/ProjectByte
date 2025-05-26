@@ -492,6 +492,8 @@ ipcMain.handle("add:milestone", async (event, milestone) => {
 	data.milestones.push(milestone)
 
 	await fs.promises.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4))
+
+	return data
 })
 
 ipcMain.handle("complete:milestone", async (event, id) => {

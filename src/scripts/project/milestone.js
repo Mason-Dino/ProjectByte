@@ -69,8 +69,41 @@ async function makeMilestone() {
         }
 
         console.log(data)
-        await window.electronAPI.addMilestone(data)
+        data = await window.electronAPI.addMilestone(data)
+        console.log(data)
         closeMilestoneDisplay()
+
+        milestone = document.getElementById("milestone-display").innerHTML = ``;
+        document.getElementById("milestone-task").innerHTML = `<option selected disabled hidden id="none">Select a Task</option>`
+            
+        for (m = 0; m < data.task.length; m ++) {
+            document.getElementById("milestone-task").innerHTML += `
+                <option id="${data.task[m].id}-milestone">${data.task[m].value}</option>
+            `
+        }
+
+        for (m = 0; m < data.milestones.length; m ++) {
+            document.getElementById('milestone-display').innerHTML += `
+                <h4>
+                    <span id="${data.milestones[m].id}-icon">
+                        <svg onclick="showTasks('${data.milestones[m].id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                    </span>
+                    ${data.milestones[m].milestoneName}
+                </h4>
+                <div style="display: none;" class="milestone-display-task" id="${data.milestones[m].id}-display-task">
+                </div>
+            `
+
+            for (t = 0; t < data.milestones[m].tasks.length; t ++) {
+                document.getElementById(`${data.milestones[m].id}-display-task`).innerHTML += `
+                    <li>${data.milestones[m].tasks[t][0]}</li>
+                `
+            }
+
+            document.getElementById(`${data.milestones[m].id}-display-task`).innerHTML += `
+                <button onclick="completeMilestone('${data.milestones[m].id}')">Complete Milestone</button>
+            `
+        }
     }
 }
 
