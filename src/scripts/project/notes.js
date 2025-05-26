@@ -34,4 +34,4 @@ function preventTab(event) {
     }
 }
 
-setInterval(saveNotes, 60000)
+setInterval(saveNotes, 60000*2)
