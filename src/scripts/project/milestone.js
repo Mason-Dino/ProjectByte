@@ -71,6 +71,11 @@ async function makeMilestone() {
         console.log(data)
         data = await window.electronAPI.addMilestone(data)
         console.log(data)
+
+        document.getElementById("milestone-name").value = "";
+        document.getElementById("task-milestone").innerHTML = "";
+
+
         closeMilestoneDisplay()
 
         milestone = document.getElementById("milestone-display").innerHTML = ``;
