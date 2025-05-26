@@ -12,5 +12,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     addTodoTask: (value, date) => ipcRenderer.invoke('add:task', value, date),
     completeTask: (id) => ipcRenderer.invoke("complete:task", id),
     addLink: (link, value) => ipcRenderer.invoke('add:link', link, value),
-    addMilestone: (data) => ipcRenderer.invoke("add:milestone", data)
+    addMilestone: (data) => ipcRenderer.invoke("add:milestone", data),
+    completeMilestone: (id) => ipcRenderer.invoke("complete:milestone", id)
 });

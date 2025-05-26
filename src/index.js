@@ -352,7 +352,7 @@ ipcMain.handle("load:whole:project", async () => {
 
 ipcMain.handle("add:task", async (event, value, date) => {
 	project = await getLoadedProject()
-	projectFolder = path.join(result.location, '.projectbyte')
+	projectFolder = path.join(project.location, '.projectbyte')
 	if (!fs.existsSync(path.join(projectFolder, 'task.json'))) {
 		data = {
 			task: []
@@ -401,7 +401,7 @@ ipcMain.handle("complete:task", async (event, id) => {
 	console.log(id)
 
 	project = await getLoadedProject()
-	projectFolder = path.join(result.location, '.projectbyte')
+	projectFolder = path.join(project.location, '.projectbyte')
 
 	taskList = await fs.promises.readFile(path.join(projectFolder, 'task.json'), 'utf8')
 	taskList = JSON.parse(taskList)
@@ -432,7 +432,7 @@ ipcMain.handle("complete:task", async (event, id) => {
 
 ipcMain.handle("add:link", async (event, link, value) => {
 	project = await getLoadedProject()
-	projectFolder = path.join(result.location, '.projectbyte')
+	projectFolder = path.join(project.location, '.projectbyte')
 	if (!fs.existsSync(path.join(projectFolder, 'link.json'))) {
 		data = {
 			task: [],
@@ -466,7 +466,7 @@ ipcMain.handle("add:link", async (event, link, value) => {
 
 ipcMain.handle("add:milestone", async (event, milestone) => {
 	project = await getLoadedProject()
-	projectFolder = path.join(result.location, '.projectbyte')
+	projectFolder = path.join(project.location, '.projectbyte')
 	if (!fs.existsSync(path.join(projectFolder, 'task.json'))) {
 		data = {
 			task: [],
@@ -492,4 +492,9 @@ ipcMain.handle("add:milestone", async (event, milestone) => {
 	data.milestones.push(milestone)
 
 	await fs.promises.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4))
+})
+
+ipcMain.handle("complete:milestone", async (event, id) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location)
 })
