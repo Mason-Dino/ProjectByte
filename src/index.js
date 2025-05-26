@@ -251,6 +251,19 @@ ipcMain.handle('dialog:open', async () => {
 			console.log('Links')
 	})
 
+	colors = {
+		colors: [
+
+		]
+	}
+
+	fs.writeFile(path.join(path.join(filepath, `.projectbyte`), 'color.json'), JSON.stringify(colors, null, 4), (err) => {
+		if (err)
+			console.error(err)
+		else
+			console.log('Colors')
+	})
+
 	if (process.platform === 'win32') {
 		hidefile.hide(path.join(filepath, `.projectbyte`),  (err, newPath) => {
 			if (err) {
