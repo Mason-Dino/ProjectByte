@@ -4,6 +4,8 @@ const path = require('node:path');
 const fs = require('fs');
 const hidefile = require('hidefile');
 const { json } = require('node:stream/consumers');
+//import OpenAI from "openai";
+const { OpenAI } = require("openai")
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -593,6 +595,43 @@ ipcMain.handle("save:notes", async (event, notes) => {
 
 	try {
 		fs.promises.writeFile(path.join(projectFolder, 'note.txt'), notes)
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
+
+ipcMain.handle("setup:ai", async (event, apiKey) => {
+	try {
+		data = await fs.promises.readFile("project.json", "utf8")
+		data = JSON.parse(data)
+	
+		data.AIkey = apiKey
+		data.AIsetup = true
+
+		const client = new OpenAI({
+			apiKey: apiKey
+		});
+		
+		const completion = await client.chat.completions.create({
+			model: "gpt-4o-mini",
+			messages: [
+				{
+					"role": "system",
+					"content": `You are a AI Assistant where you assist with different projects, you have these items are a todo list: 'Add Featre' due 5/17/2025, 'Remove spelling' due 5/19/2025
+								Assists the user with what they need in relation to those.
+					`
+				},
+				{
+					"role": "user",
+					"content": "Which task should I do next?"
+				}
+			],
+		});
+	
+		await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
 		return 200
 	}
 

@@ -15,5 +15,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     addMilestone: (data) => ipcRenderer.invoke("add:milestone", data),
     completeMilestone: (id) => ipcRenderer.invoke("complete:milestone", id),
     addColor: (color) => ipcRenderer.invoke("add:color", color),
-    saveNotes: (notes) => ipcRenderer.invoke("save:notes", notes)
+    saveNotes: (notes) => ipcRenderer.invoke("save:notes", notes),
+    aiSetup: (apiKey) => ipcRenderer.invoke("setup:ai", apiKey)
 });
