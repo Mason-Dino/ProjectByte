@@ -639,3 +639,10 @@ ipcMain.handle("setup:ai", async (event, apiKey) => {
 		return 404
 	}
 })
+
+ipcMain.handle("load:settings", async () => {
+	data = await fs.promises.readFile("project.json", "utf8")
+	data = JSON.parse(data)
+
+	return data
+})

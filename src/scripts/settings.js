@@ -1,3 +1,11 @@
+async function loadSettings() {
+    data = await window.electronAPI.loadSetup()
+
+    if (data.AIsetup === true) {
+        document.getElementById("API-key").value = data.AIkey;
+    }
+}
+
 function show() {
     document.getElementById("API-key").type = "text";
     document.getElementById("showhideAI").setAttribute('onclick', 'hide()')
@@ -14,5 +22,16 @@ async function AIsetup() {
     apiKey = document.getElementById("API-key").value
     result = await window.electronAPI.aiSetup(apiKey)
 
-    console.log(result)
+    if (result === 200) {
+        document.getElementById('ai-setup-success').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('ai-setup-success').style = 'display: none;'
+        }, 5000);
+    }
+    else if (result === 404) {
+        document.getElementById('ai-setup-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('ai-setup-error').style = 'display: none;'
+        }, 5000);
+    }
 }
