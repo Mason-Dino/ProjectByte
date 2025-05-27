@@ -229,13 +229,11 @@ async function loadProject() {
 
             else if (result.AIsetup === true) {
                 document.getElementById("AI-display").innerHTML = `
-                <p class="user">User</p>
-                    <p class="projectAI">ProjectAI</p>
                 `
 
                 document.getElementById("AI-input").innerHTML = `
-                <input type="text">
-                <button>
+                <input type="text" id="user-ai-input">
+                <button onclick="userProjectAI()">
                     <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
                 </button>
                 `

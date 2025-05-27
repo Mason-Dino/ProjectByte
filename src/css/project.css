@@ -332,6 +332,11 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 .AI-display .user {
     text-align: right;
+
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    margin-left: auto;
+    background-color: var(--intextbg);
 }
 
 .AI-input {
