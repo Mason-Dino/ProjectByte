@@ -36,4 +36,6 @@ async function addColorBackend() {
             <p>${data.colors[c]}</p>
         `
     }
+
+    closeColorDisplay()
 }
