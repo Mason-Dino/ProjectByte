@@ -18,5 +18,4 @@ contextBridge.exposeInMainWorld('electronAPI', {
     saveNotes: (notes) => ipcRenderer.invoke("save:notes", notes),
     loadSetup: () => ipcRenderer.invoke("load:settings"),
     aiSetup: (apiKey) => ipcRenderer.invoke("setup:ai", apiKey),
-    projectAIChat: (message) => ipcRenderer.invoke("chat:ai", message)
 });

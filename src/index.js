@@ -4,7 +4,7 @@ const path = require('node:path');
 const fs = require('fs');
 const hidefile = require('hidefile');
 const { json } = require('node:stream/consumers');
-//import OpenAI from "openai";
+const { marked } = require('marked')
 const { OpenAI } = require("openai")
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -672,7 +672,7 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 			],
 		});
 	
-		return completion
+		return marked(completion.choices[0].message.content)
 	}
 
 	catch {

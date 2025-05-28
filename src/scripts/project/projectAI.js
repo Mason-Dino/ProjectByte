@@ -42,16 +42,14 @@ async function userProjectAI() {
 
     document.getElementById("AI-display").innerHTML += `
     <div style="padding-right: 10px;">
-        <p id="${id}" class="dot-loader projectAI"></p>
+        <div id="${id}" class="dot-loader projectAI"></div>
     </div>
     `
 
     ai = await window.electronAPI.projectAIChat(userInput)
 
-    console.log(ai.choices[0].message.content)
-
     document.getElementById(id).classList = ["projectAI"]
-    document.getElementById(id).innerText = ai.choices[0].message.content
+    document.getElementById(id).innerHTML = ai
     document.getElementById(id).scrollIntoView();
 
     document.getElementById("user-ai-input").value = "";
