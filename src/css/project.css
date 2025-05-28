@@ -327,7 +327,15 @@ input[type="text"]:focus, input[type="date"]:focus {
 }
 
 .AI-display .projectAI {
+    display: block;
     float: left;
+
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--intextbg);
 }
 
 .AI-display .user {
@@ -339,6 +347,23 @@ input[type="text"]:focus, input[type="date"]:focus {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: var(--intextbg);
+}
+
+.AI-display .dot-loader {
+    width: 20px;
+    height: 20px;
+}
+
+.AI-display .dot-loader::after {
+    content: "";
+    animation: dot 1.5s steps(3, end) infinite;
+}
+
+@keyframes dot {
+    0% {content: "   "; }
+    33% {content: ".  "; }
+    66% {content: ".. "; }
+    100% {content: "..."; }
 }
 
 .AI-input {
@@ -363,6 +388,7 @@ input[type="text"]:focus, input[type="date"]:focus {
     align-items: center;
     justify-content: center;
 }
+
 
 .colors {
     margin-top: 10px;
