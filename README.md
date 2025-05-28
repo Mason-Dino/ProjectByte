@@ -90,6 +90,19 @@ v0.2.0 - Project Settings
 *    [ ] Add errors for ProjectAI
 *    [ ] Fix issues with after colors add
 
+v0.3.0 - Global Features
+*    [ ] ProjectAI
+*    [ ] Notes
+*    [ ] Ideas
+        * Allow users to think of project ideas
+        * Add mini notes for each idea to expand based off of that idea
+
+v0.4.0 - Global Seetings
+*    [ ] Delete Project
+*    [ ] Reset buttons for Ideas, ProjectAI, and Notes
+*    [ ] Info
+        * Info about ProjectByte and my info.
+
 See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a full list of proposed features (and known issues).
 
 ## Contributing
