@@ -74,8 +74,6 @@ _Below is an example of how to get started with ProjectByte!_
 4.  Start the application with `npm start`
 5.  Go to settings and put the Token in dedicated area.
 
-## Usage
-
 ## Roadmap
 
 v0.2.0 - Project Settings
