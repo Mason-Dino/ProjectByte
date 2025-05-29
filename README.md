@@ -79,6 +79,7 @@ _Below is an example of how to get started with ProjectByte!_
 v0.2.0 - Project Settings
 
 *    [ ] Edit Project Name
+*    [ ] Change the Icon
 *    [ ] Edit Project Display: `table.html`/`table.js`
 *    [ ] Delete Chat history
 *    [ ] Delete Milestone
@@ -95,7 +96,7 @@ v0.3.0 - Global Features
         * Allow users to think of project ideas
         * Add mini notes for each idea to expand based off of that idea
 
-v0.4.0 - Global Seetings
+v0.4.0 - Global Settings
 *    [ ] Delete Project
 *    [ ] Reset buttons for Ideas, ProjectAI, and Notes
 *    [ ] Info
