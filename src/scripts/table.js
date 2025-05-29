@@ -8,7 +8,7 @@ document.addEventListener("click", function (event) {
     console.log(event.target.id)
 
     if (event.target.id.split(",").length > 1) {
-        document.getElementById(event.target.id).classList = "selected";
+        document.getElementById(event.target.id).classList = "selected-item";
 
         if (starting[0] != null && starting[1] != null && clicks % 2 == 1) {
             ending[0] = parseInt(event.target.id.split(",")[0])
@@ -47,12 +47,12 @@ document.addEventListener("mouseover", function (event) {
             }
         }
 
-        document.getElementById(`${starting[0]},${starting[1]}`).classList = "selected";
+        document.getElementById(`${starting[0]},${starting[1]}`).classList = "selected-item";
         
         for (r = starting[0]; rval > 0 ? r <= hover[0] : r >= hover[0] ; r += rval) {
             for (c = starting[1]; cval > 0 ? c <= hover[1] : c >= hover[1] ; c += cval) {
                 console.log(r, c)
-                document.getElementById(`${r},${c}`).classList = "selected";
+                document.getElementById(`${r},${c}`).classList = "selected-item";
             }
         }
         console.log("--------------------------------")

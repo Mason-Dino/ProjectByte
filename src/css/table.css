@@ -14,7 +14,7 @@
 	--intext: #e0e0e0;
 }
 
-.selected {
+.selected-item {
     background-color: var(--side);
     color: #000;
     padding: 10px;
