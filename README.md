@@ -87,7 +87,7 @@ v0.2.0 - Project Settings
 *    [ ] Delete Links
 *    [ ] Press Enter for ProjectAI
 *    [ ] Add errors for ProjectAI
-*    [ ] Fix issues with after colors add
+*    [x] Fix issues with after colors add
 
 v0.3.0 - Global Features
 *    [ ] ProjectAI
