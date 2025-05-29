@@ -126,6 +126,17 @@ async function addFeature() {
         starting = [null, null]
         ending = [null, null]
     }
+
+    else {
+        document.getElementById('error-add-feature').style = 'display: flex;'
+        document.getElementById("feature").style = "display: none;"
+        document.getElementById("add-feature").style = "display: none;"
+        setTimeout(function () {
+            document.getElementById('error-add-feature').style = 'display: none;'
+            document.getElementById("feature").style = "display: block;"
+            document.getElementById("add-feature").style = "display: block;"
+        }, 5000);
+    }
 }
 
 async function saveSetup() {
