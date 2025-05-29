@@ -4,6 +4,10 @@ ending = [null, null]
 working = true
 clicks = 0
 
+setup = {
+    features: []
+}
+
 document.addEventListener("click", function (event) {
     console.log(event.target.id)
 
@@ -69,7 +73,13 @@ async function addFeature() {
     select = document.getElementById("feature").value
     console.log(select)
 
+    row = [null, null]
+    column = [null, null]
+
     if (!(starting[0] === null) && !(ending[0] === null)) {
+        row = [starting[0], ending[0]].sort()
+        column = [starting[1], ending[1]].sort()
+
         if (starting[0] > ending[0])
             rval = -1
 
@@ -87,6 +97,18 @@ async function addFeature() {
                 }
             }
         }
+
+        row[1] += 1;
+        column[1] += 1;
+
+        setup.features.push(select)
+        setup[select] = {
+            column: column,
+            row: row
+        }
+
+        console.log(setup)
+        console.log("row: ", row, "col:", column)
 
         starting = [null, null]
         ending = [null, null]
