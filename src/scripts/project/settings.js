@@ -116,6 +116,9 @@ async function loadSettings() {
 async function deleteLink(id) {
     document.getElementById(`${id}-link-link`).remove()
     document.getElementById(`${id}-link-delete`).remove()
+
+    result = await window.electronAPI.deleteLink(id)
+    console.log(result)
 }
 
 async function deleteColor(id) {

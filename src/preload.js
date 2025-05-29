@@ -21,5 +21,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
     projectAIChat: (message) => ipcRenderer.invoke("chat:ai", message),
     changeSetup: (setup) => ipcRenderer.invoke("change:setup", setup),
     changeName: (projectName) => ipcRenderer.invoke("change:name", projectName),
-    changeIcon: (icon) => ipcRenderer.invoke("change:icon", icon)
+    changeIcon: (icon) => ipcRenderer.invoke("change:icon", icon),
+    deleteLink: (id) => ipcRenderer.invoke("delete:link", id),
+    deleteColor: (id) => ipcRenderer.invoke("delete:color", id),
+    deleteMilestone: (id) => ipcRenderer.invoke("delete:milestone", id)
 });

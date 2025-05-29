@@ -729,3 +729,22 @@ ipcMain.handle("change:icon", async (event, icon) => {
 		return 404
 	}
 })
+
+ipcMain.handle("delete:link", async (event, id) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, '.projectbyte')
+
+	try {
+		data = await fs.promises.readFile(path.join(projectFolder, 'link.json'))
+		data = JSON.parse(data)
+
+		data.links.splice(id, 1)
+
+		await fs.promises.writeFile(path.join(projectFolder, 'link.json'), JSON.stringify(data, null, 4))
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
