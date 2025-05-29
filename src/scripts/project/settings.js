@@ -90,7 +90,7 @@ async function loadSettings() {
         document.getElementById("colors").innerHTML += `
         <div id="${c}-color-display" class="hex" style="background-color: ${result.color.colors[c]};"></div>
         <p id="${c}-color-hex">${result.color.colors[c]}</p>
-        <button id="${c}-color-delete"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+        <button id="${c}-color-delete" onclick="deleteColor(${c})"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
         `
     }
 
@@ -100,7 +100,7 @@ async function loadSettings() {
             <button class="link-value">${result.link.links[l].value}</button>
         </a>
         <div class="delete-parent" id="${l}-link-delete">
-            <button><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+            <button onclick="deleteLink(${l})"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
         </div>
         `
     }
@@ -108,7 +108,23 @@ async function loadSettings() {
     for (m = 0; m < result.todo.milestones.length; m ++) {
         document.getElementById("milestones").innerHTML += `
         <p id="${m}-milestone-name">${result.todo.milestones[m].milestoneName}</p>
-        <button id="${m}-milestone-delete"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+        <button id="${m}-milestone-delete" onclick="deleteMilestone(${m})"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
         `
     }
+}
+
+async function deleteLink(id) {
+    document.getElementById(`${id}-link-link`).remove()
+    document.getElementById(`${id}-link-delete`).remove()
+}
+
+async function deleteColor(id) {
+    document.getElementById(`${id}-color-display`).remove()
+    document.getElementById(`${id}-color-hex`).remove()
+    document.getElementById(`${id}-color-delete`).remove()
+}
+
+async function deleteMilestone(id) {
+    document.getElementById(`${id}-milestone-name`).remove()
+    document.getElementById(`${id}-milestone-delete`).remove()
 }
