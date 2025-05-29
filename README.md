@@ -78,8 +78,8 @@ _Below is an example of how to get started with ProjectByte!_
 
 v0.2.0 - Project Settings
 
-*    [ ] Edit Project Name
-*    [ ] Change the Icon
+*    [x] Edit Project Name
+*    [x] Change the Icon
 *    [x] Edit Project Display: `table.html`/`table.js`
 *    [ ] Delete Chat history
 *    [ ] Delete Milestone
