@@ -54,9 +54,13 @@
 			</div>
 		</div>
 		<div class="main">
+            <div class="error" id="task-value-error" style="display: none">Alert: Must provide a value and date to make a todo task!</div>
 			<h1 id="title" class="title">
+                <a href="project-setting.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+                </a>
                 Table
-                <select id="feature">
+                <select id="feature" style="display: block">
                     <option selected disabled hidden>Select a Feature</option>
                     <option id="todo" value="todolist">Todo List</option>
                     <option id="mile" value="milestones">Milestones</option>
@@ -65,11 +69,19 @@
                     <option id="note" value="notes">Notes</option>
                     <option id="ai" value="chatgpt">ProjectAI</option>
                 </select>
-                <button onclick="addFeature()">
+                <button onclick="addFeature()" id="add-feature" style="display: block">
                     Add Feature
                 </button>
+                <button onclick="saveSetup()" id="save-setup" style="display: none;" class="save-setup">
+                    Save Setup
+                </button>
+                <a href="table.html">
+                    <button id="reset-setup" style="display: none;">
+                        Reset Setup
+                    </button>
+                </a>
             </h1>
-            <div class="project-space" onclick="">
+            <div class="project-space" id="display-space">
                 <div id="1,1" class="project-space-item">1</div>
                 <div id="1,2" class="project-space-item">2</div>
                 <div id="1,3" class="project-space-item">3</div>

@@ -107,10 +107,27 @@ async function addFeature() {
             row: row
         }
 
-        console.log(setup)
-        console.log("row: ", row, "col:", column)
+        display = document.getElementById("display-space")
+
+        allDisabled = 0
+
+        for (s = 0; s < display.childElementCount; s ++) {
+            if (display.children[s].className === 'disabled-item')
+                allDisabled += 1
+        }
+
+        if (allDisabled === 12) {
+            document.getElementById("feature").style = "display: none;"
+            document.getElementById("add-feature").style = "display: none;"
+            document.getElementById("save-setup").style = "display: block"
+            document.getElementById("reset-setup").style = "display: block"
+        }
 
         starting = [null, null]
         ending = [null, null]
     }
+}
+
+async function saveSetup() {
+    await window.electronAPI.changeSetup(setup)
 }

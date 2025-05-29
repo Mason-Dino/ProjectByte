@@ -38,6 +38,10 @@
     border: none;
 }
 
+.title .save-setup {
+    margin-left: auto
+}
+
 .title select:focus {
     outline: none;
     border: var(--acolor) solid 1.5px;
