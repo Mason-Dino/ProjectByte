@@ -14,6 +14,29 @@
 	--intext: #e0e0e0;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.title select {
+    margin-left: auto;
+    background-color: var(--intextbg);
+    color: var(--intext);
+
+    height: 28px;
+    border-radius: 5px;
+    
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+.title select:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
+
 .selected-item {
     background-color: var(--side);
     color: #000;
