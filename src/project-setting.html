@@ -5,6 +5,7 @@
 		<title>ProjectBtye</title>
         <link rel="stylesheet" href="css/base.css"/>
 		<link rel="stylesheet" href="css/project-settings.css" />
+		<script src="scripts/project/settings.js"></script>
 	</head>
 	<body>
 		<div class="sidebar">
@@ -64,23 +65,23 @@
 					<h3>
                         Project Edit
 						<span style="float: right;" id="notes-icon">
-							<svg class="icon" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#e3e3e3"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
+							<svg onclick="updateInfo()" class="icon" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#e3e3e3"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg>
 						</span>
                     </h3>
 					<div class="edit">
 						<h4>Project Name:</h4>
-						<input type="text">
+						<input type="text" id="project-name">
 					</div>
 					<div class="edit">
 						<h4>Project Icon: </h4>
-						<select>
-							<option selected hidden disabled>Select Icon</option>
-							<option>Desktop</option>
-							<option>Server</option>
-							<option>Phone</option>
-							<option>Workspace</option>
-							<option>Timeline</option>
-							<option>Case</option>
+						<select id="project-icon">
+							<option selected hidden disabled value="none">Select Icon</option>
+							<option value="desktop">Desktop</option>
+							<option value="server">Server</option>
+							<option value="phone">Phone</option>
+							<option value="workspace">Workspace</option>
+							<option value="timeline">Timeline</option>
+							<option value="case">Case</option>
 						</select>
 					</div>
 				</div>
