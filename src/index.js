@@ -693,3 +693,25 @@ ipcMain.handle("change:setup", async (event, setup) => {
 		return 404
 	}
 })
+
+ipcMain.handle("change:name", async (event, projectName) => {
+	project = await getLoadedProject()
+
+	data = await fs.promises.readFile("project.json", "utf8")
+	data = JSON.parse(data)
+
+	data.projects[project.loaded].projectName = projectName
+
+	await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
+})
+
+ipcMain.handle("change:icon", async (event, icon) => {
+	project = await getLoadedProject()
+
+	data = await fs.promises.readFile("project.json", "utf8")
+	data = JSON.parse(data)
+
+	data.projects[project.loaded].icon = icon
+
+	await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
+})
