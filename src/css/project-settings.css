@@ -27,6 +27,10 @@
     border-radius: 10px; /* Thumb background */
 }
 
+.icon {
+    cursor: pointer;
+}
+
 .settings-space {
     width: 100%;
     height: calc(100vh - 100px);
