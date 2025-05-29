@@ -129,5 +129,27 @@ async function addFeature() {
 }
 
 async function saveSetup() {
-    await window.electronAPI.changeSetup(setup)
+    result = await window.electronAPI.changeSetup(setup)
+
+    if (result === 200) {
+        document.getElementById('update-setup').style = 'display: flex;'
+        document.getElementById("save-setup").style = "display: none"
+            document.getElementById("reset-setup").style = "display: none"
+        setTimeout(function () {
+            document.getElementById('update-setup').style = 'display: none;'
+            document.getElementById("save-setup").style = "display: block"
+            document.getElementById("reset-setup").style = "display: block"
+        }, 5000);
+    }
+
+    else if (result === 404) {
+        document.getElementById('error-setup').style = 'display: flex;'
+        document.getElementById("save-setup").style = "display: none"
+            document.getElementById("reset-setup").style = "display: none"
+        setTimeout(function () {
+            document.getElementById('error-setup').style = 'display: none;'
+            document.getElementById("save-setup").style = "display: block"
+            document.getElementById("reset-setup").style = "display: block"
+        }, 5000);
+    }
 }
