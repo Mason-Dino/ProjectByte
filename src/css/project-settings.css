@@ -300,3 +300,25 @@ input[type="text"]:focus, select:focus {
     grid-row-start: 4;
     grid-row-end: 5;
 }
+
+.ai-edit .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content button {
+    width: 200px;
+    margin-left: 20px;
+    background-color: var(--error);
+    color: var(--ptext);
+}
+
+.content button:hover {
+    background-color: var(--errorhover);
+}
+
+.content p {
+    color: var(--stext);
+    text-align: center;;
+}
