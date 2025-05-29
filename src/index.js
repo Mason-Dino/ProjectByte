@@ -748,3 +748,22 @@ ipcMain.handle("delete:link", async (event, id) => {
 		return 404
 	}
 })
+
+ipcMain.handle("delete:color", async (event, id) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, '.projectbyte')
+
+	try {
+		data = await fs.promises.readFile(path.join(projectFolder, 'color.json'))
+		data = JSON.parse(data)
+
+		data.colors.splice(id, 1)
+
+		await fs.promises.writeFile(path.join(projectFolder, 'color.json'), JSON.stringify(data, null, 4))
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})

@@ -125,6 +125,9 @@ async function deleteColor(id) {
     document.getElementById(`${id}-color-display`).remove()
     document.getElementById(`${id}-color-hex`).remove()
     document.getElementById(`${id}-color-delete`).remove()
+
+    result = await window.electronAPI.deleteColor(id)
+    console.log(result)
 }
 
 async function deleteMilestone(id) {
