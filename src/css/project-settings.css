@@ -13,3 +13,93 @@
 	--intextbg: #2a2a2a;
 	--intext: #e0e0e0;
 }
+
+::-webkit-scrollbar {
+    width: 12px; /* For vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); /* Track background */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--stext);
+    border-radius: 10px; /* Thumb background */
+}
+
+.settings-space {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: 272px 272px 272px;
+    grid-template-rows: 120px 120px 120px 120px;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.settings-space > div {
+    background-color: var(--card);
+    color: #000;
+    padding: 10px;
+    border-radius: 10px;
+
+    height: auto;
+    overflow: hidden; 
+    overflow-y: scroll;
+}
+
+.settings-space .project-update {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    overflow: hidden;
+}
+
+.settings-space > div > h3 {
+    margin: 0px;
+    color: var(--ptext);
+    font-size: 18px;
+    user-select: none;
+}
+
+.project-update h4 {
+    margin: 0px;
+    color: var(--stext);
+    user-select: none;
+}
+
+input[type="text"], select {
+    background-color: var(--intextbg);
+    color: var(--intext);
+
+    margin-left: 10px;
+    border-radius: 5px;
+    
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
+
+.project-update input[type="text"] {
+    width: 100px;
+    height: 24px;
+}
+
+.project-update select {
+    width: 100px;
+    height: 28px;
+}
+
+.project-update .edit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
