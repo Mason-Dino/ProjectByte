@@ -81,8 +81,8 @@ async function addFeature() {
         }
 
         else {
-            for (r = starting[0]; rval > 0 ? r <= hover[0] : r >= hover[0] ; r += rval) {
-                for (c = starting[1]; cval > 0 ? c <= hover[1] : c >= hover[1] ; c += cval) {
+            for (r = starting[0]; rval > 0 ? r <= ending[0] : r >= ending[0] ; r += rval) {
+                for (c = starting[1]; cval > 0 ? c <= ending[1] : c >= ending[1] ; c += cval) {
                     document.getElementById(`${r},${c}`).classList = "disabled-item"
                 }
             }
