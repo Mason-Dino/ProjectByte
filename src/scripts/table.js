@@ -76,9 +76,15 @@ async function addFeature() {
         if (starting[1] > ending[1])
             cval = -1
 
-        for (r = starting[0]; rval > 0 ? r <= hover[0] : r >= hover[0] ; r += rval) {
-            for (c = starting[1]; cval > 0 ? c <= hover[1] : c >= hover[1] ; c += cval) {
-                document.getElementById(`${r},${c}`).classList = "disabled-item"
+        if (starting[0] === ending[0] && starting[1] === ending[1]) {
+            document.getElementById(`${starting[0]},${ending[1]}`).classList = "disabled-item"
+        }
+
+        else {
+            for (r = starting[0]; rval > 0 ? r <= hover[0] : r >= hover[0] ; r += rval) {
+                for (c = starting[1]; cval > 0 ? c <= hover[1] : c >= hover[1] ; c += cval) {
+                    document.getElementById(`${r},${c}`).classList = "disabled-item"
+                }
             }
         }
 
