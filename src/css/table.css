@@ -23,6 +23,11 @@
     border-radius: 10px;
 }
 
+.selected-item h4 {
+    color: var(--ptext);
+    margin: 0px;
+}
+
 .project-space {
     width: 100%;
     height: calc(100vh - 100px);
@@ -44,4 +49,9 @@
 
 .project-space-item:hover {
     background-color: var(--side);
+}
+
+.project-space-item h4 {
+    color: var(--ptext);
+    margin: 0px;
 }
