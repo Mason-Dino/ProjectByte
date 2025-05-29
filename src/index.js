@@ -679,3 +679,10 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 		return 404
 	}
 })
+
+ipcMain.handle("change:setup", async (event, setup) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, '.projectbyte')
+
+	await fs.promises.writeFile(path.join(projectFolder, "setup.json"), JSON.stringify(setup, null, 4))
+})
