@@ -767,3 +767,22 @@ ipcMain.handle("delete:color", async (event, id) => {
 		return 404
 	}
 })
+
+ipcMain.handle("delete:milestone", async (event, id) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, '.projectbyte')
+
+	try {
+		data = await fs.promises.readFile(path.join(projectFolder, 'task.json'))
+		data = JSON.parse(data)
+
+		data.milestones.splice(id, 1)
+
+		await fs.promises.writeFile(path.join(projectFolder, 'task.json'), JSON.stringify(data, null, 4))
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
