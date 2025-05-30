@@ -379,6 +379,11 @@ input[type="text"]:focus, input[type="date"]:focus {
     height: 23.333px;
 }
 
+.AI-input input[type="text"]:disabled {
+    background-color: var(--intextbg);
+    color: var(--stext);
+}
+
 .AI-input button {
     width: 24px;
     height: 24px;

@@ -25,6 +25,7 @@ function genID() {
 
 async function userProjectAI() {
     userInput = document.getElementById("user-ai-input").value;
+    document.getElementById("user-ai-input").disabled = true
 
     idUser = genID()
 
@@ -52,5 +53,6 @@ async function userProjectAI() {
     document.getElementById(id).innerHTML = ai
     document.getElementById(id).scrollIntoView();
 
+    document.getElementById("user-ai-input").disabled = false
     document.getElementById("user-ai-input").value = "";
 }
