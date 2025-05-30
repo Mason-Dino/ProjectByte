@@ -116,51 +116,75 @@ async function loadSettings() {
 async function deleteLink(id) {
     result = await window.electronAPI.deleteLink(id)
 
-    console.log(result)
-    document.getElementById(`${id}-link-link`).remove()
-    document.getElementById(`${id}-link-delete-div`).remove()
+    if (result == 200) {
+        document.getElementById(`${id}-link-link`).remove()
+        document.getElementById(`${id}-link-delete-div`).remove()
 
-    parent = document.getElementById("links")
+        parent = document.getElementById("links")
 
-    for (l = 0; l < parent.childElementCount; l += 2) {
-        document.getElementById(parent.children[l].id).id = `${Math.floor(l/2)}-link-link`
-        document.getElementById(parent.children[l+1].id).id = `${Math.floor(l/2)}-link-delete-div`
-        document.getElementById(parent.children[l+1].children[0].id).setAttribute("onclick", `deleteLink(${Math.floor(l/2)})`)
+        for (l = 0; l < parent.childElementCount; l += 2) {
+            document.getElementById(parent.children[l].id).id = `${Math.floor(l/2)}-link-link`
+            document.getElementById(parent.children[l+1].id).id = `${Math.floor(l/2)}-link-delete-div`
+            document.getElementById(parent.children[l+1].children[0].id).setAttribute("onclick", `deleteLink(${Math.floor(l/2)})`)
+        }
+    }
+
+    else {
+        document.getElementById('error-link').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-link').style = 'display: none;'
+        }, 5000);
     }
 }
 
 async function deleteColor(id) {
     result = await window.electronAPI.deleteColor(id)
-    console.log(result)
     
-    document.getElementById(`${id}-color-display`).remove()
-    document.getElementById(`${id}-color-hex`).remove()
-    document.getElementById(`${id}-color-delete`).remove()
+    if (result == 200) {
+        document.getElementById(`${id}-color-display`).remove()
+        document.getElementById(`${id}-color-hex`).remove()
+        document.getElementById(`${id}-color-delete`).remove()
 
-    parent = document.getElementById("colors")
+        parent = document.getElementById("colors")
 
-    for (c = 0; c < parent.childElementCount; c += 3) {
-        document.getElementById(parent.children[c].id).id = `${Math.floor(c/3)}-color-display`
-        document.getElementById(parent.children[c+1].id).id = `${Math.floor(c/3)}-color-hex`
-        document.getElementById(parent.children[c+2].id).id = `${Math.floor(c/3)}-color-delete`
-        document.getElementById(parent.children[c+2]).setAttribute("onclick", `deleteColor(${Math.floor(c/3)})`)
+        for (c = 0; c < parent.childElementCount; c += 3) {
+            document.getElementById(parent.children[c].id).id = `${Math.floor(c/3)}-color-display`
+            document.getElementById(parent.children[c+1].id).id = `${Math.floor(c/3)}-color-hex`
+            document.getElementById(parent.children[c+2].id).id = `${Math.floor(c/3)}-color-delete`
+            document.getElementById(parent.children[c+2].id).setAttribute("onclick", `deleteColor(${Math.floor(c/3)})`)
+        }
+    }
+
+    else {
+        document.getElementById('error-color').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-color').style = 'display: none;'
+        }, 5000);
     }
 }
 
 async function deleteMilestone(id) {
     result = await window.electronAPI.deleteMilestone(id)
-    console.log(result)
 
-    document.getElementById(`${id}-milestone-name`).remove()
-    document.getElementById(`${id}-milestone-delete`).remove()
+    if (result == 200) {
+        document.getElementById(`${id}-milestone-name`).remove()
+        document.getElementById(`${id}-milestone-delete`).remove()
 
-    console.log(document.getElementById("milestones"))
+        console.log(document.getElementById("milestones"))
 
-    parent = document.getElementById("milestones")
+        parent = document.getElementById("milestones")
 
-    for (m = 0; m < parent.childElementCount; m += 2) {
-        document.getElementById(parent.children[m].id).id = `${Math.floor(m/2)}-milestone-name`
-        document.getElementById(parent.children[m+1].id).id = `${Math.floor(m/2)}-milestone-delete`
-        document.getElementById(parent.children[m+1].id).setAttribute("onclick", `deleteMilestone(${Math.floor(m/2)})`)
+        for (m = 0; m < parent.childElementCount; m += 2) {
+            document.getElementById(parent.children[m].id).id = `${Math.floor(m/2)}-milestone-name`
+            document.getElementById(parent.children[m+1].id).id = `${Math.floor(m/2)}-milestone-delete`
+            document.getElementById(parent.children[m+1].id).setAttribute("onclick", `deleteMilestone(${Math.floor(m/2)})`)
+        }
+    }
+
+    else {
+        document.getElementById('error-milestone').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-milestone').style = 'display: none;'
+        }, 5000);
     }
 }
