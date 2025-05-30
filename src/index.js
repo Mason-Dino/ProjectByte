@@ -275,6 +275,17 @@ ipcMain.handle('dialog:open', async () => {
 			console.log('Notes')
 	})
 
+	chatHistory = {
+		history: []
+	}
+
+	fs.writeFile(path.join(path.join(filepath, `.projectbyte`), 'projectAI.json'), JSON.stringify(chatHistory, null, 4), (err) => {
+		if (err)
+			console.error(err)
+		else
+			console.log('Notes')
+	})
+
 	if (process.platform === 'win32') {
 		hidefile.hide(path.join(filepath, `.projectbyte`),  (err, newPath) => {
 			if (err) {
