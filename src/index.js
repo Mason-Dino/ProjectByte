@@ -661,6 +661,8 @@ ipcMain.handle("load:settings", async () => {
 ipcMain.handle("chat:ai", async (event, chat) => {
 	project = await getLoadedProject()
 	projectFolder = path.join(project.location, '.projectbyte')
+
+	message = []
 	
 	try {
 		setup = await fs.promises.readFile("project.json", "utf8")
@@ -668,15 +670,45 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 
 		history = await fs.promises.readFile(path.join(projectFolder, "projectAI.json"), "utf8")
 		history = JSON.parse(history)
+
+		tasks = await fs.promises.readFile(path.join(projectFolder, "task.json"), "utf8")
+		tasks = JSON.parse(tasks)
+
+		if (history.history.length >= 23) {
+			history.history.splice(0, 1)
+		}
+		
+		for (m = 0; m < history.history.length; m ++) {
+			message.push(history.history[m])
+		}
 		
 		history.history.push({
 			role: "user",
 			content: chat
 		})
 
-		if (history.history.length >= 24) {
-			history.history.splice(0, 1)
+		systemMessage = `You are an AI Assistant called ProjectAI and you assists in project management tasks and the project name is ${project.projectName}, these items are on the todo list: `
+
+		for (t = 0; t < tasks.task.length; t ++) {
+			checkDate = new Date(tasks.task[t].date)
+			checkDate.setDate(checkDate.getDate() + 1)
+			checkDate.setHours(0, 0, 0, 0)
+			date = tasks.task[t].date.split("-")
+
+			systemMessage += `'${tasks.task[t].value}' due ${date[1]}/${date[2]}/${date[0]}, `
 		}
+
+		systemMessage += `Assists the user with these task and this project as a whole!`
+
+		message.push({
+			role: "system",
+			content: systemMessage
+				},)
+
+		message.push({
+			role: "user",
+			content: chat
+		})
 
 		const client = new OpenAI({
 			apiKey: setup.AIkey
@@ -684,22 +716,11 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 		
 		const completion = await client.chat.completions.create({
 			model: "gpt-4o-mini",
-			messages: [
-				{
-					"role": "system",
-					"content": `You are a AI Assistant where you assist with different projects, you have these items are a todo list: 'Add Featre' due 5/17/2025, 'Remove spelling' due 5/19/2025
-								Assists the user with what they need in relation to those.
-					`
-				},
-				{
-					"role": "user",
-					"content": chat
-				}
-			],
+			messages: message
 		});
 
 		history.history.push({
-			role: "assistance",
+			role: "assistant",
 			content: completion.choices[0].message.content
 		})
 
@@ -708,7 +729,8 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 		return marked(completion.choices[0].message.content)
 	}
 
-	catch {
+	catch(err) {
+		console.log(err)
 		return 404
 	}
 })
