@@ -87,7 +87,7 @@ v0.2.0 - Project Settings
 *    [x] Delete Links
 *    [x] Add chat history to ProjectAI
 *    [x] Press Enter for ProjectAI
-*    [ ] Add errors for ProjectAI
+*    [x] Add errors for ProjectAI
 *    [x] Fix issues with after colors add
 
 v0.3.0 - Global Features
