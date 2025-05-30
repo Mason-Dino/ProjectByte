@@ -188,3 +188,8 @@ async function deleteMilestone(id) {
         }, 5000);
     }
 }
+
+async function deleteChatHistory() {
+    result = await window.electronAPI.deleteChatHistory()
+    console.log(result)
+}

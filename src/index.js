@@ -841,3 +841,21 @@ ipcMain.handle("delete:milestone", async (event, id) => {
 		return 404
 	}
 })
+
+ipcMain.handle("delete:ai:history", async (event) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, '.projectbyte')
+
+	try {
+		history = {
+			history: []
+		}
+
+		await fs.promises.writeFile(path.join(projectFolder, 'projectAI.json'), JSON.stringify(history, null, 4))
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
