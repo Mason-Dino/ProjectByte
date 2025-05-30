@@ -85,7 +85,7 @@ v0.2.0 - Project Settings
 *    [x] Delete Milestone
 *    [x] Delete Colors
 *    [x] Delete Links
-*    [ ] Add chat history to ProjectAI
+*    [x] Add chat history to ProjectAI
 *    [ ] Press Enter for ProjectAI
 *    [ ] Add errors for ProjectAI
 *    [x] Fix issues with after colors add
