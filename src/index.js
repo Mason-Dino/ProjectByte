@@ -659,12 +659,27 @@ ipcMain.handle("load:settings", async () => {
 })
 
 ipcMain.handle("chat:ai", async (event, chat) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, '.projectbyte')
+	
 	try {
-		data = await fs.promises.readFile("project.json", "utf8")
-		data = JSON.parse(data)
+		setup = await fs.promises.readFile("project.json", "utf8")
+		setup = JSON.parse(setup)
+
+		history = await fs.promises.readFile(path.join(projectFolder, "projectAI.json"), "utf8")
+		history = JSON.parse(history)
+		
+		history.history.push({
+			role: "user",
+			content: chat
+		})
+
+		if (history.history.length >= 24) {
+			history.history.splice(0, 1)
+		}
 
 		const client = new OpenAI({
-			apiKey: data.AIkey
+			apiKey: setup.AIkey
 		});
 		
 		const completion = await client.chat.completions.create({
@@ -682,6 +697,13 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 				}
 			],
 		});
+
+		history.history.push({
+			role: "assistance",
+			content: completion.choices[0].message.content
+		})
+
+		await fs.promises.writeFile(path.join(projectFolder, "projectAI.json"), JSON.stringify(history, null, 4))
 	
 		return marked(completion.choices[0].message.content)
 	}
