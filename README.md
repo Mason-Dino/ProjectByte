@@ -82,9 +82,9 @@ v0.2.0 - Project Settings
 *    [x] Change the Icon
 *    [x] Edit Project Display: `table.html`/`table.js`
 *    [ ] Delete Chat history
-*    [ ] Delete Milestone
-*    [ ] Delete Colors
-*    [ ] Delete Links
+*    [x] Delete Milestone
+*    [x] Delete Colors
+*    [x] Delete Links
 *    [ ] Press Enter for ProjectAI
 *    [ ] Add errors for ProjectAI
 *    [x] Fix issues with after colors add
