@@ -114,13 +114,11 @@ async function loadSettings() {
 }
 
 async function deleteLink(id) {
-    console.log(id)
+    result = await window.electronAPI.deleteLink(id)
+
+    console.log(result)
     document.getElementById(`${id}-link-link`).remove()
     document.getElementById(`${id}-link-delete-div`).remove()
-
-    //result = await window.electronAPI.deleteLink(id)
-    result = 200;
-    console.log(result)
 
     parent = document.getElementById("links")
 
@@ -132,13 +130,12 @@ async function deleteLink(id) {
 }
 
 async function deleteColor(id) {
+    result = await window.electronAPI.deleteColor(id)
+    console.log(result)
+    
     document.getElementById(`${id}-color-display`).remove()
     document.getElementById(`${id}-color-hex`).remove()
     document.getElementById(`${id}-color-delete`).remove()
-
-    //result = await window.electronAPI.deleteColor(id)
-    result = 200
-    console.log(result)
 
     parent = document.getElementById("colors")
 
@@ -151,12 +148,11 @@ async function deleteColor(id) {
 }
 
 async function deleteMilestone(id) {
+    result = await window.electronAPI.deleteMilestone(id)
+    console.log(result)
+
     document.getElementById(`${id}-milestone-name`).remove()
     document.getElementById(`${id}-milestone-delete`).remove()
-
-    //result = await window.electronAPI.deleteMilestone(id)
-    result = 200
-    console.log(result)
 
     console.log(document.getElementById("milestones"))
 
