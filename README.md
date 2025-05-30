@@ -18,6 +18,7 @@ Want to have an organized project jump in with ProjectByte!
 ## About The Project
 
 ![](https://raw.githubusercontent.com/Mason-Dino/ProjectByte/refs/heads/main/Screenshots/Project-Dashboard.png)
+![](https://raw.githubusercontent.com/Mason-Dino/ProjectByte/refs/heads/main/Screenshots/Project-Settings.png)
 
 ProjectByte is an open source piece of software that helps organizes your ideas and projects into one central location. As of v0.1.1 ProjectByte has nice looking display to keep your project up to date and maybe even finish early.
 
