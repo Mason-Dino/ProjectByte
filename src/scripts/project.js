@@ -127,7 +127,7 @@ async function loadProject() {
                     ProjectAI
                 </h3>
                 <div class="AI-display" id="AI-display"></div>
-                <div id="AI-input" class="AI-input"></div>
+                <div id="AI-input" class="AI-input" onkeydown="userInputAI(event)"></div>
             </div>
             `
         }

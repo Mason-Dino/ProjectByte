@@ -23,6 +23,11 @@ function genID() {
 	return id
 }
 
+function userInputAI(event) {
+    if (event.key === 'Enter')
+        userProjectAI()
+}
+
 async function userProjectAI() {
     userInput = document.getElementById("user-ai-input").value;
     document.getElementById("user-ai-input").disabled = true
@@ -36,8 +41,6 @@ async function userProjectAI() {
     `
 
     document.getElementById(idUser).scrollIntoView();
-
-
 
     id = genID()
 
