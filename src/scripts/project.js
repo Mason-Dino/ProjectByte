@@ -127,7 +127,7 @@ async function loadProject() {
                     ProjectAI
                 </h3>
                 <div class="AI-display" id="AI-display"></div>
-                <div id="AI-input" class="AI-input" onkeydown="userInputAI(event)"></div>
+                <div id="AI-input" class="AI-input"></div>
             </div>
             `
         }
@@ -232,7 +232,7 @@ async function loadProject() {
                 `
 
                 document.getElementById("AI-input").innerHTML = `
-                <input type="text" id="user-ai-input">
+                <input type="text" id="user-ai-input" onkeydown="userInputAI(event)">
                 <button onclick="userProjectAI()">
                     <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
                 </button>

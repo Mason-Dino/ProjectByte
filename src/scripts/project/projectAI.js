@@ -51,6 +51,13 @@ async function userProjectAI() {
     `
 
     ai = await window.electronAPI.projectAIChat(userInput)
+    
+    if (ai == 404) {
+        document.getElementById('ai-chat-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('ai-chat-error').style = 'display: none;'
+        }, 5000);
+    }
 
     document.getElementById(id).classList = ["projectAI"]
     document.getElementById(id).innerHTML = ai
