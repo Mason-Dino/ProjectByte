@@ -191,5 +191,18 @@ async function deleteMilestone(id) {
 
 async function deleteChatHistory() {
     result = await window.electronAPI.deleteChatHistory()
-    console.log(result)
+
+    if (result == 200) {
+        document.getElementById('delete-history').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('delete-history').style = 'display: none;'
+        }, 5000);
+    }
+
+    else {
+        document.getElementById('error-history').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-history').style = 'display: none;'
+        }, 5000);
+    }
 }
