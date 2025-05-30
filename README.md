@@ -81,7 +81,7 @@ v0.2.0 - Project Settings
 *    [x] Edit Project Name
 *    [x] Change the Icon
 *    [x] Edit Project Display: `table.html`/`table.js`
-*    [ ] Delete Chat history
+*    [x] Delete Chat history
 *    [x] Delete Milestone
 *    [x] Delete Colors
 *    [x] Delete Links
