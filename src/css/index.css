@@ -48,3 +48,26 @@
 	font-size: 20px;
 	margin:  0px;
 }
+
+.projects h4 {
+	user-select: none;
+	font-weight: bold;
+	font-size: 18px;
+	margin:  0px;
+	margin-top: 20px;
+	color: var(--stext);
+
+	display: flex;
+	align-items: center;
+
+	width: 100%;
+}
+
+.projects h4 .line {
+	height: 3px;
+	flex: 1;
+	background-color: var(--divider);
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 5px;
+}
