@@ -310,6 +310,19 @@ ipcMain.handle("load:projects", async () => {
 	return data;
 });
 
+ipcMain.handle("load:recent:project", async () => {
+	projects = await fs.promises.readFile("project.json", "utf8")
+	projects = JSON.parse(projects)
+
+	recentProject = {
+		loaded: projects.loaded,
+		projectName: projects.projects[projects.loaded].projectName,
+		icon: projects.projects[projects.loaded].icon
+	}
+
+	return recentProject
+})
+
 ipcMain.handle("ready:project", async (event, number) => {
 	fs.readFile('project.json', 'utf8', (err, data) => {
 		if (err) {
