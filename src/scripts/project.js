@@ -114,7 +114,7 @@ async function loadProject() {
                     </span>
                 </h3>
                 <div class="notes-display">
-                    <textarea id="notes" onkeydown="preventTab(event)"></textarea>
+                    <textarea id="notes" onkeydown="preventTab(event)" spellcheck = "true"></textarea>
                 </div>
             </div>
             `

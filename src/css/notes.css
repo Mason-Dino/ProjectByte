@@ -13,3 +13,28 @@
 	--intextbg: #2a2a2a;
 	--intext: #e0e0e0;
 }
+
+.notes-display {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    padding: 0px;
+}
+
+.notes-display textarea {
+    width: 98%;
+    max-width: 98%;
+    min-width: 98%;
+    height: 100%;
+    background-color: var(--intextbg);
+    color: var(--intext);
+    border-radius: 5px;
+    border: var(--divider) solid 1.5px;
+    padding: 5px;
+    margin: 0px;
+}
+
+.notes-display textarea:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
