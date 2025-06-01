@@ -15,8 +15,10 @@
 }
 
 .notes-display {
+    resize: none;
     width: 100%;
-    height: 100%;
+    min-height: 70vh;
+    height: 70vh;
     margin-top: 20px;
     padding: 0px;
 }
