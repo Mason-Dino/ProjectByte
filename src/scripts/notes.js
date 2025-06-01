@@ -20,7 +20,7 @@ async function projectButtons() {
 async function changePage(num) {
     page = num
     notes = await window.electronAPI.getNotes(page)
-    console.log(notes)
+    document.getElementById("notes").value = notes
 }
 
 function preventTab(event) {
