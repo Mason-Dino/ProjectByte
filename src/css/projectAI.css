@@ -45,6 +45,8 @@ input[type="text"]:focus, input[type="date"]:focus {
 .AI-display .projectAI {
     display: block;
     float: left;
+    width: fit-content;
+    max-width: 60%;
 
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
@@ -57,6 +59,8 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 .AI-display .user {
     text-align: right;
+    width: fit-content;
+    max-width: 60%;
 
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
