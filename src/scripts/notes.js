@@ -17,7 +17,7 @@ async function projectButtons() {
     }
 }
 
-function changePage(num) {
+async function changePage(num) {
     page = num
 }
 
