@@ -1,3 +1,5 @@
+page = -1
+
 async function projectButtons() {
     console.log("test")
 
@@ -5,14 +7,18 @@ async function projectButtons() {
     result = JSON.parse(result)
 
     document.getElementById("notes-bar").innerHTML += `
-        <button>Global</button>
+        <button onclick="changePage(-1)">Global</button>
     `
 
     for (p = 0; p < result.projects.length; p ++) {
         document.getElementById("notes-bar").innerHTML += `
-            <button>${result.projects[p].projectName}</button>
+            <button onclick="changePage(${p})">${result.projects[p].projectName}</button>
         `
     }
+}
+
+function changePage(num) {
+    page = num
 }
 
 function preventTab(event) {
@@ -29,4 +35,8 @@ function preventTab(event) {
         // Move caret
         textarea.selectionStart = textarea.selectionEnd = start + 1;
     }
+}
+
+async function saveNotes() {
+    console.log(page)
 }
