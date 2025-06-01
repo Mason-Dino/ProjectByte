@@ -42,6 +42,10 @@ input[type="text"]:focus, input[type="date"]:focus {
     flex-direction: column;
 }
 
+.chat-history {
+    height: calc(100vh - 110px);
+}
+
 .AI-display .projectAI {
     display: block;
     float: left;
