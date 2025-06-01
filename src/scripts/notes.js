@@ -58,3 +58,5 @@ async function saveNotes() {
         }, 5000);
     }
 }
+
+setInterval(saveNotes, 60000*2)
