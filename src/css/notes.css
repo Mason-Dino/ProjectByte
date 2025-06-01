@@ -14,6 +14,15 @@
 	--intext: #e0e0e0;
 }
 
+.active-notes-button {
+    background-color: var(--side) !important;
+    color: var(--ptext) !important;
+    border-radius: 5px;
+    border: var(--divider) solid 1.5px;
+    padding: 5px;
+    margin: 0px;
+}
+
 .notes-display {
     resize: none;
     width: 100%;

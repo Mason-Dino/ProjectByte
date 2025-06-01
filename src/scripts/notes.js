@@ -7,20 +7,26 @@ async function projectButtons() {
     result = JSON.parse(result)
 
     document.getElementById("notes-bar").innerHTML += `
-        <button onclick="changePage(-1)">Global</button>
+        <button id="-1-notes" onclick="changePage(-1)" class="active-notes-button">Global</button>
     `
 
     for (p = 0; p < result.projects.length; p ++) {
         document.getElementById("notes-bar").innerHTML += `
-            <button onclick="changePage(${p})">${result.projects[p].projectName}</button>
+            <button id="${p}-notes" onclick="changePage(${p})">${result.projects[p].projectName}</button>
         `
     }
 }
 
 async function changePage(num) {
+    
+    last = page
     page = num
+    
     notes = await window.electronAPI.getNotes(page)
     document.getElementById("notes").value = notes
+
+    document.getElementById(`${last}-notes`).className = ""
+    document.getElementById(`${page}-notes`).className = "active-notes-button"
 }
 
 function preventTab(event) {
