@@ -22,6 +22,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     loadSetup: () => ipcRenderer.invoke("load:settings"),
     aiSetup: (apiKey) => ipcRenderer.invoke("setup:ai", apiKey),
     projectAIChat: (message) => ipcRenderer.invoke("chat:ai", message),
+    projectAIChatGlobal: (message) => ipcRenderer.invoke("chat:ai:global", message),
     changeSetup: (setup) => ipcRenderer.invoke("change:setup", setup),
     changeName: (projectName) => ipcRenderer.invoke("change:name", projectName),
     changeIcon: (icon) => ipcRenderer.invoke("change:icon", icon),

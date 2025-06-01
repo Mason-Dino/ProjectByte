@@ -826,6 +826,89 @@ ipcMain.handle("change:setup", async (event, setup) => {
 	}
 })
 
+ipcMain.handle("chat:ai:global", async (event, chat) => {
+	message = []
+	tasks = []
+	
+	try {
+		project = await fs.promises.readFile("project.json", "utf8")
+		project = JSON.parse(project)
+
+		history = await fs.promises.readFile("projectAI.json", "utf8")
+		history = JSON.parse(history)
+
+		for (p = 0; p < project.projects.length; p ++) {
+			projectFolder = path.join(project.projects[p].location, '.projectbyte')
+			taskData = await fs.promises.readFile(path.join(projectFolder, "task.json"), "utf8")
+			taskData = JSON.parse(taskData)
+
+			for (t = 0; t < taskData.task.length; t ++) {
+				tasks.push([taskData.task[t].value, taskData.task[t].date, project.projects[p].projectName])
+			}
+		}
+
+		if (history.history.length >= 48) {
+			history.history.splice(0, 1)
+		}
+		
+		for (m = 0; m < history.history.length; m ++) {
+			message.push(history.history[m])
+		}
+		
+		history.history.push({
+			role: "user",
+			content: chat
+		})
+
+		systemMessage = `You are an AI Assistant called ProjectAI and you assists in project management tasks and this deals with every project, these items are on the todo list: `
+
+		for (t = 0; t < tasks.length; t ++) {
+			checkDate = new Date(tasks[t][1])
+			checkDate.setDate(checkDate.getDate() + 1)
+			checkDate.setHours(0, 0, 0, 0)
+			date = tasks[t][1].split("-")
+
+			systemMessage += `'${tasks[t][0]}' due ${date[1]}/${date[2]}/${date[0]} with project "${tasks[t][2]}", `
+		}
+
+
+		systemMessage += `Assists the user with these task and this project as a whole!`
+
+		message.push({
+			role: "system",
+			content: systemMessage
+				},)
+
+		message.push({
+			role: "user",
+			content: chat
+		})
+
+		const client = new OpenAI({
+			apiKey: project.AIkey
+		});
+		
+		const completion = await client.chat.completions.create({
+			model: "gpt-4o-mini",
+			messages: message
+		});
+
+		history.history.push({
+			role: "assistant",
+			content: completion.choices[0].message.content
+		})
+
+		await fs.promises.writeFile(path.join(projectFolder, "projectAI.json"), JSON.stringify(history, null, 4))
+	
+		return marked(completion.choices[0].message.content)
+	}
+
+	catch(err) {
+		console.log(err)
+		return 404
+	}
+})
+
 ipcMain.handle("change:name", async (event, projectName) => {
 	project = await getLoadedProject()
 
