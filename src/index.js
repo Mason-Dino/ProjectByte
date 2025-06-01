@@ -3,10 +3,8 @@ const shell = require('electron').shell;
 const path = require('node:path');
 const fs = require('fs');
 const hidefile = require('hidefile');
-const { json } = require('node:stream/consumers');
 const { marked } = require('marked')
 const { OpenAI } = require("openai");
-const { read } = require('node:fs');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
