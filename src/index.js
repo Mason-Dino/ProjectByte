@@ -64,6 +64,18 @@ app.whenReady().then(() => {
 			}
 		})
 	}
+
+	if (!(fs.existsSync("projectAI.json"))) {
+		chatHistory = {
+			history: []
+		}
+
+		fs.writeFile("projectAI.json", JSON.stringify(chatHistory, null, 4), (err) => {
+			if (err) {
+				console.log(err)
+			}
+		})
+	}
 	
 	// On OS X it's common to re-create a window in the app when the
 	// dock icon is clicked and there are no other windows open.
