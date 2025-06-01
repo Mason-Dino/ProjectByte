@@ -92,7 +92,7 @@ v0.2.0 - Project Settings
 *    [x] Fix issues with after colors add
 
 v0.3.0 - Global Features
-*    [ ] ProjectAI
+*    [x] ProjectAI
 *    [x] Notes
 *    [ ] Ideas
         * Allow users to think of project ideas
