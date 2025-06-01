@@ -40,5 +40,21 @@ function preventTab(event) {
 }
 
 async function saveNotes() {
-    console.log(page)
+    notes = document.getElementById("notes").value;
+
+    result = await window.electronAPI.saveNotesGlobal(page, notes)
+    console.log(result)
+
+    if (result === 200) {
+        document.getElementById('notes-save-success').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('notes-save-success').style = 'display: none;'
+        }, 5000);
+    }
+    else {
+        document.getElementById('notes-save-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('notes-save-error').style = 'display: none;'
+        }, 5000);
+    }
 }

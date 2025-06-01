@@ -646,6 +646,29 @@ ipcMain.handle("get:notes", async (event, num) => {
 	return notes
 })
 
+ipcMain.handle("save:notes:global", async (event, num, notes) => {
+	try {
+		if (num == -1) {
+			await fs.promises.writeFile("note.txt", notes)
+		}
+
+		else {
+			projects = await fs.promises.readFile("project.json", "utf8")
+			projects = JSON.parse(projects)
+
+			projectFolder = path.join(projects.projects[num].location, ".projectbyte")
+
+			notes = await fs.promises.writeFile(path.join(projectFolder, "note.txt"), notes)
+		}
+
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
+
 ipcMain.handle("setup:ai", async (event, apiKey) => {
 	try {
 		data = await fs.promises.readFile("project.json", "utf8")
