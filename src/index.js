@@ -357,6 +357,14 @@ ipcMain.handle("ready:project", async (event, number) => {
 		projects = JSON.parse(data)
 		projects.loaded = number
 
+		for (i = 0; i < projects.activity.length; i ++) {
+			if (projects.activity[i] == number) {
+				projects.activity.splice(i, 1)
+			}
+		}
+
+		projects.activity.splice(0, 0, number)
+
 		fs.writeFile('project.json', JSON.stringify(projects, null, 4), (err) => {
 			if (err) {
 				console.error(err);
