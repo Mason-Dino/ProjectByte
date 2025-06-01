@@ -102,6 +102,8 @@ v0.3.0 - Global Features
 
 v0.4.0 - Global Settings
 *    [ ] Delete Project
+*    [ ] Archive Project
+*    [ ] Open Archive Project
 *    [ ] Reset buttons for Ideas, ProjectAI, and Notes
 *    [ ] Info
         * Info about ProjectByte and my info.
