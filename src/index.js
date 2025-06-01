@@ -752,7 +752,7 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 		tasks = JSON.parse(tasks)
 
 		if (history.history.length >= 23) {
-			history.history.splice(0, 1)
+			history.history.splice(0, history.history.length - 23)
 		}
 		
 		for (m = 0; m < history.history.length; m ++) {
@@ -848,7 +848,7 @@ ipcMain.handle("chat:ai:global", async (event, chat) => {
 		}
 
 		if (history.history.length >= 48) {
-			history.history.splice(0, 1)
+			history.history.splice(0, history.history.length - 48)
 		}
 		
 		for (m = 0; m < history.history.length; m ++) {
@@ -1018,4 +1018,23 @@ ipcMain.handle("delete:ai:history", async (event) => {
 	catch {
 		return 404
 	}
+})
+
+ipcMain.handle("load:ai:history", async (event) => {
+	project = await getLoadedProject()
+	projectFolder = path.join(project.location, ".projectbyte")
+
+	history = await fs.promises.readFile(path.join(projectFolder, "projectAI.json"), "utf8")
+	history = JSON.parse(history)
+
+	messages = []
+
+	for (m = 0; m < history.history.length; m ++) {
+		messages.push({
+			role: history.history[m].role,
+			content: marked(history.history[m].content)
+		})
+	}
+
+	return messages
 })

@@ -29,5 +29,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     deleteLink: (id) => ipcRenderer.invoke("delete:link", id),
     deleteColor: (id) => ipcRenderer.invoke("delete:color", id),
     deleteMilestone: (id) => ipcRenderer.invoke("delete:milestone", id),
-    deleteChatHistory: (id) => ipcRenderer.invoke("delete:ai:history")
+    deleteChatHistory: (id) => ipcRenderer.invoke("delete:ai:history"),
+    loadChatHistory: () => ipcRenderer.invoke("load:ai:history")
 });
