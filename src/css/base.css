@@ -92,6 +92,7 @@ a {
 	padding: 10px;
 	color: var(--ptext);
 	font-weight: 400;
+	user-select: none;
 }
 
 .sidebar .unselected {
@@ -161,6 +162,7 @@ a {
 
 .main h1{
 	color: var(--ptext);
+	user-select: none;
 }
 
 .main h1 svg {
