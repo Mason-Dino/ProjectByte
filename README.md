@@ -98,8 +98,8 @@ v0.3.0 - Global Features
         * Allow users to think of project ideas
         * Add mini notes for each idea to expand based off of that idea
 *    [x] Add recent project on home screen
-*    [ ] Add button to view chat history
-*    [ ] Display project on `index.html` based off activity
+*    [x] Add button to view chat history
+*    [x] Display project on `index.html` based off activity
 
 v0.4.0 - Global Settings
 *    [ ] Delete Project
