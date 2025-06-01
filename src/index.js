@@ -1030,10 +1030,20 @@ ipcMain.handle("load:ai:history", async (event) => {
 	messages = []
 
 	for (m = 0; m < history.history.length; m ++) {
-		messages.push({
-			role: history.history[m].role,
-			content: marked(history.history[m].content)
-		})
+		if (history.history[m].role === "user") {
+			messages.push({
+				role: history.history[m].role,
+				content: history.history[m].content
+			})
+		}
+
+		else {
+			messages.push({
+				role: history.history[m].role,
+				content: marked(history.history[m].content)
+			})
+		}
+
 	}
 
 	return messages
