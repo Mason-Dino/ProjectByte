@@ -107,6 +107,7 @@ v0.4.0 - Global Settings
 *    [ ] Reset buttons for Ideas, ProjectAI, and Notes
 *    [ ] Info
         * Info about ProjectByte and my info.
+*    [ ] Remove console.logs()
 
 See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a full list of proposed features (and known issues).
 
