@@ -5,7 +5,8 @@ const fs = require('fs');
 const hidefile = require('hidefile');
 const { json } = require('node:stream/consumers');
 const { marked } = require('marked')
-const { OpenAI } = require("openai")
+const { OpenAI } = require("openai");
+const { read } = require('node:fs');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -626,6 +627,23 @@ ipcMain.handle("save:notes", async (event, notes) => {
 	catch {
 		return 404
 	}
+})
+
+ipcMain.handle("get:notes", async (event, num) => {
+	if (num == -1) {
+		notes = await fs.promises.readFile("note.txt", "utf8")
+	}
+
+	else {
+		projects = await fs.promises.readFile("project.json", "utf8")
+		projects = JSON.parse(projects)
+
+		projectFolder = path.join(projects.projects[num].location, ".projectbyte")
+
+		notes = await fs.promises.readFile(path.join(projectFolder, "note.txt"), "utf8")
+	}
+
+	return notes
 })
 
 ipcMain.handle("setup:ai", async (event, apiKey) => {
