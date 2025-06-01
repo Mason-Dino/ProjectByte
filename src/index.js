@@ -181,6 +181,7 @@ ipcMain.handle('dialog:open', async () => {
 
 		projectList = projects['projects']
 		projectList.push(projectData)
+		projects.activity.splice(1, 0, projectList.length-1)
 
 		//projects['projects'].push(projectData)
 
