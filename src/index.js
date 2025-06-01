@@ -52,6 +52,18 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
 	createWindow();
+
+	console.log(fs.existsSync("note.txt"))
+
+	if (!(fs.existsSync("note.txt"))) {
+		notes = "Hello World!"
+
+		fs.writeFile("note.txt", notes, (err) => {
+			if (err) {
+				console.log(err)
+			}
+		})
+	}
 	
 	// On OS X it's common to re-create a window in the app when the
 	// dock icon is clicked and there are no other windows open.
