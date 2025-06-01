@@ -93,7 +93,7 @@ v0.2.0 - Project Settings
 
 v0.3.0 - Global Features
 *    [ ] ProjectAI
-*    [ ] Notes
+*    [x] Notes
 *    [ ] Ideas
         * Allow users to think of project ideas
         * Add mini notes for each idea to expand based off of that idea
