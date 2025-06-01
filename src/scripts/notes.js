@@ -14,3 +14,19 @@ async function projectButtons() {
         `
     }
 }
+
+function preventTab(event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
+
+        const textarea = event.target;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+
+        // Insert tab character at caret
+        textarea.value = textarea.value.substring(0, start) + "\t" + textarea.value.substring(end);
+
+        // Move caret
+        textarea.selectionStart = textarea.selectionEnd = start + 1;
+    }
+}
