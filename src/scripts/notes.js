@@ -10,9 +10,15 @@ async function projectButtons() {
         <button id="-1-notes" onclick="changePage(-1)" class="active-notes-button">Global</button>
     `
 
-    for (p = 0; p < result.projects.length; p ++) {
+    repeat = result.activity.length
+
+    if (repeat > 4) {
+        repeat = 4
+    }
+
+    for (p = 0; p < repeat; p ++) {
         document.getElementById("notes-bar").innerHTML += `
-            <button id="${p}-notes" onclick="changePage(${p})">${result.projects[p].projectName}</button>
+            <button id="${result.activity[p]}-notes" onclick="changePage(${result.activity[p]})">${result.projects[result.activity[p]].projectName}</button>
         `
     }
 }
