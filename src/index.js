@@ -1057,3 +1057,10 @@ ipcMain.handle("load:ai:history", async (event) => {
 
 	return messages
 })
+
+ipcMain.handle("check:ai:setup", async () => {
+	project = await fs.promises.readFile("project.json")
+	project = JSON.parse(project)
+
+	return project.AIsetup
+})

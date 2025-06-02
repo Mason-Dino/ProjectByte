@@ -23,6 +23,16 @@ function genID() {
 	return id
 }
 
+async function checkSetup() {
+    result = await window.electronAPI.checkAISetup()
+    console.log(result)
+
+    if (result == false) {
+        document.getElementById("AI-input").style = "display: none;"
+        document.getElementById("AI-false").style = "display: block"
+    }
+}
+
 function userInputAI(event) {
     if (event.key === 'Enter')
         userProjectAI()
