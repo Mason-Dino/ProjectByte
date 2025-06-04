@@ -4,6 +4,8 @@ function addTodoDisplay() {
     document.getElementById("todo-date").style = 'display: block';
     document.getElementById("todo-add-button").style = 'display: block';
     document.getElementById("todolist-icon").innerHTML = '<svg onclick="closeTodoDisplay()" class="add" xmlns="http://www.w3.org/2000/svg" height="23px" viewBox="0 -960 960 960" width="23px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>';
+
+    document.getElementById("todo-value").focus()
 }
 
 function closeTodoDisplay() {

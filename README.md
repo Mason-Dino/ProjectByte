@@ -106,7 +106,7 @@ v0.3.0 - Global Features
 *    [ ] add error code for editing idea name
 *    [ ] add placeholders everywhere!
         * [ ] Project Dashboard
-                * [ ] Todo
+                * [x] Todo
                 * [ ] Milestone
                 * [ ] Link
                 * [x] ProjectAI
@@ -114,7 +114,7 @@ v0.3.0 - Global Features
         * [x] ProjectAI
 *    [ ] Focus when opening up a add element
         * [ ] Project Dashboard
-                * [ ] Todo
+                * [x] Todo
                 * [ ] Milestone
                 * [ ] Link
                 * [x] ProjectAI
