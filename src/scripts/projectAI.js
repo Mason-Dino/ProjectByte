@@ -110,4 +110,6 @@ async function loadHistory() {
             document.getElementById(id).innerHTML = result[m].content
         }
     }
+
+    document.getElementById("AI-display").scrollTop = document.getElementById("AI-display").scrollHeight
 }
