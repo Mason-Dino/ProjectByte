@@ -118,7 +118,7 @@ v0.3.0 - Global Features
                 * [ ] Milestone
                 * [ ] Link
                 * [ ] ProjectAI
-        * [ ] Notes
+        * [x] Notes
         * [x] Ideas
         * [x] ProjectAI
 *    [x] add error codes for saving idea notes

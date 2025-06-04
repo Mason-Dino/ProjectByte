@@ -33,6 +33,8 @@ async function changePage(num) {
 
     document.getElementById(`${last}-notes`).className = ""
     document.getElementById(`${page}-notes`).className = "active-notes-button"
+
+    document.getElementById("notes").focus()
 }
 
 function preventTab(event) {
