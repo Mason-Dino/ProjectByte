@@ -105,6 +105,11 @@ v0.3.0 - Global Features
 *    [ ] Allow user to edit idea names
 *    [ ] add error code for editing idea name
 *    [ ] add placeholders everywhere!
+*    [ ] Focus when opening up a add element
+        * [ ] Project Dashboard
+        * [ ] Notes
+        * [ ] Ideas
+        * [ ] ProjectAI
 *    [x] add error codes for saving idea notes
 *    [x] Add recent project on home screen
 *    [x] Add button to view chat history
