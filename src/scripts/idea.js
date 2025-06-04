@@ -39,3 +39,15 @@ function displayCloseAddIdea() {
 
     document.getElementById("idea-icon-button").setAttribute("onclick", "displayAddIdea()")
 }
+
+function ideaInput(event) {
+    if (event.key === 'Enter') {
+        makeIdea()
+    }
+}
+
+async function makeIdea() {
+    idea = document.getElementById("idea-name").value
+
+    result = await window.electronAPI.addIdea(idea)
+}

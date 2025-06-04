@@ -31,5 +31,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     deleteMilestone: (id) => ipcRenderer.invoke("delete:milestone", id),
     deleteChatHistory: (id) => ipcRenderer.invoke("delete:ai:history"),
     loadChatHistory: () => ipcRenderer.invoke("load:ai:history"),
-    checkAISetup: () => ipcRenderer.invoke("check:ai:setup")
+    checkAISetup: () => ipcRenderer.invoke("check:ai:setup"),
+    addIdea: (idea) => ipcRenderer.invoke("add:idea", idea)
 });
