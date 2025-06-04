@@ -56,7 +56,7 @@ async function loadIdeas() {
         id = result.ideas[i].id
 
         document.getElementById("idea-display").innerHTML += `
-        <p id="0-idea">
+        <p id="${id}-idea">
             <span id="${id}-arrow">
                 <svg id="${id}-arrow-button" onclick="displayIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
             </span>
@@ -86,7 +86,7 @@ async function makeIdea() {
     id = result.content.id
 
     document.getElementById("idea-display").innerHTML = `
-    <p id="0-idea">
+    <p id="${id}-idea">
         <span id="${id}-arrow">
             <svg id="${id}-arrow-button" onclick="displayIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
         </span>
