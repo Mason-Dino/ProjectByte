@@ -117,9 +117,17 @@ async function loadNotes(id) {
     result = await window.electronAPI.loadIdeaNotes(id)
     document.getElementById("notes").value = result.content
     document.getElementById("notes").disabled = false
+    document.getElementById("notes").setAttribute("name", id)
+
+    console.log(document.getElementById("notes").getAttribute("name"))
 }
 
 function closeNotes() {
     document.getElementById("notes").value = "Load an Idea to use the notes!"
     document.getElementById("notes").disabled = true
+    document.getElementById("notes").setAttribute("name", "none")
+}
+
+async function saveNotes() {
+
 }
