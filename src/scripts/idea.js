@@ -51,6 +51,25 @@ async function loadIdeas() {
     result = await window.electronAPI.loadIdeas()
 
     console.log(result)
+
+    for (i = 0; i < result.ideas.length; i ++) {
+        id = result.ideas[i].id
+
+        document.getElementById("idea-display").innerHTML += `
+        <p id="0-idea">
+            <span id="${id}-arrow">
+                <svg id="${id}-arrow-button" onclick="displayIdea(${id})" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+            </span>
+            ${result.ideas[i].ideaName}
+            <span id="${id}-add" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+            </span>
+            <span id="${id}-delete" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+            </span>
+        </p>
+        `
+    }
 }
 
 async function makeIdea() {
