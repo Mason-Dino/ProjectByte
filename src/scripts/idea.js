@@ -142,3 +142,5 @@ async function saveNotes() {
         console.log("please load a idea item")
     }
 }
+
+setInterval(saveNotes, 60000)
