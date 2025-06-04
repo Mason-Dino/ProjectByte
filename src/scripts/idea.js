@@ -294,7 +294,7 @@ async function makeSubIdea(id) {
 
     if (result.message == 200) {
         document.getElementById(`${id}-subidea`).innerHTML += `
-        <p id="${result.content.id}">${result.content.value}</p>
+        <p ondblclick="deleteSubIdea('${result.content.id}')" id="${result.content.id}">${result.content.value}</p>
         `
 
         displayCloseMakeSubidea(id)
@@ -314,7 +314,12 @@ async function deleteSubIdea(id) {
     if (result == 200)
         document.getElementById(id).remove()
 
-    else;
+    else {
+        document.getElementById('error-delete-subidea').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-delete-subidea').style = 'display: none;'
+        }, 5000);
+    }
 }
 
 function displayEditIdea(id) {
