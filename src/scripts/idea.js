@@ -352,6 +352,9 @@ async function editIdea(id) {
     }
 
     else {
-        //error
+        document.getElementById('error-edit-idea').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-edit-idea').style = 'display: none;'
+        }, 5000);
     }
 }

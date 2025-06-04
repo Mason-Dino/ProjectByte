@@ -103,7 +103,7 @@ v0.3.0 - Global Features
 *    [x] add error code for making subideas
 *    [x] add error code for deleting subidea
 *    [x] Allow user to edit idea names
-*    [ ] add error code for editing idea name
+*    [x] add error code for editing idea name
 *    [x] add placeholders everywhere!
         * [x] Project Dashboard
                 * [x] Todo
