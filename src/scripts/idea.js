@@ -273,5 +273,10 @@ async function makeSubIdea(id) {
 }
 
 async function deleteSubIdea(id) {
-    document.getElementById(id).remove()
+    result = await window.electronAPI.deleteSubIdea(id)
+    
+    if (result == 200)
+        document.getElementById(id).remove()
+
+    else;
 }
