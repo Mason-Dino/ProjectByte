@@ -118,6 +118,24 @@ input[type="text"]:focus, input[type="date"]:focus {
 	justify-content: center;
 }
 
+.idea-display p span button {
+	width: 24px;
+	height: 24px;
+	padding: 0px;
+	outline: none;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-left: 5px;
+}
+
+.idea-display p span button svg {
+	fill: var(--ptext);
+	cursor: pointer;
+}
+
 .idea-display p svg {
 	fill: var(--stext);
 	cursor: pointer;
