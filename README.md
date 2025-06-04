@@ -102,6 +102,9 @@ v0.3.0 - Global Features
 *    [x] add error codes for loading idea notes
 *    [ ] add error code for making subideas
 *    [ ] add error code for deleting subidea
+*    [ ] Allow user to edit idea names
+*    [ ] add error code for editing idea name
+*    [ ] add placeholders everywhere!
 *    [x] add error codes for saving idea notes
 *    [x] Add recent project on home screen
 *    [x] Add button to view chat history
