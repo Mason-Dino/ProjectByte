@@ -79,7 +79,8 @@
 }
 
 .idea-display p svg {
-	fill: var(--stext)
+	fill: var(--stext);
+	cursor: pointer;
 }
 
 .notes { 
