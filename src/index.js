@@ -5,6 +5,7 @@ const fs = require('fs');
 const hidefile = require('hidefile');
 const { marked } = require('marked')
 const { OpenAI } = require("openai");
+const { before } = require('node:test');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -1161,10 +1162,24 @@ ipcMain.handle("load:idea:notes", async (event, id) => {
 
 ipcMain.handle("save:idea:notes", async (event, id, notes) => {
 	try {
+		data = await fs.promises.readFile("idea.json", "utf8")
+		data = JSON.parse(data)
+
+		beforeData = data
+
+		for (i = 0 ; i < data.ideas.length; i ++) {
+			if (data.ideas[i].id == id) {
+				data.ideas[i].notes = notes
+			}
+		}
+
+		await fs.promises.writeFile("idea.json", JSON.stringify(data, null, 4))
+
 		return 200
 	}
 
-	catch {
+	catch(err) {
+		console.log(err)
 		return 404
 	}
 })

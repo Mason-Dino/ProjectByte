@@ -129,5 +129,16 @@ function closeNotes() {
 }
 
 async function saveNotes() {
+    id = document.getElementById("notes").getAttribute("name")
+    notes = document.getElementById("notes").value
 
+
+    if (!(id == "none")) {
+        result = await window.electronAPI.saveIdeaNotes(id, notes)
+        console.log(result)
+    }
+
+    else {
+        console.log("please load a idea item")
+    }
 }
