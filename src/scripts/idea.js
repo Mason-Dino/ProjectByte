@@ -164,10 +164,16 @@ async function loadNotes(id) {
     }
 }
 
-function closeNotes() {
-    document.getElementById("notes").value = "Load an Idea to use the notes!"
-    document.getElementById("notes").disabled = true
-    document.getElementById("notes").setAttribute("name", "none")
+async function closeNotes() {
+    result = await saveNotes()
+
+    if (result == 200) {
+        document.getElementById("notes").value = "Load an Idea to use the notes!"
+        document.getElementById("notes").disabled = true
+        document.getElementById("notes").setAttribute("name", "none")
+    }
+
+    else;
 }
 
 async function saveNotes() {
@@ -183,6 +189,8 @@ async function saveNotes() {
             setTimeout(function () {
                 document.getElementById('success-saving-notes').style = 'display: none;'
             }, 5000);
+
+            return 200
         }
 
         else {
@@ -190,8 +198,10 @@ async function saveNotes() {
             setTimeout(function () {
                 document.getElementById('error-saving-notes').style = 'display: none;'
             }, 5000);
+
+            return 404
         }
     }
 }
 
-setInterval(saveNotes, 60000)
+setInterval(saveNotes, 60000*2)
