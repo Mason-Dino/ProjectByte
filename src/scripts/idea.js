@@ -91,8 +91,8 @@ async function loadIdeas() {
                     ${result.ideas[i].ideaName}
                 </span>
                 <span id="${id}-idea-edit" style="display: none">
-                    <input type="text">
-                    <button><svg xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 -960 960 960" width="21px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button>
+                    <input type="text" id="${id}-idea-edit-name">
+                    <button onclick="displayCloseEditIdea('${id}')"><svg xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 -960 960 960" width="21px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button>
                     <button><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"/></svg></button>
                 </span>
             </span>
@@ -301,4 +301,14 @@ async function deleteSubIdea(id) {
 function displayEditIdea(id) {
     document.getElementById(`${id}-idea-name`).style = "display: none;"
     document.getElementById(`${id}-idea-edit`).style = "display: flex"
+}
+
+function displayCloseEditIdea(id) {
+    document.getElementById(`${id}-idea-name`).style = "display: flex;"
+    document.getElementById(`${id}-idea-edit`).style = "display: none"
+    document.getElementById(`${id}-idea-edit-name`).value = ""
+}
+
+async function editIdea(id) {
+
 }
