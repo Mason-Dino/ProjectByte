@@ -136,6 +136,11 @@ async function saveNotes() {
     if (!(id == "none")) {
         result = await window.electronAPI.saveIdeaNotes(id, notes)
         console.log(result)
+
+        document.getElementById('success-saving-notes').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('success-saving-notes').style = 'display: none;'
+        }, 5000);
     }
 }
 
