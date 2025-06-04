@@ -107,7 +107,7 @@ input[type="text"]:focus, input[type="date"]:focus {
 	align-items: center;
 	user-select: none;
 
-	grid-template-columns: 20px auto 20px 20px;
+	grid-template-columns: 20px calc(100% - 60px) 20px 20px;
 }
 
 .idea-display p span {
