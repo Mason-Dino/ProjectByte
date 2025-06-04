@@ -120,6 +120,32 @@ input[type="text"]:focus, input[type="date"]:focus {
 	cursor: pointer;
 }
 
+.idea-display .subidea {
+	margin-left: 20px;
+	display: block;
+}
+
+.idea-display .subidea p {
+	margin-left: 10px;
+	display: flex;
+}
+
+.idea-display .subidea .input {
+	display: flex;
+	align-items: center;
+}
+
+.subidea .input input[type="text"] {
+	width: 80%;
+}
+
+.subidea .input button {
+	width: 24px;
+	height: 24px;
+	padding: 0px;
+	outline: none;
+}
+
 .notes { 
 	grid-column-start: 2;
 	grid-column-end: 3;
