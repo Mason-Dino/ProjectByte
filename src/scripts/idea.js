@@ -19,7 +19,7 @@ function displayCloseIdea(id) {
 
     document.getElementById(`${id}-arrow-button`).setAttribute("onclick", `displayIdea('${id}')`)
 
-    closeNotes()
+    closeNotes("auto")
 
     document.getElementById(`${id}-add`).style = "display: none;"
     document.getElementById(`${id}-delete`).style = "display: none;"
@@ -133,8 +133,10 @@ async function makeIdea() {
 async function deleteIdea(id) {
     result = await window.electronAPI.deleteIdea(id)
 
-    if (result == 200)
+    if (result == 200) {
         document.getElementById(`${id}-idea`).remove()
+        closeNotes("delete")
+    }
 
     else {
         document.getElementById('error-delete-idea').style = 'display: flex;'
@@ -164,10 +166,12 @@ async function loadNotes(id) {
     }
 }
 
-async function closeNotes() {
-    result = await saveNotes()
+async function closeNotes(fun) {
+    if (fun == "auto")
+        result = await saveNotes()
 
-    if (result == 200) {
+
+    if (result == 200 || fun == "delete") {
         document.getElementById("notes").value = "Load an Idea to use the notes!"
         document.getElementById("notes").disabled = true
         document.getElementById("notes").setAttribute("name", "none")
