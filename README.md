@@ -107,7 +107,7 @@ v0.3.0 - Global Features
 *    [ ] add placeholders everywhere!
         * [ ] Project Dashboard
                 * [x] Todo
-                * [ ] Milestone
+                * [x] Milestone
                 * [x] Link
                 * [x] ProjectAI
         * [x] Ideas
@@ -115,7 +115,7 @@ v0.3.0 - Global Features
 *    [ ] Focus when opening up a add element
         * [ ] Project Dashboard
                 * [x] Todo
-                * [ ] Milestone
+                * [x] Milestone
                 * [x] Link
                 * [x] ProjectAI
         * [x] Notes
