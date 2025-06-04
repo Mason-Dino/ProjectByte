@@ -1,12 +1,15 @@
-function displayIdea(id) {
+async function displayIdea(id) {
     document.getElementById(`${id}-arrow`).innerHTML = `
     <svg id="${id}-arrow-button" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
     `
-
+    
     document.getElementById(`${id}-arrow-button`).setAttribute("onclick", `displayCloseIdea('${id}')`)
+    
+    await loadNotes(id)
 
     document.getElementById(`${id}-add`).style = "display: flex;"
     document.getElementById(`${id}-delete`).style = "display: flex;"
+
 }
 
 function displayCloseIdea(id) {
@@ -15,6 +18,8 @@ function displayCloseIdea(id) {
     `
 
     document.getElementById(`${id}-arrow-button`).setAttribute("onclick", `displayIdea('${id}')`)
+
+    closeNotes()
 
     document.getElementById(`${id}-add`).style = "display: none;"
     document.getElementById(`${id}-delete`).style = "display: none;"
@@ -106,4 +111,15 @@ async function deleteIdea(id) {
     result = await window.electronAPI.deleteIdea(id)
     console.log(result)
     document.getElementById(`${id}-idea`).remove()
+}
+
+async function loadNotes(id) {
+    result = await window.electronAPI.loadIdeaNotes(id)
+    document.getElementById("notes").value = result.content
+    document.getElementById("notes").disabled = false
+}
+
+function closeNotes() {
+    document.getElementById("notes").value = "Load an Idea to use the notes!"
+    document.getElementById("notes").disabled = true
 }

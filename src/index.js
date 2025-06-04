@@ -1133,10 +1133,28 @@ ipcMain.handle("delete:idea", async (event, id) => {
 
 ipcMain.handle("load:idea:notes", async (event, id) => {
 	try {
-		return 200
+		notes = null
+
+		data = await fs.promises.readFile("idea.json", "utf8")
+		data = JSON.parse(data)
+
+		for (i = 0; i < data.ideas.length; i ++) {
+			if (data.ideas[i].id === id)
+				notes = data.ideas[i].notes
+		}
+
+		if (notes == null)
+			return {message: 404}
+
+		else {
+			return {
+				message: 200,
+				content: notes
+			}
+		}
 	}
 
 	catch {
-		return 404
+		return {message: 404}
 	}
 })
