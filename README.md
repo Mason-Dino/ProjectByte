@@ -109,7 +109,7 @@ v0.3.0 - Global Features
                 * [ ] Todo
                 * [ ] Milestone
                 * [ ] Link
-                * [ ] ProjectAI
+                * [x] ProjectAI
         * [x] Ideas
         * [x] ProjectAI
 *    [ ] Focus when opening up a add element
