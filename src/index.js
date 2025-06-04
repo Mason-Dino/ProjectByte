@@ -1183,3 +1183,13 @@ ipcMain.handle("save:idea:notes", async (event, id, notes) => {
 		return 404
 	}
 })
+
+ipcMain.handle("add:sub:idea", async (event, id, subidea) => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
