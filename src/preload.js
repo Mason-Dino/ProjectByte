@@ -38,5 +38,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     loadIdeaNotes: (id) => ipcRenderer.invoke("load:idea:notes", id),
     saveIdeaNotes: (id, notes) => ipcRenderer.invoke("save:idea:notes", id, notes),
     addSubIdea: (id, subidea) => ipcRenderer.invoke("add:sub:idea", id, subidea),
-    deleteSubIdea: (id) => ipcRenderer.invoke("delete:sub:idea", id)
+    deleteSubIdea: (id) => ipcRenderer.invoke("delete:sub:idea", id),
+    editIdea: (id, newName) => ipcRenderer.invoke("edit:idea", id, newName)
 });

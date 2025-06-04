@@ -1236,3 +1236,13 @@ ipcMain.handle("delete:sub:idea", async (event, id) => {
 		return 404
 	}
 })
+
+ipcMain.handle("edit:idea", async (event, id, newName) => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
