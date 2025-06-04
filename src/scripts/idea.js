@@ -256,7 +256,10 @@ async function makeSubIdea(id) {
     result = await window.electronAPI.addSubIdea(id, subidea)
     console.log(result)
 
-    document.getElementById(`${id}-subidea`).innerHTML += `
-    <p id="${result.content.id}">${result.content.value}</p>
-    `
+    if (result.message == 200)
+        document.getElementById(`${id}-subidea`).innerHTML += `
+        <p id="${result.content.id}">${result.content.value}</p>
+        `
+
+    else;
 }
