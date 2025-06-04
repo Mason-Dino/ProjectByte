@@ -1239,6 +1239,17 @@ ipcMain.handle("delete:sub:idea", async (event, id) => {
 
 ipcMain.handle("edit:idea", async (event, id, newName) => {
 	try {
+		data = await fs.promises.readFile("idea.json", "utf8")
+		data = JSON.parse(data)
+
+		for (i = 0; i < data.ideas.length; i ++) {
+			if (data.ideas[i].id == id) {
+				data.ideas[i].ideaName = newName
+			}
+		}
+
+		await fs.promises.writeFile("idea.json", JSON.stringify(data, null, 4))
+
 		return 200
 	}
 
