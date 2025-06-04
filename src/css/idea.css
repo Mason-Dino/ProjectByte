@@ -127,3 +127,28 @@ input[type="text"]:focus, input[type="date"]:focus {
 	grid-row-start: 1;
 	grid-row-end: 2;
 }
+
+.notes .notes-display {
+    width: 100%;
+    height: calc(100vh - 184px);
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.notes-display textarea {
+    width: 97%;
+    max-width: 97%;
+    min-width: 97%;
+    height: 100%;
+    background-color: var(--intextbg);
+    color: var(--intext);
+    border-radius: 5px;
+    border: var(--divider) solid 1.5px;
+    padding: 5px;
+    margin: 0px;
+}
+
+.notes-display textarea:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
