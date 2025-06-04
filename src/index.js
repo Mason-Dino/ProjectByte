@@ -1122,9 +1122,21 @@ ipcMain.handle("delete:idea", async (event, id) => {
 		}
 
 		await fs.promises.writeFile("idea.json", JSON.stringify(data, null, 4))
+
+		return 200
 	}
 
 	catch { 
 		return 400
+	}
+})
+
+ipcMain.handle("load:idea:notes", async (event, id) => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
 	}
 })
