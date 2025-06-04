@@ -100,7 +100,7 @@ v0.3.0 - Global Features
 *    [x] Add error codes for making ideas
 *    [x] add error codes for deleting ideas
 *    [x] add error codes for loading idea notes
-*    [ ] add error code for making subideas
+*    [x] add error code for making subideas
 *    [ ] add error code for deleting subidea
 *    [ ] Allow user to edit idea names
 *    [ ] add error code for editing idea name

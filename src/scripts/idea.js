@@ -300,7 +300,12 @@ async function makeSubIdea(id) {
         displayCloseMakeSubidea(id)
     }
 
-    else;
+    else {
+        document.getElementById('error-add-subidea').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-add-subidea').style = 'display: none;'
+        }, 5000);
+    }
 }
 
 async function deleteSubIdea(id) {
