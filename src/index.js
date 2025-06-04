@@ -82,7 +82,7 @@ app.whenReady().then(() => {
 			ideas: []
 		}
 
-		fs.write("idea.json", JSON.stringify(idea, null, 4), (err) => {
+		fs.writeFile("idea.json", JSON.stringify(idea, null, 4), (err) => {
 			if (err) {
 				console.log(err)
 			}
