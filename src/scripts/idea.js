@@ -99,12 +99,15 @@ async function loadIdeas() {
                     <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                 </button>
             </div>
-            <p>Idea 1</p>
-            <p>Idea 2</p>
-            <p>Idea 3</p>
-            <p>Idea 4</p>
         </div>
         `
+
+        for (s = 0; s < result.ideas[i].subIdeas.length; s ++) {
+            console.log(result.ideas[i].subIdeas[s])
+            document.getElementById(`${id}-subidea`).innerHTML += `
+                <p id="${result.ideas[i].subIdeas[s].id}">${result.ideas[i].subIdeas[s].value}</p>
+            `
+        }
     }
 
     displayAddIdea()
