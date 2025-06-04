@@ -104,7 +104,7 @@ v0.3.0 - Global Features
 *    [ ] add error code for deleting subidea
 *    [ ] Allow user to edit idea names
 *    [ ] add error code for editing idea name
-*    [ ] add placeholders everywhere!
+*    [x] add placeholders everywhere!
         * [x] Project Dashboard
                 * [x] Todo
                 * [x] Milestone
