@@ -1213,3 +1213,13 @@ ipcMain.handle("add:sub:idea", async (event, id, subidea) => {
 		return 404
 	}
 })
+
+ipcMain.handle("delete:sub:idea", async (event, id) => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
