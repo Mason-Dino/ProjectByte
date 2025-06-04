@@ -25,14 +25,22 @@
     column-gap: 10px;
 }
 
-.idea-space div {
+.idea-space > div {
 	background-color: var(--card);
-	color: var(--ptext);
-	font-weight: bold;
-	padding: 10px;
-	font-size: 30px;
-	text-align: center;
-	border-radius: 10px;
+    color: #000;
+    padding: 10px;
+    border-radius: 10px;
+
+    height: auto;
+    overflow: hidden; 
+    overflow-y: scroll;
+}
+
+.idea-space > div > h3 {
+    margin: 0px;
+    color: var(--ptext);
+    font-size: 18px;
+    user-select: none;
 }
 
 .ideas {
