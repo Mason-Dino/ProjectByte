@@ -137,10 +137,6 @@ async function saveNotes() {
         result = await window.electronAPI.saveIdeaNotes(id, notes)
         console.log(result)
     }
-
-    else {
-        console.log("please load a idea item")
-    }
 }
 
 setInterval(saveNotes, 60000)
