@@ -799,7 +799,7 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 
 		date = new Date()
 
-		systemMessage += `Assists the user with these task and this project as a whole! Today is ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+		systemMessage += `Assists the user with these task and this project as a whole! The date today is ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 
 		message.push({
 			role: "system",
