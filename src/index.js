@@ -1186,6 +1186,20 @@ ipcMain.handle("save:idea:notes", async (event, id, notes) => {
 
 ipcMain.handle("add:sub:idea", async (event, id, subidea) => {
 	try {
+		data = await fs.promises.readFile("idea.json", "utf8")
+		data = JSON.parse(data)
+
+		for (i = 0; i < data.ideas.length; i ++) {
+			if (data.ideas[i].id == id) {
+				data.ideas[i].subIdeas.push({
+					id: genTaskID(),
+					value: subidea
+				})
+			}
+		}
+
+		await fs.promises.writeFile("idea.json", JSON.stringify(data, null, 4))
+
 		return 200
 	}
 

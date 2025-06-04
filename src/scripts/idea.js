@@ -249,4 +249,7 @@ function subIdeaInput(event, id) {
 async function makeSubIdea(id) {
     subidea = document.getElementById(`${id}-subidea-input-txt`).value
     console.log(subidea)
+
+    result = await window.electronAPI.addSubIdea(id, subidea)
+    console.log(result)
 }
