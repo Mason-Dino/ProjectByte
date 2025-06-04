@@ -1077,6 +1077,13 @@ ipcMain.handle("check:ai:setup", async () => {
 	return project.AIsetup
 })
 
+ipcMain.handle("load:idea", async () => {
+	data = await fs.promises.readFile("idea.json", "utf8")
+	data = JSON.parse(data)
+
+	return data
+})
+
 ipcMain.handle("add:idea", async (event, idea) => {
 	try {
 		data = await fs.promises.readFile("idea.json", "utf8")

@@ -47,6 +47,12 @@ function ideaInput(event) {
     }
 }
 
+async function loadIdeas() {
+    result = await window.electronAPI.loadIdeas()
+
+    console.log(result)
+}
+
 async function makeIdea() {
     idea = document.getElementById("idea-name").value
     display = document.getElementById("idea-display").innerHTML
