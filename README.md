@@ -110,7 +110,7 @@ v0.3.0 - Global Features
                 * [ ] Milestone
                 * [ ] Link
                 * [ ] ProjectAI
-        * [ ] Ideas
+        * [x] Ideas
         * [ ] ProjectAI
 *    [ ] Focus when opening up a add element
         * [ ] Project Dashboard
