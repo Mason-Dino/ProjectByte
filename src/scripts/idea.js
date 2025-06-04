@@ -32,7 +32,7 @@ function displayAddIdea() {
     document.getElementById("idea-input").style = "display: flex"
     
     document.getElementById("idea-icon").innerHTML = `
-    <svg id="idea-icon-button" class=add xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+    <svg id="idea-icon-button" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
     `
     
     document.getElementById("idea-icon-button").setAttribute("onclick", "displayCloseAddIdea()")
@@ -86,7 +86,7 @@ async function loadIdeas() {
             </span>
             ${result.ideas[i].ideaName}
             <span id="${id}-add" style="display: none;">
-                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                <svg id="${id}-add-button" onclick="displayMakeSubidea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
             </span>
             <span id="${id}-delete" style="display: none;">
                 <svg onclick="deleteIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
@@ -94,7 +94,7 @@ async function loadIdeas() {
         </p>
         <div id="${id}-subidea" class="subidea" style="display: none;">
             <div id="${id}-subidea-input" class="input" style="display: none;">
-                <input type="text">
+                <input type="text" id="${id}-subidea-input-txt">
                 <button onclick="makeIdea()">
                     <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                 </button>
@@ -224,3 +224,19 @@ async function saveNotes() {
 }
 
 setInterval(saveNotes, 60000*2)
+
+async function displayMakeSubidea(id) {
+    document.getElementById(`${id}-subidea-input`).style = "display: flex;"
+    document.getElementById(`${id}-add`).innerHTML = `<svg id="${id}-add-button" class="add" xmlns="http://www.w3.org/2000/svg" height="17px" viewBox="0 -960 960 960" width="17px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>`
+
+    document.getElementById(`${id}-add-button`).setAttribute("onclick",`displayCloseMakeSubidea('${id}')`)
+}
+
+async function displayCloseMakeSubidea(id) {
+    document.getElementById(`${id}-subidea-input`).style = "display: none;"
+    document.getElementById(`${id}-add`).innerHTML = `<svg id="${id}-add-button" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>`
+
+    document.getElementById(`${id}-add-button`).setAttribute("onclick",`displayMakeSubidea('${id}')`)
+
+    document.getElementById(`${id}-subidea-input-txt`).value = null
+}
