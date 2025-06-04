@@ -131,12 +131,20 @@ async function makeIdea() {
             </span>
             ${result.content.ideaName}
             <span id="${id}-add" style="display: none;">
-                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                <svg id="${id}-add-button" onclick="displayMakeSubidea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
             </span>
             <span id="${id}-delete" style="display: none;">
                 <svg onclick="deleteIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
             </span>
         </p>
+        <div id="${id}-subidea" class="subidea" style="display: none;">
+            <div id="${id}-subidea-input" class="input" style="display: none;">
+                <input type="text" id="${id}-subidea-input-txt" onkeydown="subIdeaInput(event, '${id}')">
+                <button onclick="makeSubIdea('${id}')">
+                    <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                </button>
+            </div>
+        </div>
         ` + display
     }
 
