@@ -99,43 +99,69 @@ async function loadIdeas() {
 async function makeIdea() {
     idea = document.getElementById("idea-name").value
     display = document.getElementById("idea-display").innerHTML
-
     result = await window.electronAPI.addIdea(idea)
-    console.log(result)
-    displayCloseAddIdea()
 
-    id = result.content.id
+    if (result.message == 200) {
+        displayCloseAddIdea()
+    
+        id = result.content.id
+    
+        document.getElementById("idea-display").innerHTML = `
+        <p id="${id}-idea">
+            <span id="${id}-arrow">
+                <svg id="${id}-arrow-button" onclick="displayIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+            </span>
+            ${result.content.ideaName}
+            <span id="${id}-add" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+            </span>
+            <span id="${id}-delete" style="display: none;">
+                <svg onclick="deleteIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+            </span>
+        </p>
+        ` + display
+    }
 
-    document.getElementById("idea-display").innerHTML = `
-    <p id="${id}-idea">
-        <span id="${id}-arrow">
-            <svg id="${id}-arrow-button" onclick="displayIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
-        </span>
-        ${result.content.ideaName}
-        <span id="${id}-add" style="display: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
-        </span>
-        <span id="${id}-delete" style="display: none;">
-            <svg onclick="deleteIdea('${id}')" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
-        </span>
-    </p>
-    ` + display
-
+    else {
+        document.getElementById('error-add-idea').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-add-idea').style = 'display: none;'
+        }, 5000);
+    }
 }
 
 async function deleteIdea(id) {
     result = await window.electronAPI.deleteIdea(id)
-    console.log(result)
-    document.getElementById(`${id}-idea`).remove()
+
+    if (result == 200)
+        document.getElementById(`${id}-idea`).remove()
+
+    else {
+        document.getElementById('error-delete-idea').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-delete-idea').style = 'display: none;'
+        }, 5000);
+    }
+
 }
 
 async function loadNotes(id) {
     result = await window.electronAPI.loadIdeaNotes(id)
-    document.getElementById("notes").value = result.content
-    document.getElementById("notes").disabled = false
-    document.getElementById("notes").setAttribute("name", id)
 
-    console.log(document.getElementById("notes").getAttribute("name"))
+    if (result.message == 200) {
+        document.getElementById("notes").value = result.content
+        document.getElementById("notes").disabled = false
+        document.getElementById("notes").setAttribute("name", id)
+
+        console.log(document.getElementById("notes").getAttribute("name"))
+    }
+
+    else {
+        document.getElementById('error-loading-notes').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('error-loading-notes').style = 'display: none;'
+        }, 5000);
+    }
 }
 
 function closeNotes() {
@@ -151,12 +177,20 @@ async function saveNotes() {
 
     if (!(id == "none")) {
         result = await window.electronAPI.saveIdeaNotes(id, notes)
-        console.log(result)
 
-        document.getElementById('success-saving-notes').style = 'display: flex;'
-        setTimeout(function () {
-            document.getElementById('success-saving-notes').style = 'display: none;'
-        }, 5000);
+        if (result == 200)  {
+            document.getElementById('success-saving-notes').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('success-saving-notes').style = 'display: none;'
+            }, 5000);
+        }
+
+        else {
+            document.getElementById('error-saving-notes').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('error-saving-notes').style = 'display: none;'
+            }, 5000);
+        }
     }
 }
 
