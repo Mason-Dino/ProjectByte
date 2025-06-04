@@ -105,7 +105,7 @@ async function loadIdeas() {
         for (s = 0; s < result.ideas[i].subIdeas.length; s ++) {
             console.log(result.ideas[i].subIdeas[s])
             document.getElementById(`${id}-subidea`).innerHTML += `
-                <p id="${result.ideas[i].subIdeas[s].id}">${result.ideas[i].subIdeas[s].value}</p>
+                <p ondblclick="deleteSubIdea('${result.ideas[i].subIdeas[s].id}')" id="${result.ideas[i].subIdeas[s].id}">${result.ideas[i].subIdeas[s].value}</p>
             `
         }
     }
@@ -270,4 +270,8 @@ async function makeSubIdea(id) {
         `
 
     else;
+}
+
+async function deleteSubIdea(id) {
+    document.getElementById(id).remove()
 }
