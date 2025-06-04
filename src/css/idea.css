@@ -19,6 +19,25 @@
 	cursor: pointer;
 }
 
+input[type="text"], input[type="date"] {
+    background-color: var(--intextbg);
+    color: var(--intext);
+
+    margin-right: 10px;
+    border-radius: 5px;
+
+	height: 22px;
+    
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
+
 .idea-space {
 	width: 100%;
     height: calc(100vh - 100px);
@@ -57,6 +76,25 @@
 .idea .idea-display {
 	width: 100%;
 	padding-left: 5px;
+}
+
+.idea .idea-input {
+	width: 100%;
+	padding-left: 5px;
+
+	display: flex;
+	align-items: center;
+}
+
+.idea-input input {
+	width: 80%;
+}
+
+.idea-input button {
+	width: 24px;
+	height: 24px;
+	padding: 0px;
+	outline: none;
 }
 
 .idea-display p {
