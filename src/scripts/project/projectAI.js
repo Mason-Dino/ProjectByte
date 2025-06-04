@@ -65,4 +65,6 @@ async function userProjectAI() {
 
     document.getElementById("user-ai-input").disabled = false
     document.getElementById("user-ai-input").value = "";
+
+    document.getElementById("user-ai-input").focus()
 }
