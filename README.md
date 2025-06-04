@@ -108,7 +108,7 @@ v0.3.0 - Global Features
         * [ ] Project Dashboard
                 * [x] Todo
                 * [ ] Milestone
-                * [ ] Link
+                * [x] Link
                 * [x] ProjectAI
         * [x] Ideas
         * [x] ProjectAI
@@ -116,7 +116,7 @@ v0.3.0 - Global Features
         * [ ] Project Dashboard
                 * [x] Todo
                 * [ ] Milestone
-                * [ ] Link
+                * [x] Link
                 * [x] ProjectAI
         * [x] Notes
         * [x] Ideas
