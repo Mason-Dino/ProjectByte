@@ -1158,3 +1158,13 @@ ipcMain.handle("load:idea:notes", async (event, id) => {
 		return {message: 404}
 	}
 })
+
+ipcMain.handle("save:idea:notes", async (event, id, notes) => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})

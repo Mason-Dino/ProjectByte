@@ -100,6 +100,7 @@ v0.3.0 - Global Features
 *    [ ] Add error codes for making ideas
 *    [ ] add error codes for deleting ideas
 *    [ ] add error codes for loading idea notes
+*    [ ] add error codes for saving idea notes
 *    [x] Add recent project on home screen
 *    [x] Add button to view chat history
 *    [x] Display project on `index.html` based off activity
