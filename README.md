@@ -98,6 +98,7 @@ v0.3.0 - Global Features
         * Allow users to think of project ideas
         * Add mini notes for each idea to expand based off of that idea
 *    [ ] Add error codes for making ideas
+*    [ ] add error codes for deleting ideas
 *    [x] Add recent project on home screen
 *    [x] Add button to view chat history
 *    [x] Display project on `index.html` based off activity
