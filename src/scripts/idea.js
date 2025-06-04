@@ -94,8 +94,8 @@ async function loadIdeas() {
         </p>
         <div id="${id}-subidea" class="subidea" style="display: none;">
             <div id="${id}-subidea-input" class="input" style="display: none;">
-                <input type="text" id="${id}-subidea-input-txt">
-                <button onclick="makeIdea()">
+                <input type="text" id="${id}-subidea-input-txt" onkeydown="subIdeaInput(event, '${id}')">
+                <button onclick="makeSubIdea('${id}')">
                     <svg class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
                 </button>
             </div>
@@ -239,4 +239,14 @@ async function displayCloseMakeSubidea(id) {
     document.getElementById(`${id}-add-button`).setAttribute("onclick",`displayMakeSubidea('${id}')`)
 
     document.getElementById(`${id}-subidea-input-txt`).value = null
+}
+
+function subIdeaInput(event, id) {
+    if (event.key === 'Enter')
+        makeSubIdea(id)
+}
+
+async function makeSubIdea(id) {
+    subidea = document.getElementById(`${id}-subidea-input-txt`).value
+    console.log(subidea)
 }
