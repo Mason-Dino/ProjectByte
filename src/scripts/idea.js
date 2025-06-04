@@ -50,4 +50,5 @@ async function makeIdea() {
     idea = document.getElementById("idea-name").value
 
     result = await window.electronAPI.addIdea(idea)
+    console.log(result)
 }

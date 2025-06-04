@@ -1076,3 +1076,30 @@ ipcMain.handle("check:ai:setup", async () => {
 
 	return project.AIsetup
 })
+
+ipcMain.handle("add:idea", async (event, idea) => {
+	try {
+		data = await fs.promises.readFile("idea.json", "utf8")
+		data = JSON.parse(data)
+	
+		ideaData = {
+			id: genTaskID(),
+			ideaName: idea,
+			subIdeas: [],
+			notes: "Hello World!"
+		}
+	
+		data.ideas.splice(0, 0, ideaData)
+	
+		await fs.promises.writeFile("idea.json", JSON.stringify(data, null, 4))
+
+		return {
+			message: 200,
+			content: ideaData
+		}
+	}
+
+	catch {
+		return {message: 404}
+	}
+})
