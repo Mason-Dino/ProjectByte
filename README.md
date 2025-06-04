@@ -111,7 +111,7 @@ v0.3.0 - Global Features
                 * [ ] Link
                 * [ ] ProjectAI
         * [x] Ideas
-        * [ ] ProjectAI
+        * [x] ProjectAI
 *    [ ] Focus when opening up a add element
         * [ ] Project Dashboard
                 * [ ] Todo
@@ -120,7 +120,7 @@ v0.3.0 - Global Features
                 * [ ] ProjectAI
         * [ ] Notes
         * [x] Ideas
-        * [ ] ProjectAI
+        * [x] ProjectAI
 *    [x] add error codes for saving idea notes
 *    [x] Add recent project on home screen
 *    [x] Add button to view chat history
