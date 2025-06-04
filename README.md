@@ -105,15 +105,15 @@ v0.3.0 - Global Features
 *    [ ] Allow user to edit idea names
 *    [ ] add error code for editing idea name
 *    [ ] add placeholders everywhere!
-        * [ ] Project Dashboard
+        * [x] Project Dashboard
                 * [x] Todo
                 * [x] Milestone
                 * [x] Link
                 * [x] ProjectAI
         * [x] Ideas
         * [x] ProjectAI
-*    [ ] Focus when opening up a add element
-        * [ ] Project Dashboard
+*    [x] Focus when opening up a add element
+        * [x] Project Dashboard
                 * [x] Todo
                 * [x] Milestone
                 * [x] Link
