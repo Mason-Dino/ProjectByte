@@ -31,6 +31,11 @@ async function checkSetup() {
         document.getElementById("AI-input").style = "display: none;"
         document.getElementById("AI-false").style = "display: block"
     }
+
+    if (result == true) {
+        loadHistory()
+        document.getElementById("user-ai-input").focus()
+    }
 }
 
 function userInputAI(event) {
@@ -76,4 +81,33 @@ async function userProjectAI() {
     document.getElementById("user-ai-input").disabled = false
     document.getElementById("user-ai-input").value = "";
     document.getElementById("user-ai-input").focus()
+}
+
+async function loadHistory() {
+    result = await window.electronAPI.loadGlobalChatHistory()
+    console.log(result)
+
+    for (m = 0; m < result.length; m ++) {
+        id = genID()
+
+        if (result[m].role === "user") {
+            document.getElementById("AI-display").innerHTML += `
+            <div style="padding-left: 10px">
+                <p class="user" id="${id}"></p>
+            </div>
+            `
+
+            document.getElementById(id).innerHTML = result[m].content
+        }
+
+        else if (result[m].role === "assistant") {
+            document.getElementById("AI-display").innerHTML += `
+            <div style="padding-left: 10px">
+                <div class="projectAI" id="${id}"></div>
+            </div>
+            `
+
+            document.getElementById(id).innerHTML = result[m].content
+        }
+    }
 }

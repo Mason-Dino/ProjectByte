@@ -797,7 +797,9 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 			systemMessage += `'${tasks.task[t].value}' due ${date[1]}/${date[2]}/${date[0]}, `
 		}
 
-		systemMessage += `Assists the user with these task and this project as a whole!`
+		date = new Date()
+
+		systemMessage += `Assists the user with these task and this project as a whole! Today is ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 
 		message.push({
 			role: "system",
@@ -893,8 +895,9 @@ ipcMain.handle("chat:ai:global", async (event, chat) => {
 			systemMessage += `'${tasks[t][0]}' due ${date[1]}/${date[2]}/${date[0]} with project "${tasks[t][2]}", `
 		}
 
+		date = new Date()
 
-		systemMessage += `Assists the user with these task and this project as a whole!`
+		systemMessage += `Assists the user with these task and this project as a whole! Today is ${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 
 		message.push({
 			role: "system",
@@ -920,7 +923,7 @@ ipcMain.handle("chat:ai:global", async (event, chat) => {
 			content: completion.choices[0].message.content
 		})
 
-		await fs.promises.writeFile(path.join(projectFolder, "projectAI.json"), JSON.stringify(history, null, 4))
+		await fs.promises.writeFile("projectAI.json", JSON.stringify(history, null, 4))
 	
 		return marked(completion.choices[0].message.content)
 	}
@@ -1047,6 +1050,32 @@ ipcMain.handle("load:ai:history", async (event) => {
 	projectFolder = path.join(project.location, ".projectbyte")
 
 	history = await fs.promises.readFile(path.join(projectFolder, "projectAI.json"), "utf8")
+	history = JSON.parse(history)
+
+	messages = []
+
+	for (m = 0; m < history.history.length; m ++) {
+		if (history.history[m].role === "user") {
+			messages.push({
+				role: history.history[m].role,
+				content: history.history[m].content
+			})
+		}
+
+		else {
+			messages.push({
+				role: history.history[m].role,
+				content: marked(history.history[m].content)
+			})
+		}
+
+	}
+
+	return messages
+})
+
+ipcMain.handle("load:ai:history:global", async (event) => {
+	history = await fs.promises.readFile("projectAI.json", "utf8")
 	history = JSON.parse(history)
 
 	messages = []
