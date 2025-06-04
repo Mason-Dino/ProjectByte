@@ -119,7 +119,7 @@ v0.3.0 - Global Features
                 * [ ] Link
                 * [ ] ProjectAI
         * [ ] Notes
-        * [ ] Ideas
+        * [x] Ideas
         * [ ] ProjectAI
 *    [x] add error codes for saving idea notes
 *    [x] Add recent project on home screen

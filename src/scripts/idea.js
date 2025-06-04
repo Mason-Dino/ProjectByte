@@ -32,6 +32,7 @@ function displayCloseIdea(id) {
 
 function displayAddIdea() {
     document.getElementById("idea-input").style = "display: flex"
+    document.getElementById("idea-name").focus()
     
     document.getElementById("idea-icon").innerHTML = `
     <svg id="idea-icon-button" class="add" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
@@ -264,6 +265,7 @@ setInterval(saveNotes, 60000*2)
 
 async function displayMakeSubidea(id) {
     document.getElementById(`${id}-subidea-input`).style = "display: flex;"
+    document.getElementById(`${id}-subidea-input-txt`).focus()
     document.getElementById(`${id}-add`).innerHTML = `<svg id="${id}-add-button" class="add" xmlns="http://www.w3.org/2000/svg" height="17px" viewBox="0 -960 960 960" width="17px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>`
 
     document.getElementById(`${id}-add-button`).setAttribute("onclick",`displayCloseMakeSubidea('${id}')`)
@@ -290,10 +292,13 @@ async function makeSubIdea(id) {
     result = await window.electronAPI.addSubIdea(id, subidea)
     console.log(result)
 
-    if (result.message == 200)
+    if (result.message == 200) {
         document.getElementById(`${id}-subidea`).innerHTML += `
         <p id="${result.content.id}">${result.content.value}</p>
         `
+        
+        displayCloseMakeSubidea(id)
+    }
 
     else;
 }
