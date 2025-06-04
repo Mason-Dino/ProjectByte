@@ -103,5 +103,7 @@ async function makeIdea() {
 }
 
 async function deleteIdea(id) {
+    result = await window.electronAPI.deleteIdea(id)
+    console.log(result)
     document.getElementById(`${id}-idea`).remove()
 }
