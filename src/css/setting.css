@@ -63,6 +63,60 @@
     grid-row-end: 3;
 }
 
+.project-edit .edit-display {
+    width: 100%;
+    height: calc(100% - 40px);
+    text-align: center;
+}
+
+.edit-display select {
+    width: 95%;
+    height: 30.667px;
+
+    margin-bottom: 10px;
+
+    background-color: var(--intextbg);
+    color: var(--intext);
+    
+    border-radius: 5px;
+
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+.edit-display select:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
+
+.edit-display button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-display .archive {
+    margin-right: 5px;
+}
+
+.edit-display .archive svg {
+    fill: var(--background);
+    margin-right: 5px;
+}
+
+.edit-display .delete {
+    background-color: var(--error) !important;
+    color: var(--ptext);
+
+    margin-left: 5px;
+}
+
+.edit-display .delete svg {
+    fill: var(--ptext);
+    margin-right: 5px;
+}
+
 .settings .project-archive {
     grid-column-start: 2;
     grid-column-end: 3;
