@@ -4,6 +4,12 @@ async function loadSettings() {
     if (data.AIsetup === true) {
         document.getElementById("API-key").value = data.AIkey;
     }
+
+    for (p = 0; p < data.projects.length; p ++) {
+        document.getElementById("project-select").innerHTML += `
+            <option>${data.projects[p].projectName}</option>
+        `
+    }
 }
 
 function show() {
