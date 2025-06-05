@@ -816,7 +816,7 @@ ipcMain.handle("chat:ai", async (event, chat) => {
 		});
 		
 		const completion = await client.chat.completions.create({
-			model: "gpt-4o-mini",
+			model: "gpt-4.1-mini",
 			messages: message
 		});
 
@@ -914,7 +914,7 @@ ipcMain.handle("chat:ai:global", async (event, chat) => {
 		});
 		
 		const completion = await client.chat.completions.create({
-			model: "gpt-4o-mini",
+			model: "gpt-4.1-mini",
 			messages: message
 		});
 
