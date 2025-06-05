@@ -65,6 +65,8 @@ async function userProjectAI() {
     </div>
     `
 
+    document.getElementById(id).scrollIntoView();
+
     ai = await window.electronAPI.projectAIChatGlobal(userInput)
     
     if (ai == 404) {
