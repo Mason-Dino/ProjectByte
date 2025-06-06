@@ -127,7 +127,7 @@ v0.3.0 - Global Features
 *    [x] Display project on `index.html` based off activity
 
 v0.4.0 - Global Settings
-*    [ ] Delete Project
+*    [x] Delete Project
 *    [ ] Archive Project
 *    [ ] Open Archive Project
 *    [ ] Reset buttons for Ideas, ProjectAI, and Notes
