@@ -1297,7 +1297,7 @@ ipcMain.handle("delete:project", async(event, id) => {
 
 		project = data.projects[index]
 
-		await fs.promises.rm(path.join(project.location, ".projectbyte"), { recursive: true, force: true });
+		//await fs.promises.rm(path.join(project.location, ".projectbyte"), { recursive: true, force: true });
 
 		data.projects.splice(index, 1)
 		
@@ -1311,8 +1311,7 @@ ipcMain.handle("delete:project", async(event, id) => {
 		console.log(activityIndex)
 
 		for (a = 0; a < data.activity.length; a ++) {
-			console.log(activityIndex, data.activity[a])
-			if (activityIndex < data.activity[a]) {
+			if (activityIndex <= data.activity[a]) {
 				data.activity[a] -= 1
 			}
 		}
