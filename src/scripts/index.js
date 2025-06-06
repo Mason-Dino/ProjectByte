@@ -8,7 +8,7 @@ async function loadRecentProject() {
     project = await window.electronAPI.loadRecentProject()
 
     if (project == 404) {
-        console.log("test123")
+        document.getElementById("recent-project").style = "display: none;"
 
         return
     }
