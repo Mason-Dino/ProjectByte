@@ -51,4 +51,6 @@ async function deleteProject() {
 
     result = await window.electronAPI.deleteProject(selected.value)
     console.log(result)
+
+    //reset select here
 }
