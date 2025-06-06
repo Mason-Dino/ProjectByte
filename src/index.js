@@ -1286,3 +1286,46 @@ ipcMain.handle("edit:idea", async (event, id, newName) => {
 		return 404
 	}
 })
+
+ipcMain.handle("delete:project", async(event, id) => {
+	try {
+		index = id.split("-")[0]
+		projectName = id.split("-")[1]
+
+		data = await fs.promises.readFile("project.json", "utf8")
+		data = JSON.parse(data)
+
+		project = data.projects[index]
+
+		await fs.promises.rm(path.join(project.location, ".projectbyte"), { recursive: true, force: true });
+
+		data.projects.splice(index, 1)
+		
+		for (a = 0 ; a < data.activity.length; a ++) {
+			if (data.activity[a] == index) {
+				data.activity.splice(a, 1)
+				activityIndex = data.activity[a]
+			}
+		}
+
+		console.log(activityIndex)
+
+		for (a = 0; a < data.activity.length; a ++) {
+			console.log(activityIndex, data.activity[a])
+			if (activityIndex < data.activity[a]) {
+				data.activity[a] -= 1
+			}
+		}
+
+		data.loaded = data.activity[0]
+
+		await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
+
+		return 200
+	}
+
+	catch(err) {
+		console.log(err)
+		return 404
+	}
+})
