@@ -89,6 +89,21 @@ app.whenReady().then(() => {
 			}
 		})
 	}
+
+	if (!(fs.existsSync("project.json"))) {
+		data = {
+			projects: [],
+			loaded: null,
+			activity: [],
+			AIsetup: false
+		}
+
+		fs.writeFile("project.json", JSON.stringify(data, null, 4), (err) => {
+			if (err) {
+				console.log(err)
+			}
+		})
+	}
 	
 	// On OS X it's common to re-create a window in the app when the
 	// dock icon is clicked and there are no other windows open.
