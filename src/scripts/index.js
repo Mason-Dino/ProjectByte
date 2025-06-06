@@ -118,7 +118,7 @@ async function loadProjects() {
         document.getElementById("recent-project").style = "display: none;"
         document.getElementById("projects").style = "display: none"
 
-        console.log("nothing to see here")
+        document.getElementById("no-projects").style = "display: block"
     }
 }
 
