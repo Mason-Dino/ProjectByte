@@ -1296,7 +1296,6 @@ ipcMain.handle("edit:idea", async (event, id, newName) => {
 ipcMain.handle("delete:project", async(event, id) => {
 	try {
 		index = id.split("-")[0]
-		projectName = id.split("-")[1]
 
 		data = await fs.promises.readFile("project.json", "utf8")
 		data = JSON.parse(data)
@@ -1309,8 +1308,8 @@ ipcMain.handle("delete:project", async(event, id) => {
 		
 		for (a = 0 ; a < data.activity.length; a ++) {
 			if (data.activity[a] == index) {
-				data.activity.splice(a, 1)
 				activityIndex = data.activity[a]
+				data.activity.splice(a, 1)
 			}
 		}
 
