@@ -1302,7 +1302,7 @@ ipcMain.handle("delete:project", async(event, id) => {
 
 		project = data.projects[index]
 
-		//await fs.promises.rm(path.join(project.location, ".projectbyte"), { recursive: true, force: true });
+		await fs.promises.rm(path.join(project.location, ".projectbyte"), { recursive: true, force: true });
 
 		data.projects.splice(index, 1)
 		
