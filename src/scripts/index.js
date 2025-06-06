@@ -53,7 +53,7 @@ async function loadProjects() {
     let result = await window.electronAPI.loadProjects();
     result = JSON.parse(result)
 
-    loadRecentProject()
+    await loadRecentProject()
 
     //prints the projects in the electron application and now in the terminal
     console.log(result)
@@ -110,8 +110,9 @@ async function loadProjects() {
     recent = document.getElementById("recent-project").children
     projects = document.getElementById("projects").children
 
-    console.log(projects, recent)
-    console.log(projects.length, recent.length)
+    if (projects.length == 2) {
+        document.getElementById("no-open-projects").style = "display: block"
+    }
 
     if (projects.length == 2 && recent.length == 1) {
         document.getElementById("recent-project").style = "display: none;"
