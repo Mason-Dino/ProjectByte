@@ -7,7 +7,7 @@ async function loadSettings() {
 
     for (p = 0; p < data.projects.length; p ++) {
         document.getElementById("project-select").innerHTML += `
-            <option>${data.projects[p].projectName}</option>
+            <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
         `
     }
 }
@@ -40,4 +40,15 @@ async function AIsetup() {
             document.getElementById('ai-setup-error').style = 'display: none;'
         }, 5000);
     }
+}
+
+async function deleteProject() {
+    selection = document.getElementById("project-select")
+    projects = selection.options
+    selected = projects[selection.selectedIndex]
+
+    console.log(selected.value)
+
+    result = await window.electronAPI.deleteProject(selected.value)
+    console.log(result)
 }
