@@ -107,10 +107,13 @@ async function loadProjects() {
 
     document.getElementById('projects').innerHTML = projectDisplay;
 
-    recent = document.getElementById("recent-project").children.length 
-    projects = document.getElementById("projects").children.length
+    recent = document.getElementById("recent-project").children
+    projects = document.getElementById("projects").children
 
-    if (projects == 1 && recent == 1) {
+    console.log(projects, recent)
+    console.log(projects.length, recent.length)
+
+    if (projects.length == 2 && recent.length == 1) {
         document.getElementById("recent-project").style = "display: none;"
         document.getElementById("projects").style = "display: none"
 
