@@ -199,3 +199,15 @@ async function openArchiveProject() {
         }, 5000);
     }
 }
+
+async function resetIdeas() {
+
+}
+
+async function deleteGlobalChatHistory() {
+
+}
+
+async function disableProjectAI() {
+    
+}
