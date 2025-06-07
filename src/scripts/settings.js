@@ -201,7 +201,15 @@ async function openArchiveProject() {
 }
 
 async function resetIdeas() {
+    result = await window.electronAPI.resetIdeas()
 
+    if (result == 200) {
+        console.log("reset")
+    }
+
+    else {
+
+    }
 }
 
 async function deleteGlobalChatHistory() {
