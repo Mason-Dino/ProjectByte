@@ -54,10 +54,17 @@ async function deleteProject() {
 
     console.log(selected.value)
 
+    if (!(selected.value == "none")) {
     result = await window.electronAPI.deleteProject(selected.value)
     console.log(result)
 
     //reset select here
+    //add error codes
+    }
+
+    else {
+        
+    }
 }
 
 async function archiveProject() {
@@ -65,14 +72,37 @@ async function archiveProject() {
     projects = selection.options
     selected = projects[selection.selectedIndex]
 
-    result = await window.electronAPI.archiveProject(selected.value)
-    console.log(result)
+    if (!(selected.value == "none")) {
+        result = await window.electronAPI.archiveProject(selected.value)
+        console.log(result)
 
-    //reset select here
-    //add error codes
+        //reset select here
+        //add error codes
+    }
+
+    else {
+
+    }
 }
 
 async function restoreProject() {
+    selection = document.getElementById("project-select-archive")
+    projects = selection.options
+    selected = projects[selection.selectedIndex]
+
+    console.log(selected.value)
+
+    if (!(selected.value == "none")) {
+        result = await window.electronAPI.restoreProject(selected.value)
+        console.log(result)
+        //reset select here
+        //add error codes
+    }
+
+    else {
+
+    }
+
 
 }
 
