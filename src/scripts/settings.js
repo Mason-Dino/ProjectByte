@@ -10,9 +10,10 @@ async function loadSettings() {
             <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
         `
 
-        document.getElementById("project-select-archive").innerHTML += `
-            <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
-        `
+        if (data.projects[p].archive == true)
+            document.getElementById("project-select-archive").innerHTML += `
+                <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
+            `
     }
 }
 
@@ -47,7 +48,7 @@ async function AIsetup() {
 }
 
 async function deleteProject() {
-    selection = document.getElementById("project-select")
+    selection = document.getElementById("project-select-edit")
     projects = selection.options
     selected = projects[selection.selectedIndex]
 
@@ -60,7 +61,7 @@ async function deleteProject() {
 }
 
 async function archiveProject() {
-    selection = document.getElementById("project-select")
+    selection = document.getElementById("project-select-edit")
     projects = selection.options
     selected = projects[selection.selectedIndex]
 
@@ -69,4 +70,12 @@ async function archiveProject() {
 
     //reset select here
     //add error codes
+}
+
+async function restoreProject() {
+
+}
+
+async function openArchiveProject() {
+
 }
