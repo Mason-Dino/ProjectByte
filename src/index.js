@@ -1349,3 +1349,13 @@ ipcMain.handle("delete:project", async(event, id) => {
 		return 404
 	}
 })
+
+ipcMain.handle("archive:project", async (event, id) => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
