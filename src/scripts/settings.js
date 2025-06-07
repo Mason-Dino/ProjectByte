@@ -82,7 +82,10 @@ async function deleteProject() {
     }
 
     else {
-
+        document.getElementById('none-selected').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('none-selected').style = 'display: none;'
+        }, 5000);
     }
 }
 
@@ -101,7 +104,10 @@ async function archiveProject() {
     }
 
     else {
-
+        document.getElementById('none-selected').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('none-selected').style = 'display: none;'
+        }, 5000);
     }
 }
 
@@ -122,7 +128,10 @@ async function restoreProject() {
     }
 
     else {
-
+        document.getElementById('none-selected').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('none-selected').style = 'display: none;'
+        }, 5000);
     }
 }
 
@@ -143,6 +152,9 @@ async function openArchiveProject() {
     }
 
     else {
-
+        document.getElementById('none-selected').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('none-selected').style = 'display: none;'
+        }, 5000);
     }
 }
