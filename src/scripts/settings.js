@@ -205,7 +205,15 @@ async function resetIdeas() {
 }
 
 async function deleteGlobalChatHistory() {
+    result = await window.electronAPI.deleteGlobalChatHistory()
 
+    if (result == 200) {
+
+    }
+
+    else {
+
+    }
 }
 
 async function disableProjectAI() {
@@ -213,5 +221,9 @@ async function disableProjectAI() {
 
     if (result == 200) {
         document.getElementById("API-key").value = ""
+    }
+
+    else {
+        
     }
 }
