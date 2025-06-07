@@ -1401,6 +1401,16 @@ ipcMain.handle("restore:project", async (event, id) => {
 
 ipcMain.handle("open:archive:project", async (event, id) => {
 	try {
+		index = id.split("-")[0]
+		console.log(index)
+
+		data = await fs.promises.readFile("project.json", "utf8")
+		data = JSON.parse(data)
+
+		data.loaded = Number(index)
+
+		await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
+
 		return 200
 	}
 
