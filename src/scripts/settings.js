@@ -73,12 +73,23 @@ async function deleteProject() {
     console.log(selected.value)
 
     if (!(selected.value == "none")) {
-    result = await window.electronAPI.deleteProject(selected.value)
-    await resetSelection()
-    console.log(result)
-
-    //reset select here
-    //add error codes
+        result = await window.electronAPI.deleteProject(selected.value)
+        
+        if (result == 200) {
+            await resetSelection()
+            document.getElementById('project-delete-success').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('project-delete-success').style = 'display: none;'
+            }, 5000);
+        }
+        
+        
+        else {
+            document.getElementById('project-delete-error').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('project-delete-error').style = 'display: none;'
+            }, 5000);
+        }
     }
 
     else {
@@ -96,11 +107,22 @@ async function archiveProject() {
 
     if (!(selected.value == "none")) {
         result = await window.electronAPI.archiveProject(selected.value)
-        await resetSelection()
-        console.log(result)
 
-        //reset select here
-        //add error codes
+        if (result == 200) {
+            await resetSelection()
+
+            document.getElementById('project-archive-success').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('project-archive-success').style = 'display: none;'
+            }, 5000);
+        }
+
+        else {
+            document.getElementById('project-archive-error').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('project-archive-error').style = 'display: none;'
+            }, 5000);
+        }
     }
 
     else {
@@ -120,11 +142,22 @@ async function restoreProject() {
 
     if (!(selected.value == "none")) {
         result = await window.electronAPI.restoreProject(selected.value)
-        await resetSelection()
-        console.log(result)
 
-        //reset select here
-        //add error codes
+        if (result == 200) {
+            await resetSelection()
+
+            document.getElementById('project-restore-success').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('project-restore-success').style = 'display: none;'
+            }, 5000);
+        }
+
+        else {
+            document.getElementById('project-restore-error').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('project-restore-error').style = 'display: none;'
+            }, 5000);
+        }
     }
 
     else {
@@ -146,7 +179,15 @@ async function openArchiveProject() {
         result = await window.electronAPI.openArchiveProject(selected.value)
         console.log(result)
 
-        location.href = "project.html";
+        if (result == 200)
+            location.href = "project.html";
+
+        else {
+            document.getElementById('project-open-error').style = 'display: flex;'
+            setTimeout(function () {
+                document.getElementById('project-open-error').style = 'display: none;'
+            }, 5000);
+        }
         //reset select here
         //add error codes
     }
