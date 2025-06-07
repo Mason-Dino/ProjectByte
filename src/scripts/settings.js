@@ -63,7 +63,7 @@ async function deleteProject() {
     }
 
     else {
-        
+
     }
 }
 
@@ -102,10 +102,25 @@ async function restoreProject() {
     else {
 
     }
-
-
 }
 
 async function openArchiveProject() {
+    selection = document.getElementById("project-select-archive")
+    projects = selection.options
+    selected = projects[selection.selectedIndex]
 
+    console.log(selected.value)
+
+    if (!(selected.value == "none")) {
+        result = await window.electronAPI.openArchiveProject(selected.value)
+        console.log(result)
+
+        location.href = "project.html";
+        //reset select here
+        //add error codes
+    }
+
+    else {
+
+    }
 }
