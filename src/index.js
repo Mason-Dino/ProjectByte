@@ -1440,6 +1440,12 @@ ipcMain.handle("disable:ai", async () => {
 
 ipcMain.handle("delete:global:ai:history", async () => {
 	try {
+		chatHistory = {
+			history: []
+		}
+
+		await fs.promises.writeFile("projectAI.json", JSON.stringify(chatHistory, null, 4))
+
 		return 200
 	}
 
