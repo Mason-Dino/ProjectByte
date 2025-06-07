@@ -139,7 +139,7 @@ v0.4.0 - Global Settings
         * [ ] Archive Project
         * [ ] Restore Project
         * [ ] Open Project
-        * [ ] none selected
+        * [x] none selected
 
 See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a full list of proposed features (and known issues).
 
