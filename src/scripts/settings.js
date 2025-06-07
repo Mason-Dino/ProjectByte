@@ -204,11 +204,17 @@ async function resetIdeas() {
     result = await window.electronAPI.resetIdeas()
 
     if (result == 200) {
-        console.log("reset")
+        document.getElementById('idea-reset-success').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('idea-reset-success').style = 'display: none;'
+        }, 5000);
     }
 
     else {
-
+        document.getElementById('idea-reset-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('idea-reset-error').style = 'display: none;'
+        }, 5000);
     }
 }
 
@@ -216,11 +222,17 @@ async function deleteGlobalChatHistory() {
     result = await window.electronAPI.deleteGlobalChatHistory()
 
     if (result == 200) {
-        console.log("deleted")
+        document.getElementById('delete-history-success').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('delete-history-success').style = 'display: none;'
+        }, 5000);
     }
 
     else {
-
+        document.getElementById('delete-history-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('delete-history-error').style = 'display: none;'
+        }, 5000);
     }
 }
 
@@ -229,9 +241,17 @@ async function disableProjectAI() {
 
     if (result == 200) {
         document.getElementById("API-key").value = ""
+
+        document.getElementById('disable-ai-success').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('disable-ai-success').style = 'display: none;'
+        }, 5000);
     }
 
     else {
-
+        document.getElementById('disable-ai-error').style = 'display: flex;'
+        setTimeout(function () {
+            document.getElementById('disable-ai-error').style = 'display: none;'
+        }, 5000);
     }
 }
