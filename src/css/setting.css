@@ -185,16 +185,17 @@
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
-    grid-row-end: 2;
-
-    display: grid;
-    grid-template-columns: calc(100% - 24px) 24px;
-    grid-row: 30px;
-    row-gap: 5px;
-    column-gap: 0px;
+    grid-row-end: 3;
 }
 
-.settings .misc p {
+.misc .misc-display div {
+    display: grid;
+    grid-template-columns: calc(100% - 100px) 100px;
+
+    margin-top: 10px;
+}
+
+.misc .misc-display div p {
     grid-column-start: 1;
     grid-column-end: 2;
 
@@ -203,12 +204,24 @@
     color: var(--stext);
     user-select: none;
     font-size: 15px;
+
+    display: flex;
+    align-items: center;
+}
+
+.misc .misc-display div button {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    outline: none;
+
+    background-color: var(--error);
+    color: var(--ptext);
 }
 
 .settings .info {
     grid-column-start: 3;
     grid-column-end: 4;
-    grid-row-start: 2;
+    grid-row-start: 3;
     grid-row-end: 5;
 }
 
