@@ -130,7 +130,7 @@ v0.4.0 - Global Settings
 *    [x] Delete Project
 *    [x] Archive Project
 *    [x] Open Archive Project
-*    [ ] Reset buttons for Ideas, ProjectAI, and Notes
+*    [x] Reset buttons for Ideas, ProjectAI, and Notes
 *    [ ] Info
         * Info about ProjectByte and my info.
 *    [ ] Remove console.logs()
