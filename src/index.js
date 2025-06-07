@@ -1352,6 +1352,23 @@ ipcMain.handle("delete:project", async(event, id) => {
 
 ipcMain.handle("archive:project", async (event, id) => {
 	try {
+		index = id.split("-")[0]
+
+		data = await fs.promises.readFile("project.json", "utf8")
+		data = JSON.parse(data)
+
+		data.projects[index].archive = true
+
+		for (a = 0; a < data.activity.length; a ++) {
+			if (data.activity[a] == index) {
+				data.activity.splice(a, 1)
+			}
+		}
+
+		data.loaded = data.activity[0]
+
+		await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
+
 		return 200
 	}
 
