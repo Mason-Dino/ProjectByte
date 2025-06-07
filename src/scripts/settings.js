@@ -54,3 +54,15 @@ async function deleteProject() {
 
     //reset select here
 }
+
+async function archiveProject() {
+    selection = document.getElementById("project-select")
+    projects = selection.options
+    selected = projects[selection.selectedIndex]
+
+    result = await window.electronAPI.archiveProject(selected.value)
+    console.log(result)
+
+    //reset select here
+    //add error codes
+}
