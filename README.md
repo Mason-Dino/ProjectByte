@@ -126,7 +126,7 @@ v0.3.0 - Global Features
 *    [x] Add button to view chat history
 *    [x] Display project on `index.html` based off activity
 
-v0.4.0 - Global Settings
+v1.0.0 - Global Settings - Project is ready to be released!
 *    [x] Delete Project
 *    [x] Archive Project
 *    [x] Open Archive Project
