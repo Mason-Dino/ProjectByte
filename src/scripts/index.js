@@ -63,7 +63,7 @@ async function loadProjects() {
     let svg = null;
     
     for (let i = 0; i < result.activity.length; i ++) {
-        if (!(result.loaded == result.activity[i])) {
+        if (!(result.loaded == result.activity[i]) && result.projects[result.activity[i]].archive == false) {
             console.log(result.projects[result.activity[i]])
 
             if (result.projects[result.activity[i]].icon == null || result.projects[result.activity[i]].icon === 'desktop')
