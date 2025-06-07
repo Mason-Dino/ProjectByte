@@ -208,7 +208,7 @@ async function deleteGlobalChatHistory() {
     result = await window.electronAPI.deleteGlobalChatHistory()
 
     if (result == 200) {
-
+        console.log("deleted")
     }
 
     else {
@@ -224,6 +224,6 @@ async function disableProjectAI() {
     }
 
     else {
-        
+
     }
 }
