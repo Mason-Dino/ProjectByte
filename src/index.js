@@ -1419,3 +1419,13 @@ ipcMain.handle("open:archive:project", async (event, id) => {
 		return 404
 	}
 })
+
+ipcMain.handle("disable:ai", async () => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})

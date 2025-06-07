@@ -44,5 +44,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     deleteProject: (id) => ipcRenderer.invoke("delete:project", id),
     archiveProject: (id) => ipcRenderer.invoke("archive:project", id),
     restoreProject: (id) => ipcRenderer.invoke("restore:project", id),
-    openArchiveProject: (id) => ipcRenderer.invoke("open:archive:project", id)
+    openArchiveProject: (id) => ipcRenderer.invoke("open:archive:project", id),
+    disableProjectAI: () => ipcRenderer.invoke("disable:ai")
 });
