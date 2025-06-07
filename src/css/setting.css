@@ -236,6 +236,49 @@
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 5;
+
+    overflow: none;
+    overflow-y: none;
+}
+
+.settings .info .info-display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 40px);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.info .info-display p {
+    text-align: center;
+}
+
+.info .info-display p a {
+    color: var(--stext);
+    text-decoration: underline;
+}
+
+.info .info-display button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    outline: none;
+
+    width: 100%;
+}
+
+.info .info-display button svg {
+    fill: var(--background);
+    margin-right: 5px;
+}
+
+.info .info-display .github {
+    width: 80%;
+    
 }
 
 .settings .AI-setup p {
