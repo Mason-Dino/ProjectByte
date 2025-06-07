@@ -124,6 +124,56 @@
     grid-row-end: 3;
 }
 
+.project-archive .archive-display {
+    width: 100%;
+    height: calc(100% - 40px);
+    text-align: center;
+}
+
+.archive-display p {
+    text-align: center;
+}
+
+.archive-display select {
+    width: 95%;
+    height: 30.667px;
+
+    margin-bottom: 10px;
+
+    background-color: var(--intextbg);
+    color: var(--intext);
+    
+    border-radius: 5px;
+
+    border: 1.5px solid var(--divider);
+    color: var(--intext);
+    background-color: var(--intextbg);
+}
+
+.archive-display select:focus {
+    outline: none;
+    border: var(--acolor) solid 1.5px;
+}
+
+.archive-display button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.archive-display button svg {
+    fill: var(--background);
+    margin-right: 5px;
+}
+
+.archive-display .restore {
+    margin-right: 5px;
+}
+
+.archive-display .open {
+    margin-left: 5px;
+}
+
 .settings .AI-setup {
     grid-column-start: 1;
     grid-column-end: 3;

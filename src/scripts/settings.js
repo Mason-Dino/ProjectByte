@@ -6,7 +6,11 @@ async function loadSettings() {
     }
 
     for (p = 0; p < data.projects.length; p ++) {
-        document.getElementById("project-select").innerHTML += `
+        document.getElementById("project-select-edit").innerHTML += `
+            <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
+        `
+
+        document.getElementById("project-select-archive").innerHTML += `
             <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
         `
     }
