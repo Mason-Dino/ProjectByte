@@ -1437,3 +1437,13 @@ ipcMain.handle("disable:ai", async () => {
 		return 404
 	}
 })
+
+ipcMain.handle("delete:global:ai:history", async () => {
+	try {
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})
