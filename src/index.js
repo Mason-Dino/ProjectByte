@@ -1311,7 +1311,7 @@ ipcMain.handle("edit:idea", async (event, id, newName) => {
 
 ipcMain.handle("delete:project", async(event, id) => {
 	try {
-		index = id.split("-")[0]
+		index = Number(id.split("-")[0])
 
 		data = await fs.promises.readFile("project.json", "utf8")
 		data = JSON.parse(data)
