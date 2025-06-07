@@ -220,6 +220,15 @@
 
     background-color: var(--error);
     color: var(--ptext);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.misc .misc-display div button svg {
+    fill: var(--ptext);
+    margin-right: 5px;
 }
 
 .settings .info {
