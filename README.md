@@ -131,7 +131,7 @@ v1.0.0 - Global Settings - Project is ready to be released!
 *    [x] Archive Project
 *    [x] Open Archive Project
 *    [x] Reset buttons for Ideas, ProjectAI, and Notes
-*    [ ] Info
+*    [x] Info
         * Info about ProjectByte and my info.
 *    [ ] Remove console.logs()
 *    [ ] Error codes
