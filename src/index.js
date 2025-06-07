@@ -204,7 +204,8 @@ ipcMain.handle('dialog:open', async () => {
 		projectData = {
 			projectName: pName,
 			location: result.filePaths[0],
-			icon: null
+			icon: null,
+			archive: false
 		}
 
 		projectList = projects['projects']
