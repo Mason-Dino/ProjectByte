@@ -1453,3 +1453,19 @@ ipcMain.handle("delete:global:ai:history", async () => {
 		return 404
 	}
 })
+
+ipcMain.handle("reset:ideas", async () => {
+	try {
+		idea = {
+			ideas: []
+		}
+
+		await fs.promises.writeFile("idea.json", JSON.stringify(idea, null, 4))
+
+		return 200
+	}
+
+	catch {
+		return 404
+	}
+})

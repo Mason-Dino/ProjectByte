@@ -46,5 +46,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     restoreProject: (id) => ipcRenderer.invoke("restore:project", id),
     openArchiveProject: (id) => ipcRenderer.invoke("open:archive:project", id),
     disableProjectAI: () => ipcRenderer.invoke("disable:ai"),
-    deleteGlobalChatHistory: () => ipcRenderer.invoke("delete:global:ai:history")
+    deleteGlobalChatHistory: () => ipcRenderer.invoke("delete:global:ai:history"),
+    resetIdeas: () => ipcRenderer.invoke("reset:ideas")
 });
