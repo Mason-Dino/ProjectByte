@@ -134,12 +134,15 @@ v0.4.0 - Global Settings
 *    [ ] Info
         * Info about ProjectByte and my info.
 *    [ ] Remove console.logs()
-*    [x] Error codes
+*    [ ] Error codes
         * [x] Delete Project
         * [x] Archive Project
         * [x] Restore Project
         * [x] Open Project
         * [x] none selected
+        * [ ] idea reset
+        * [ ] delete chat history
+        * [ ] disable projectAI
 
 See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a full list of proposed features (and known issues).
 
