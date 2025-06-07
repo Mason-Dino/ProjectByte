@@ -1321,7 +1321,7 @@ ipcMain.handle("delete:project", async(event, id) => {
 		await fs.promises.rm(path.join(project.location, ".projectbyte"), { recursive: true, force: true });
 
 		
-		if (data.projects[index] == false) {
+		if (data.projects[index].archive == false) {
 			for (a = 0 ; a < data.activity.length; a ++) {
 				if (data.activity[a] == index) {
 					activityIndex = data.activity[a]
