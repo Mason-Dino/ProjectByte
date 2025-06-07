@@ -1398,3 +1398,14 @@ ipcMain.handle("restore:project", async (event, id) => {
 		return 404
 	}
 })
+
+ipcMain.handle("open:archive:project", async (event, id) => {
+	try {
+		return 200
+	}
+
+	catch(err) {
+		console.log(err)
+		return 404
+	}
+})
