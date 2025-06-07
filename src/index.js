@@ -1379,10 +1379,22 @@ ipcMain.handle("archive:project", async (event, id) => {
 
 ipcMain.handle("restore:project", async (event, id) => {
 	try {
+		index = id.split("-")[0]
+		console.log(index)
+
+		data = await fs.promises.readFile("project.json", "utf8")
+		data = JSON.parse(data)
+
+		data.projects[index].archive = false
+		data.activity.splice(1, 0, Number(index))
+
+		await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
+
 		return 200
 	}
 
-	catch {
+	catch(err) {
+		console.log(err)
 		return 404
 	}
 })
