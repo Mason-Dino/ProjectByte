@@ -1422,6 +1422,14 @@ ipcMain.handle("open:archive:project", async (event, id) => {
 
 ipcMain.handle("disable:ai", async () => {
 	try {
+		data = await fs.promises.readFile("project.json", "utf8")
+		data = JSON.parse(data)
+
+		data.AIkey = ""
+		data.AIsetup = false
+
+		await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
+
 		return 200
 	}
 

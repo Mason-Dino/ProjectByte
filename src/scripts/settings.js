@@ -209,5 +209,9 @@ async function deleteGlobalChatHistory() {
 }
 
 async function disableProjectAI() {
-    
+    result = await window.electronAPI.disableProjectAI()
+
+    if (result == 200) {
+        document.getElementById("API-key").value = ""
+    }
 }
