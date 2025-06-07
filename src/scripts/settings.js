@@ -17,6 +17,24 @@ async function loadSettings() {
     }
 }
 
+async function resetSelection() {
+    data = await window.electronAPI.loadSetup()
+
+    document.getElementById("project-select-edit").innerHTML = `<option value="none" selected disabled hidden>Select a Project</option>`
+    document.getElementById("project-select-archive").innerHTML = `<option value="none" selected disabled hidden>Select a Project</option>`
+
+    for (p = 0; p < data.projects.length; p ++) {
+        document.getElementById("project-select-edit").innerHTML += `
+            <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
+        `
+
+        if (data.projects[p].archive == true)
+            document.getElementById("project-select-archive").innerHTML += `
+                <option value="${p}-${data.projects[p].projectName}" id="${p}-${data.projects[p].projectName}">${data.projects[p].projectName}</option>
+            `
+    }
+}
+
 function show() {
     document.getElementById("API-key").type = "text";
     document.getElementById("showhideAI").setAttribute('onclick', 'hide()')
@@ -56,6 +74,7 @@ async function deleteProject() {
 
     if (!(selected.value == "none")) {
     result = await window.electronAPI.deleteProject(selected.value)
+    await resetSelection()
     console.log(result)
 
     //reset select here
@@ -74,6 +93,7 @@ async function archiveProject() {
 
     if (!(selected.value == "none")) {
         result = await window.electronAPI.archiveProject(selected.value)
+        await resetSelection()
         console.log(result)
 
         //reset select here
@@ -94,7 +114,9 @@ async function restoreProject() {
 
     if (!(selected.value == "none")) {
         result = await window.electronAPI.restoreProject(selected.value)
+        await resetSelection()
         console.log(result)
+
         //reset select here
         //add error codes
     }
