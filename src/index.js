@@ -1320,23 +1320,23 @@ ipcMain.handle("delete:project", async(event, id) => {
 
 		await fs.promises.rm(path.join(project.location, ".projectbyte"), { recursive: true, force: true });
 
-		data.projects.splice(index, 1)
 		
-		for (a = 0 ; a < data.activity.length; a ++) {
-			if (data.activity[a] == index) {
-				activityIndex = data.activity[a]
-				data.activity.splice(a, 1)
+		if (data.projects[index] == false) {
+			for (a = 0 ; a < data.activity.length; a ++) {
+				if (data.activity[a] == index) {
+					activityIndex = data.activity[a]
+					data.activity.splice(a, 1)
+				}
+			}
+		
+			for (a = 0; a < data.activity.length; a ++) {
+				if (activityIndex <= data.activity[a]) {
+					data.activity[a] -= 1
+				}
 			}
 		}
-
-		console.log(activityIndex)
-
-		for (a = 0; a < data.activity.length; a ++) {
-			if (activityIndex <= data.activity[a]) {
-				data.activity[a] -= 1
-			}
-		}
-
+		
+		data.projects.splice(index, 1)
 		data.loaded = data.activity[0]
 
 		await fs.promises.writeFile("project.json", JSON.stringify(data, null, 4))
