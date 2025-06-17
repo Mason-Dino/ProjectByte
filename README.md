@@ -4,7 +4,7 @@
 <a href="https://github.com/Mason-Dino/ProjectByte">
 <img src="https://raw.githubusercontent.com/Mason-Dino/ProjectByte/83302900d7b87f34c6b1df1b2715d36fd5fbe748/src/icons/ProjectByte.svg" alt="Logo" width="80" height="80">
 </a>
-<h3 align="center">ReadME Generator</h3>
+<h3 align="center">ProjectByte</h3>
 <p align="center">
 Want to have an organized project jump in with ProjectByte!
 <br/>
